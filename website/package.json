@@ -1,0 +1,38 @@
+{
+  "name": "loxone",
+  "private": true,
+  "description": "",
+  "version": "0.1.0",
+  "author": "Passion Digital <web@passiondigital.co.uk>",
+  "dependencies": {
+    "@prismicio/react": "^2.5.0",
+    "classnames": "^2.3.2",
+    "gatsby": "^4.24.5",
+    "gatsby-plugin-image": "^2.24.0",
+    "gatsby-plugin-manifest": "^4.24.0",
+    "gatsby-plugin-prismic-previews": "^5.2.10",
+    "gatsby-plugin-sass": "^5.24.0",
+    "gatsby-plugin-sharp": "^4.24.0",
+    "gatsby-source-filesystem": "^4.24.0",
+    "gatsby-source-prismic": "^5.2.10",
+    "gatsby-transformer-sharp": "^4.24.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  }
+}
