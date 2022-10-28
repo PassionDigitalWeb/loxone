@@ -11,22 +11,12 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
-import Button from "./button"
+import Button from "./atoms/button"
+import { Heading } from "./atoms"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
           margin: `0 auto`,
@@ -35,7 +25,10 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <Button />
+        <Heading node="h2" variant="h1">
+          Heading test
+        </Heading>
+        <Button>test</Button>
         <footer
           style={{
             marginTop: `var(--space-5)`,

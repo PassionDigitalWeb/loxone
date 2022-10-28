@@ -1,0 +1,38 @@
+.prose{
+  > blockquote,
+  > p,
+  > ul,
+  > ol {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin-bottom: 15px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+.left{
+  text-align: left;
+}
+
+.center{
+  text-align: center;
+}
+
+.right{
+  text-align: right;
+}

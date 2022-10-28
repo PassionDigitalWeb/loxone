@@ -1,40 +1,43 @@
 import React from "react";
 
-import Button from "../../website/src/components/button";
+import Button from "../../website/src/components/atoms/button";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/Button",
+  title: "Loxone/Button",
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Button {...args}>Button</Button>;
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: "Button",
+export const Default = Template.bind({});
+Default.args = {
+  variant: "button",
+  color: "green",
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: "Button",
+export const Green = Template.bind({});
+Green.args = {
+  variant: "button",
+  color: "green",
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
-  label: "Button",
+export const DarkGrey = Template.bind({});
+DarkGrey.args = {
+  variant: "button",
+  color: "dark-grey",
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: "small",
-  label: "Button",
+export const GreenOutline = Template.bind({});
+GreenOutline.args = {
+  variant: "button-outline",
+  color: "green",
+};
+
+export const DarkGreyOutline = Template.bind({});
+DarkGreyOutline.args = {
+  variant: "button-outline",
+  color: "dark-grey",
 };

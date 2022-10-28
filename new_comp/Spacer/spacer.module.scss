@@ -1,0 +1,41 @@
+.spacer{
+  display: block;
+
+  &.x-sm {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &.x-md {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  &.x-lg {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  &.x-xl {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  &.y-sm {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &.y-md {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  &.y-lg {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  &.y-xl {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}

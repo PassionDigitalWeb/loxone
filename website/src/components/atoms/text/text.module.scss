@@ -1,0 +1,78 @@
+.text {
+  font-family: 'AvertaStd-Regular';
+  font-size: 16px;
+  line-height: 28px;
+  padding: 0;
+  font-weight: 400;
+  color: inherit;
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+//colors
+.color-base {
+  color: inherit;
+}
+
+.color-green {
+  color: var(--color-brand-green)
+}
+
+.color-black {
+  color: var(--color-brand-black)
+}
+
+.color-dark-grey {
+  color: var(--color-brand-dark-grey)
+}
+
+.color-grey {
+  color: var(--color-brand-grey)
+}
+
+//variations
+.size-regular {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.size-large {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+
+//weights
+.weight-100 {
+  font-weight: 100;
+}
+
+.weight-200 {
+  font-weight: 200;
+}
+
+.weight-300 {
+  font-weight: 300;
+}
+
+.weight-400 {
+  font-weight: 400;
+}
+
+.weight-500 {
+  font-weight: 500;
+}
+
+.weight-600 {
+  font-weight: 600;
+}
+
+.weight-700, .weight-bold {
+  font-weight: 700;
+}
+
+.weight-800 {
+  font-weight: 800;
+}
