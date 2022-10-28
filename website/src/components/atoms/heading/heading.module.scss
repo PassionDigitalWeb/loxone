@@ -5,23 +5,23 @@
 }
 
 //colors
-.color-base {
+.colorBase {
   color: inherit;
 }
 
-.color-green {
+.colorGreen {
   color: var(--color-brand-green)
 }
 
-.color-black {
+.colorBlack {
   color: var(--color-brand-black)
 }
 
-.color-dark-grey {
+.colorDarkGrey {
   color: var(--color-brand-dark-grey)
 }
 
-.color-grey {
+.colorGrey {
   color: var(--color-brand-grey)
 }
 
@@ -32,65 +32,68 @@
   line-height: 59px;
 }
 
-.variant-h2 {
+.variantH2 {
   font-family: 'AvertaStd-ExtraBold';
   font-size: 43px;
   line-height: 50px;
 }
 
-.variant-h3 {
+.variantH3 {
   font-family: 'AvertaStd-ExtraBold';
   font-size: 36px;
   line-height: 42px;
 }
 
-.variant-h4 {
+.variantH4 {
   font-family: 'AvertaStd-ExtraBold';
   font-size: 30px;
   line-height: 35px;
 }
 
-.variant-h5 {
+.variantH5 {
   font-family: 'AvertaStd-Regular';
   font-size: 26px;
   line-height: 30px;
 }
 
-.variant-h6 {
+.variantH6 {
   font-family: 'AvertaStd-Regular';
   font-size: 23px;
   line-height: 27px;
 }
 
 //weights
-.weight-100 {
+
+//weights
+.weight100 {
   font-weight: 100;
 }
 
-.weight-200 {
+.weight200 {
   font-weight: 200;
 }
 
-.weight-300 {
+.weight300 {
   font-weight: 300;
 }
 
-.weight-400 {
+.weight400 {
   font-weight: 400;
 }
 
-.weight-500 {
+.weight500 {
   font-weight: 500;
 }
 
-.weight-600 {
+.weight600 {
   font-weight: 600;
 }
 
-.weight-700, .weight-bold {
+.weight700 {
   font-weight: 700;
 }
 
-.weight-800 {
+.weight900 {
   font-weight: 800;
 }
+

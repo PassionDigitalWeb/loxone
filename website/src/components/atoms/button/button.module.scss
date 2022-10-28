@@ -52,31 +52,6 @@
     color: var(--btn-color);
   }
 
-  &.variant-button, &.variant-button-outline {
-    border-radius: 2px;
-    white-space: nowrap;
-    height: 44px;
-    padding: 12px 20px;
-
-    &.size-small {
-      margin: 0 4px 0 4px;
-      height: 40px;
-      min-height: unset;
-      padding: 7px 14px;
-    }
-
-    &.size-medium {
-      height: 44px;
-      padding: 12px 20px;
-    }
-
-    &.size-large {
-      height: 60px;
-      padding: 11px 19px;
-      min-height: 50px;
-    }
-  }
-
 
   i,
   svg {
@@ -92,35 +67,60 @@
   i:last-child {
     margin-left: 10px;
   }
+}
 
-  &.variant-button {
-    &.color-green {
-      --btn-bg-color: var(--color-brand-green);
-      --btn-bg-hover-color: var(--color-brand-green);
-      --btn-color: var(--color-brand-white);
-    }
+.variantButton, .variantButtonOutline {
+  border-radius: 2px;
+  white-space: nowrap;
+  height: 44px;
+  padding: 12px 20px;
 
-    &.color-dark-grey {
-      --btn-bg-color: var(--color-brand-dark-grey);
-      --btn-bg-hover-color: var(--color-brand-dark-grey);
-      --btn-color: var(--color-brand-white);
-    }
+  &.sizeSmall {
+    margin: 0 4px 0 4px;
+    height: 40px;
+    min-height: unset;
+    padding: 7px 14px;
   }
 
-  &.variant-button-outline{
-    --btn-bg-color: transparent;
-    --btn-bg-hover-color: transparent;
+  &.sizeMedium {
+    height: 44px;
+    padding: 12px 20px;
+  }
 
-    &.color-green {
-      --btn-color: var(--color-brand-green);
-      --btn-border-color: var(--color-brand-green);
-      --btn-border-hover-color: var(--color-brand-green);
-    }
+  &.sizeLarge {
+    height: 60px;
+    padding: 11px 19px;
+    min-height: 50px;
+  }
+}
 
-    &.color-dark-grey {
-      --btn-color: var(--color-brand-dark-grey);
-      --btn-border-color: var(--color-brand-dark-grey);
-      --btn-border-hover-color: var(--color-brand-dark-grey);
-    }
+.variantButton {
+  &.colorGreen {
+    --btn-bg-color: var(--color-brand-green);
+    --btn-bg-hover-color: var(--color-brand-green);
+    --btn-color: var(--color-brand-white);
+  }
+
+  &.colorDarkGrey {
+    --btn-bg-color: var(--color-brand-dark-grey);
+    --btn-bg-hover-color: var(--color-brand-dark-grey);
+    --btn-color: var(--color-brand-white);
+  }
+}
+
+.variantButtonOutline{
+  --btn-bg-color: transparent;
+  --btn-bg-hover-color: transparent;
+
+  &.colorGreen {
+    --btn-color: var(--color-brand-green);
+    --btn-border-color: var(--color-brand-green);
+    --btn-border-hover-color: var(--color-brand-green);
+  }
+
+  &.colorDarkGrey {
+    --btn-color: var(--color-brand-dark-grey);
+    --btn-border-color: var(--color-brand-dark-grey);
+    --btn-border-hover-color: var(--color-brand-dark-grey);
   }
 }
