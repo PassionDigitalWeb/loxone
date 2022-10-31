@@ -52,7 +52,6 @@
     color: var(--btn-color);
   }
 
-
   i,
   svg {
     color: var(--btn-color);
@@ -104,6 +103,18 @@
   &.colorDarkGrey {
     --btn-bg-color: var(--color-brand-dark-grey);
     --btn-bg-hover-color: var(--color-brand-dark-grey);
+    --btn-color: var(--color-brand-white);
+  }
+
+  &.colorClear{
+    --btn-bg-color: transpart;
+    --btn-bg-hover-color: transpart;
+    --btn-color: var(--color-brand-black);
+  }
+
+  &.colorClearWhite{
+    --btn-bg-color: transpart;
+    --btn-bg-hover-color: transpart;
     --btn-color: var(--color-brand-white);
   }
 }

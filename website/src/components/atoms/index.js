@@ -1,4 +1,5 @@
 export { Button } from "./button"
+export { AnchorLink } from "./anchor-link"
 export { Heading } from "./heading"
 export { Prose } from "./prose"
 export { Text } from "./text"

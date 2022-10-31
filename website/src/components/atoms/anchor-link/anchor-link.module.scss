@@ -1,0 +1,56 @@
+.link {
+  --btn-color: inherit;
+  --link-hover-color: var(--color-brand-green);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 700;
+  text-decoration: none !important;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  transition: all 0.25s;
+  cursor: pointer;
+  color: var(--btn-color);
+
+  &.light {
+    --btn-color: var(--color-brand-white);
+    --link-hover-color: var(--color-brand-green);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    text-decoration: none !important;
+    color: var(--link-hover-color);
+  }
+
+  i,
+  svg {
+    color: var(--btn-color);
+  }
+
+  svg:first-child,
+  i:first-child {
+    margin-right: 10px;
+  }
+
+  svg:last-child,
+  i:last-child {
+    margin-left: 10px;
+
+  }
+}

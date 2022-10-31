@@ -4,12 +4,12 @@ import { Link } from "gatsby"
 import * as PropTypes from "prop-types"
 import cn from "classnames"
 import * as styles from "./button.module.scss"
-import { camelize } from "../../../lib/helper"
+import { camelize } from "@lib/helper"
 
 export const Button = ({
   as = "button",
   variant = "Button",
-  color = "Pink",
+  color = "green",
   size = "Medium",
   className,
   children,
@@ -42,7 +42,7 @@ Button.propTypes = {
   as: PropTypes.string,
   size: PropTypes.oneOf(["small", "medium", "large"]),
   variant: PropTypes.oneOf(["button", "button-outline"]),
-  color: PropTypes.oneOf(["green", "dark-grey"]),
+  color: PropTypes.oneOf(["green", "dark-grey", "clear-white", "clear"]),
   href: PropTypes.string,
   to: PropTypes.string,
 }

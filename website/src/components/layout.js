@@ -7,12 +7,9 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
 import "./layout.css"
-import Button from "./atoms/button"
-import { Heading } from "./atoms"
+import { Heading, Button } from "@components/atoms"
 
 const Layout = ({ children }) => {
   return (

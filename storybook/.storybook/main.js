@@ -60,7 +60,18 @@ module.exports = {
       ],
     });
 
-    console.log({ test: config.module.rules });
+    const dirname = __dirname + "../../../website/";
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@components": path.resolve(dirname, "src/components"),
+      "@configs": path.resolve(dirname, "configs"),
+      "@pages": path.resolve(dirname, "src/pages"),
+      "@lib": path.resolve(dirname, "src/lib"),
+      "@styles": path.resolve(dirname, "src/styles"),
+      "@assets": path.resolve(dirname, "src/assets"),
+    };
+
+    console.log({ test: path.resolve(dirname, "src/components") });
 
     return config;
   },
