@@ -27,7 +27,8 @@
     "react-dom": "^18.1.0",
     "sass-loader": "^13.1.0",
     "webpack": "^5.74.0",
-    "gatsby": "^4.24.5"
+    "gatsby": "^4.24.5",
+    "prop-types": "^15.8.1"
   },
   "dependencies": {
     "babel-plugin-remove-graphql-queries": "^4.24.0",
