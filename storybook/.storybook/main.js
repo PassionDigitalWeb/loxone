@@ -36,7 +36,7 @@ module.exports = {
     // Tell webpack what to do with CSS modules
     config.module.rules.push({
       test: /\.module\.scss$/,
-      include: path.resolve(__dirname, "../../website/src"),
+      include: path.resolve(__dirname, "../../src"),
       use: [
         {
           loader: "style-loader",
@@ -60,7 +60,7 @@ module.exports = {
       ],
     });
 
-    const dirname = __dirname + "../../../website/";
+    const dirname = __dirname + "../../../";
     config.resolve.alias = {
       ...config.resolve.alias,
       "@components": path.resolve(dirname, "src/components"),

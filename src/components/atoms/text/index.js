@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames"
 import * as styles from "./text.module.scss"
-import { camelize } from "../../../lib/helper"
+import { camelize } from "@lib/helper"
 
 export const Text = ({
   node: Node = "p",

@@ -1,4 +1,4 @@
-import layoutStyles from "../../website/src/components/layout.css";
+import layoutStyles from "../../src/components/layout.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

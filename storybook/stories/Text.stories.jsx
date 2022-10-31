@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text } from "../../website/src/components/atoms/text";
+import { Text } from "../../src/components/atoms/text";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
