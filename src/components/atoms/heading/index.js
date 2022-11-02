@@ -7,7 +7,7 @@ import { camelize } from "@lib/helper"
 export const Heading = ({
   node: Node = "h1",
   variant = "div",
-  color = "black",
+  color = "inherit",
   weight = "bold",
   children,
   className,

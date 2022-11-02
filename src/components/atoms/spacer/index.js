@@ -1,11 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
-import classNames from "classnames"
-import styles from "./spacer.module.scss"
+import cn from "classnames"
+import * as styles from "./spacer.module.scss"
+import { camelize } from "@lib/helper"
 
 const Spacer = ({ x, y = "md", children }) => {
   return (
-    <div className={classNames(x && styles[`x-${x}`], y && styles[`y-${y}`])}>
+    <div
+      className={cn(
+        styles.spacer,
+        x && styles[camelize(`x-${x}`)],
+        y && styles[camelize(`y-${y}`)]
+      )}
+    >
       {children}
     </div>
   )

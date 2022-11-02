@@ -7,7 +7,7 @@ import { camelize } from "@lib/helper"
 export const Text = ({
   node: Node = "p",
   size = "regular",
-  color = "black",
+  color = "inherit",
   weight = "",
   children,
   className,

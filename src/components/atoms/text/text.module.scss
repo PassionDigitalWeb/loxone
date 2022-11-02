@@ -1,5 +1,5 @@
 .text {
-  font-family: 'AvertaStd-Regular';
+  font-family: "AvertaStd-Regular";
   font-size: 16px;
   line-height: 28px;
   padding: 0;
@@ -17,19 +17,19 @@
 }
 
 .colorGreen {
-  color: var(--color-brand-green)
+  color: var(--color-brand-green);
 }
 
 .colorBlack {
-  color: var(--color-brand-black)
+  color: var(--color-brand-black);
 }
 
 .colorDarkGrey {
-  color: var(--color-brand-dark-grey)
+  color: var(--color-brand-dark-grey);
 }
 
 .colorGrey {
-  color: var(--color-brand-grey)
+  color: var(--color-brand-grey);
 }
 
 //variations
@@ -42,7 +42,6 @@
   font-size: 20px;
   line-height: 32px;
 }
-
 
 //weights
 .weight100 {
@@ -69,7 +68,8 @@
   font-weight: 600;
 }
 
-.weight700, .weightBold {
+.weight700,
+.weightBold {
   font-weight: 700;
 }
 

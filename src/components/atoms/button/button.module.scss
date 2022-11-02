@@ -68,7 +68,8 @@
   }
 }
 
-.variantButton, .variantButtonOutline {
+.variantButton,
+.variantButtonOutline {
   border-radius: 2px;
   white-space: nowrap;
   height: 44px;
@@ -106,20 +107,20 @@
     --btn-color: var(--color-brand-white);
   }
 
-  &.colorClear{
+  &.colorClear {
     --btn-bg-color: transpart;
     --btn-bg-hover-color: transpart;
     --btn-color: var(--color-brand-black);
   }
 
-  &.colorClearWhite{
+  &.colorClearWhite {
     --btn-bg-color: transpart;
     --btn-bg-hover-color: transpart;
     --btn-color: var(--color-brand-white);
   }
 }
 
-.variantButtonOutline{
+.variantButtonOutline {
   --btn-bg-color: transparent;
   --btn-bg-hover-color: transparent;
 
