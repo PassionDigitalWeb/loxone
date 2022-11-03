@@ -11,6 +11,7 @@ export const Button = ({
   variant = "Button",
   color = "green",
   size = "Medium",
+  isOutlined = false,
   className,
   children,
   ...props
@@ -28,6 +29,7 @@ export const Button = ({
         styles.button,
         variant && styles[camelize(`variant-${variant}`)],
         size && styles[camelize(`size-${size}`)],
+        isOutlined && styles.isOutlined,
         color && styles[camelize(`color-${color}`)],
         className
       )}
@@ -41,8 +43,9 @@ export const Button = ({
 Button.propTypes = {
   as: PropTypes.string,
   size: PropTypes.oneOf(["small", "medium", "large"]),
-  variant: PropTypes.oneOf(["button", "button-outline"]),
-  color: PropTypes.oneOf(["green", "dark-grey", "clear-white", "clear"]),
+  variant: PropTypes.oneOf(["text", "button"]),
+  isOutlined: PropTypes.bool,
+  color: PropTypes.oneOf(["green", "dark-grey", "clear-white"]),
   href: PropTypes.string,
   to: PropTypes.string,
 }

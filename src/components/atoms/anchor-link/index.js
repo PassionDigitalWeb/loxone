@@ -9,6 +9,7 @@ export const AnchorLink = ({
   isLight = false,
   href,
   to,
+  underlined,
   className,
   children,
   ...props
@@ -17,7 +18,12 @@ export const AnchorLink = ({
 
   return (
     <Node
-      className={cn(styles.link, isLight && styles.light, className)}
+      className={cn(
+        styles.link,
+        underlined && styles.underlined,
+        isLight && styles.light,
+        className
+      )}
       {...props}
     >
       {children}
@@ -29,6 +35,7 @@ AnchorLink.propTypes = {
   href: PropTypes.string,
   to: PropTypes.string,
   isLight: PropTypes.bool,
+  underlined: PropTypes.bool,
 }
 
 export default AnchorLink

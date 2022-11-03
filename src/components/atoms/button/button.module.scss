@@ -37,7 +37,6 @@
   }
 
   &:hover {
-    font-weight: 600;
     text-decoration: none;
     background-color: var(--btn-bg-hover-color);
     border-color: var(--btn-border-hover-color);
@@ -68,8 +67,7 @@
   }
 }
 
-.variantButton,
-.variantButtonOutline {
+.variantButton{
   border-radius: 2px;
   white-space: nowrap;
   height: 44px;
@@ -94,6 +92,24 @@
   }
 }
 
+.variantText{
+  --btn-bg-color: transpart;
+  --btn-bg-hover-color: transpart;
+  --btn-color: var(--color-brand-black);
+
+  &.colorGreen {
+    --btn-color: var(--color-brand-green);
+  }
+
+  &.colorDarkGrey {
+    --btn-color: var(--color-brand-dark-grey);
+  }
+
+  &.colorClearWhite {
+    --btn-color: var(--color-brand-white);
+  }
+}
+
 .variantButton {
   &.colorGreen {
     --btn-bg-color: var(--color-brand-green);
@@ -107,12 +123,6 @@
     --btn-color: var(--color-brand-white);
   }
 
-  &.colorClear {
-    --btn-bg-color: transpart;
-    --btn-bg-hover-color: transpart;
-    --btn-color: var(--color-brand-black);
-  }
-
   &.colorClearWhite {
     --btn-bg-color: transpart;
     --btn-bg-hover-color: transpart;
@@ -120,7 +130,9 @@
   }
 }
 
-.variantButtonOutline {
+
+
+.variantButton.isOutlined {
   --btn-bg-color: transparent;
   --btn-bg-hover-color: transparent;
 

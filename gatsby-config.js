@@ -9,7 +9,15 @@ module.exports = {
     siteUrl: process.env.GATSBY_SITEURL,
   },
   plugins: [
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        additionalData: `@use 'variables' as *;`,
+        sassOptions: {
+          includePaths: [`${__dirname}/src/styles/global`],
+        },
+      },
+    },
     "gatsby-plugin-image",
     {
       resolve: "gatsby-source-prismic",
@@ -35,7 +43,15 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
-    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`, `avif`],
+          quality: 75,
+        },
+      },
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,

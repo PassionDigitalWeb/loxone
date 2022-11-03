@@ -1,31 +1,28 @@
 import React from "react"
-import { Hero } from "@components/molecules"
+import { Feature } from "@components/molecules"
 import { Button, Heading, Prose, Text } from "@components/atoms"
 
-import Img from "../assets/img.png"
+import Banner from "@components/molecules/banner"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Loxone/Hero",
-  component: Hero,
+  title: "Loxone/Molecules/Banner",
+  component: Feature,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes,
-  args: {
-    bgImageUrl: Img,
-  },
+  args: {},
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = args => (
-  <Hero {...args}>
-    <Prose>
-      <Heading>The Loxone Experience, London</Heading>
-      <Text>
-        Featuring the latest smart automation technology products and functions
-        that improve the way we live.
-      </Text>
-      <Button>Book a tour of the showroom</Button>
+  <Banner {...args}>
+    <Prose align="center">
+      <Heading node="h3" variant="h3" weight="300">
+        Visit our showroom and experience
+        <br /> <strong>home automation</strong> by loxone
+      </Heading>
+      <Button>Book a private tour</Button>
     </Prose>
-  </Hero>
+  </Banner>
 )
 
 export const Default = Template.bind({})

@@ -1,4 +1,5 @@
-import layoutStyles from "../../src/components/layout.css";
+import layoutStyles from "@styles/layout.scss"
+import "normalize.css"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -8,7 +9,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
-};
+}
 
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
@@ -17,14 +18,14 @@ export const parameters = {
 global.___loader = {
   enqueue: () => {},
   hovering: () => {},
-};
+}
 // This global variable prevents the "__BASE_PATH__ is not defined" error inside Storybook.
-global.__BASE_PATH__ = "/";
-global.__PATH_PREFIX__ = "";
+global.__BASE_PATH__ = "/"
+global.__PATH_PREFIX__ = ""
 
 // Navigating through a gatsby app using gatsby-link or any other gatsby component will use the `___navigate` method.
 // In Storybook, it makes more sense to log an action than doing an actual navigate. Check out the actions addon docs for more info: https://storybook.js.org/docs/react/essentials/actions
 
-window.___navigate = (pathname) => {
-  action("NavigateTo:")(pathname);
-};
+window.___navigate = pathname => {
+  action("NavigateTo:")(pathname)
+}

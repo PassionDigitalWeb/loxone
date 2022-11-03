@@ -6,12 +6,12 @@ import { Container, Prose } from "@components/atoms"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Spacer from "@components/atoms/spacer"
 
-export const Hero = ({ bgImageUrl, gatsbyImageData, children, ...props }) => {
+export const Hero = ({ bgImageUrl, bgImage, children, ...props }) => {
   return (
     <div className={cn(styles.hero)}>
-      {(bgImageUrl || gatsbyImageData) && (
+      {(bgImageUrl || bgImage) && (
         <div className={styles.bgImage}>
-          {gatsbyImageData && <GatsbyImage alt="" image={gatsbyImageData} />}
+          {bgImage && <GatsbyImage alt="" image={bgImage} />}
           {bgImageUrl && (
             <img className={styles.bgImageImg} src={bgImageUrl} alt="" />
           )}

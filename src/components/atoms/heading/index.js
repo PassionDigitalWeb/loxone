@@ -44,7 +44,14 @@ Heading.propTypes = {
     "800",
     "bold",
   ]),
-  color: PropTypes.oneOf(["green", "black", "dark-grey", "grey", "inherit"]),
+  color: PropTypes.oneOf([
+    "green",
+    "black",
+    "white",
+    "dark-grey",
+    "grey",
+    "inherit",
+  ]),
 }
 
 export default Heading

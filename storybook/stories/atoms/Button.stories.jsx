@@ -1,49 +1,51 @@
-import React from "react";
+import React from "react"
 
-import { Button } from "@components/atoms";
-import { Light } from "./AnchorLink.stories";
+import { Button } from "@components/atoms"
+import { Light } from "./AnchorLink.stories"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Loxone/Button",
+  title: "Loxone/Atoms/Button",
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-};
+}
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Button {...args}>Button</Button>;
+const Template = args => <Button {...args}>Button</Button>
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   variant: "button",
   color: "green",
-};
+}
 
-export const Green = Template.bind({});
+export const Green = Template.bind({})
 Green.args = {
   variant: "button",
   color: "green",
-};
+}
 
-export const DarkGrey = Template.bind({});
+export const DarkGrey = Template.bind({})
 DarkGrey.args = {
   variant: "button",
   color: "dark-grey",
-};
+}
 
-export const GreenOutline = Template.bind({});
+export const GreenOutline = Template.bind({})
 GreenOutline.args = {
-  variant: "button-outline",
+  variant: "button",
   color: "green",
-};
+  isOutlined: true,
+}
 
-export const DarkGreyOutline = Template.bind({});
+export const DarkGreyOutline = Template.bind({})
 DarkGreyOutline.args = {
-  variant: "button-outline",
+  variant: "button",
   color: "dark-grey",
-};
+  isOutlined: true,
+}
 
-export const Clear = (args) => (
+export const Clear = args => (
   <Button {...args}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -59,21 +61,21 @@ export const Clear = (args) => (
     </svg>{" "}
     <span>020 8342 5016</span>
   </Button>
-);
+)
 
 Clear.args = {
-  variant: "button",
+  variant: "text",
   color: "clear",
-};
+}
 Clear.parameters = {
   docs: {
     description: {
       story: "Clear buttons can be used to aid the user with extra padding. ",
     },
   },
-};
+}
 
-export const ClearWhite = (args) => (
+export const ClearWhite = args => (
   <Button {...args}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -89,16 +91,16 @@ export const ClearWhite = (args) => (
     </svg>{" "}
     <span>020 8342 5016</span>
   </Button>
-);
+)
 ClearWhite.args = {
-  variant: "button",
+  variant: "text",
   color: "clear-white",
-};
+}
 ClearWhite.parameters = {
   backgrounds: { default: "dark" },
-};
+}
 
-export const WithIcon = (args) => (
+export const WithIcon = args => (
   <Button {...args}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -119,13 +121,13 @@ export const WithIcon = (args) => (
     </svg>{" "}
     <span>Button</span>
   </Button>
-);
+)
 WithIcon.args = {
   variant: "button",
   color: "green",
-};
+}
 
-export const WithIconOutline = (args) => (
+export const WithIconOutline = args => (
   <Button {...args}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -146,8 +148,9 @@ export const WithIconOutline = (args) => (
     </svg>{" "}
     <span>Button</span>
   </Button>
-);
+)
 WithIcon.args = {
-  variant: "button-outline",
+  variant: "button",
   color: "green",
-};
+  isOutlined: true,
+}

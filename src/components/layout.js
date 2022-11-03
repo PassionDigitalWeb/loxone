@@ -8,8 +8,10 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 
-import "./layout.css"
+import "normalize.css"
+import "../styles/layout.scss"
 import { Heading, Button } from "@components/atoms"
+import Footer from "@components/organisms/footer"
 
 const Layout = ({ children }) => {
   return (
@@ -22,20 +24,7 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <Heading node="h2" variant="h1">
-          Heading test
-        </Heading>
-        <Button>test</Button>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        <Footer />
       </div>
     </>
   )

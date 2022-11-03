@@ -1,0 +1,11 @@
+.logo {
+  background-color: var(--color-brand-green);
+  display: block;
+  width: 133px;
+  height: 133px;
+
+  &.isLarge{
+    width: 170px;
+    height: 175px;
+  }
+}

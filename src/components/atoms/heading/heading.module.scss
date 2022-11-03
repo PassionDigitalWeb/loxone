@@ -17,6 +17,10 @@
   color: var(--color-brand-black);
 }
 
+.colorWhite{
+  color: var(--color-brand-white);
+}
+
 .colorDarkGrey {
   color: var(--color-brand-dark-grey);
 }
@@ -27,37 +31,37 @@
 
 //variations
 .variant-h1 {
-  font-family: "AvertaStd-ExtraBold";
+  font-weight: 800;
   font-size: 50px;
   line-height: 59px;
 }
 
 .variantH2 {
-  font-family: "AvertaStd-ExtraBold";
+  font-weight: 800;
   font-size: 43px;
   line-height: 50px;
 }
 
 .variantH3 {
-  font-family: "AvertaStd-ExtraBold";
+  font-weight: 800;
   font-size: 36px;
   line-height: 42px;
 }
 
 .variantH4 {
-  font-family: "AvertaStd-ExtraBold";
+  font-weight: 800;
   font-size: 30px;
   line-height: 35px;
 }
 
 .variantH5 {
-  font-family: "AvertaStd-Regular";
+  font-weight: 400;
   font-size: 26px;
   line-height: 30px;
 }
 
 .variantH6 {
-  font-family: "AvertaStd-Regular";
+  font-weight: 400;
   font-size: 23px;
   line-height: 27px;
 }

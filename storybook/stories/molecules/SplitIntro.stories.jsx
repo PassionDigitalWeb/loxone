@@ -2,11 +2,11 @@ import React from "react"
 import { SplitIntro } from "@components/molecules"
 import { Button, Heading, Prose, Text } from "@components/atoms"
 
-import Img from "../assets/img.png"
+import Img from "../../assets/img.png"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Loxone/SplitIntro",
+  title: "Loxone/Molecules/SplitIntro",
   component: SplitIntro,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes,
   args: {

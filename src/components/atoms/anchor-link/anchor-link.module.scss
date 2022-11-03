@@ -1,14 +1,12 @@
 .link {
   --btn-color: inherit;
-  --link-hover-color: var(--color-brand-green);
+  //--link-hover-color: var(--color-brand-green);
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 19px;
-  font-weight: 700;
-  text-decoration: none !important;
+
+  text-decoration: none;
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -22,7 +20,7 @@
 
   &.light {
     --btn-color: var(--color-brand-white);
-    --link-hover-color: var(--color-brand-green);
+    //--link-hover-color: var(--color-brand-green);
   }
 
   &:disabled {
@@ -34,8 +32,18 @@
   &:active,
   &:focus,
   &:visited {
-    text-decoration: none !important;
-    color: var(--link-hover-color);
+    text-decoration: none;
+
+    &.underlined{
+      text-decoration: underline;
+    }
+
+    //color: var(--link-hover-color);
+  }
+
+
+  &.underlined{
+    text-decoration: underline;
   }
 
   i,
@@ -43,13 +51,13 @@
     color: var(--btn-color);
   }
 
-  svg:first-child,
-  i:first-child {
+  svg:first-child:not(:last-child),
+  i:first-child:not(:last-child) {
     margin-right: 10px;
   }
 
-  svg:last-child,
-  i:last-child {
+  svg:last-child:not(:first-child),
+  i:last-child:not(:first-child) {
     margin-left: 10px;
   }
 }

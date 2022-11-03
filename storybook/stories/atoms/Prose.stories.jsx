@@ -1,16 +1,16 @@
-import React from "react";
+import React from "react"
 
-import { Prose, Heading, Text } from "../../src/components/atoms";
+import { Prose, Heading, Text } from "@components/atoms"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Loxone/Prose",
+  title: "Loxone/Atoms/Prose",
   component: Prose,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-};
+}
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => (
+const Template = args => (
   <Prose {...args}>
     <Heading variant="h1" node="h1">
       Heading
@@ -24,5 +24,5 @@ const Template = (args) => (
       hamburger.
     </Text>
   </Prose>
-);
-export const Default = Template.bind({});
+)
+export const Default = Template.bind({})
