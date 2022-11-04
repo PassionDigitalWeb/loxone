@@ -23,7 +23,7 @@ const Template = args => (
     </Feature.Asset>
     <Feature.Content>
       <Prose>
-        <Heading>Automate</Heading>
+        <Heading variant="h2">Automate</Heading>
         <Text>
           We deliver projects that provide full building control, whether you
           are looking for a next level smart home which is properly centrally

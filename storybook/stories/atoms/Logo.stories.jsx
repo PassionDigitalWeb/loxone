@@ -1,6 +1,6 @@
 import React from "react"
 
-import { AnchorLink, Logo } from "@components/atoms"
+import { Anchor, Logo } from "@components/atoms"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

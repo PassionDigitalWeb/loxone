@@ -5,8 +5,8 @@ import * as styles from "./heading.module.scss"
 import { camelize } from "@lib/helper"
 
 export const Heading = ({
-  node: Node = "h1",
-  variant = "div",
+  node: Node = "div",
+  variant = "h1",
   color = "inherit",
   weight = "bold",
   children,
@@ -32,7 +32,7 @@ export const Heading = ({
 Heading.propTypes = {
   children: PropTypes.any.isRequired,
   node: PropTypes.string,
-  variant: PropTypes.oneOf(["h1", "h2", "h3", "h4", "h5", "h6", "span", "div"]),
+  variant: PropTypes.oneOf(["h1", "h2", "h3", "h4", "h5", "h6", "span"]),
   weight: PropTypes.oneOf([
     "100",
     "200",

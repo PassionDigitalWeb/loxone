@@ -8,7 +8,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 
-import "normalize.css"
 import "../styles/layout.scss"
 import { Heading, Button } from "@components/atoms"
 import Footer from "@components/organisms/footer"

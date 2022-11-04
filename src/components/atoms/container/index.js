@@ -28,7 +28,7 @@ export const Container = ({
 
 Container.propTypes = {
   size: PropTypes.oneOf(["none", "sm", "md", "lg"]),
-  padding: PropTypes.oneOf(["none", "sm", "md", "lg"]),
+  padding: PropTypes.oneOf(["none", "xs", "sm", "md", "lg"]),
 }
 
 export default Container

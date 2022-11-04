@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Button } from "@components/atoms"
-import { Light } from "./AnchorLink.stories"
+import { Light } from "./Anchor.stories"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

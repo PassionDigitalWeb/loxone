@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navCtaCol{
+  flex: 1;
+}
+
+.navCtaWrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoWrap {
+  flex: 0 0 170px;
+}
+
+.navCol {
+  flex: 1;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+
+  .navItem {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 700;
+  }
+}

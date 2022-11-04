@@ -1,5 +1,24 @@
-.spacer{
+.spacer {
   display: block;
+  height: auto;
+}
+
+hr.spacer {
+  height: auto;
+  border: none;
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-brand-dark-grey);
+    display: block;
+  }
+}
+
+.xXsm {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .xSm {
@@ -16,10 +35,12 @@
   padding-left: 70px;
   padding-right: 70px;
 }
+
 .xXl {
   padding-left: 100px;
   padding-right: 100px;
 }
+
 
 .yXsm {
   padding-top: 10px;
@@ -40,6 +61,7 @@
   padding-top: 70px;
   padding-bottom: 70px;
 }
+
 .yXl {
   padding-top: 100px;
   padding-bottom: 100px;

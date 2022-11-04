@@ -4,23 +4,32 @@ import cn from "classnames"
 import * as styles from "./spacer.module.scss"
 import { camelize } from "@lib/helper"
 
-const Spacer = ({ x, y = "md", children, ...props }) => {
+const Spacer = ({
+  x,
+  y = "md",
+  isHR = false,
+  children,
+  className,
+  ...props
+}) => {
+  const Node = !isHR ? "div" : "hr"
   return (
-    <div
+    <Node
       className={cn(
         styles.spacer,
         x && styles[camelize(`x-${x}`)],
-        y && styles[camelize(`y-${y}`)]
+        y && styles[camelize(`y-${y}`)],
+        className
       )}
       {...props}
     >
       {children}
-    </div>
+    </Node>
   )
 }
 
 Spacer.propTypes = {
-  x: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
+  x: PropTypes.oneOf(["xsm", "sm", "md", "lg", "xl"]),
   y: PropTypes.oneOf(["xsm", "sm", "md", "lg", "xl"]),
 }
 

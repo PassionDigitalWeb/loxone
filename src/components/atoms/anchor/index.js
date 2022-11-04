@@ -3,9 +3,9 @@ import { Link } from "gatsby"
 
 import * as PropTypes from "prop-types"
 import cn from "classnames"
-import * as styles from "./anchor-link.module.scss"
+import * as styles from "./anchor.module.scss"
 
-export const AnchorLink = ({
+export const Anchor = ({
   isLight = false,
   href,
   to,
@@ -31,11 +31,11 @@ export const AnchorLink = ({
   )
 }
 
-AnchorLink.propTypes = {
+Anchor.propTypes = {
   href: PropTypes.string,
   to: PropTypes.string,
   isLight: PropTypes.bool,
   underlined: PropTypes.bool,
 }
 
-export default AnchorLink
+export default Anchor

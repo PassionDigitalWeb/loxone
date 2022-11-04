@@ -3,6 +3,7 @@ import { Hero } from "@components/molecules"
 import { Button, Heading, Prose, Text } from "@components/atoms"
 
 import Img from "../../assets/img.png"
+import { Header } from "@components/organisms"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -29,3 +30,19 @@ const Template = args => (
 )
 
 export const Default = Template.bind({})
+
+export const HomeHero = args => (
+  <div style={{ position: "relative" }}>
+    <Header isLight style={{ position: "absolute" }} {...args} />
+    <Hero bgImageUrl={Img}>
+      <Prose>
+        <Heading>The Loxone Experience, London</Heading>
+        <Text>
+          Featuring the latest smart automation technology products and
+          functions that improve the way we live.
+        </Text>
+        <Button>Book a tour of the showroom</Button>
+      </Prose>
+    </Hero>
+  </div>
+)

@@ -1,5 +1,4 @@
 import layoutStyles from "@styles/layout.scss"
-import "normalize.css"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

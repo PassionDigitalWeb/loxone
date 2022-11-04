@@ -1,7 +1,7 @@
 import React from "react"
 import * as styles from "./footer.module.scss"
 import {
-  AnchorLink,
+  Anchor,
   Button,
   ButtonGroup,
   Container,
@@ -45,7 +45,7 @@ export const FooterNav = ({ children, ...props }) => {
             </span>
           </div>
 
-          <AnchorLink className={styles.footerNavItem} underlined>
+          <Anchor className={styles.footerNavItem} underlined>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -59,9 +59,9 @@ export const FooterNav = ({ children, ...props }) => {
               />
             </svg>
             <span>hello@loxone.london</span>
-          </AnchorLink>
+          </Anchor>
 
-          <AnchorLink className={styles.footerNavItem} underlined>
+          <Anchor className={styles.footerNavItem} underlined>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17"
@@ -75,7 +75,7 @@ export const FooterNav = ({ children, ...props }) => {
               />
             </svg>
             <span>020 8342 5016</span>
-          </AnchorLink>
+          </Anchor>
         </nav>
       </div>
       <div>
@@ -85,17 +85,17 @@ export const FooterNav = ({ children, ...props }) => {
           </Text>
         </div>
         <nav className={styles.footerNavi}>
-          <AnchorLink className={styles.footerNavItem}>
+          <Anchor className={styles.footerNavItem}>
             <span>Projects</span>
-          </AnchorLink>
+          </Anchor>
 
-          <AnchorLink className={styles.footerNavItem}>
+          <Anchor className={styles.footerNavItem}>
             <span>Architects</span>
-          </AnchorLink>
+          </Anchor>
 
-          <AnchorLink className={styles.footerNavItem}>
+          <Anchor className={styles.footerNavItem}>
             <span>Contact</span>
-          </AnchorLink>
+          </Anchor>
         </nav>
       </div>
     </div>
@@ -113,7 +113,7 @@ export const Footer = ({ children, ...props }) => {
                 <Logo />
               </Link>
               <div className={styles.social}>
-                <AnchorLink href="#">
+                <Anchor href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -126,8 +126,8 @@ export const Footer = ({ children, ...props }) => {
                       fill="#4267B2"
                     />
                   </svg>
-                </AnchorLink>
-                <AnchorLink href="#">
+                </Anchor>
+                <Anchor href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -140,8 +140,8 @@ export const Footer = ({ children, ...props }) => {
                       fill="#1DA1F2"
                     />
                   </svg>
-                </AnchorLink>
-                <AnchorLink href="#">
+                </Anchor>
+                <Anchor href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="19"
@@ -154,7 +154,7 @@ export const Footer = ({ children, ...props }) => {
                       fill="#833AB4"
                     />
                   </svg>
-                </AnchorLink>
+                </Anchor>
               </div>
             </div>
             <div className={styles.nav}>
@@ -167,9 +167,9 @@ export const Footer = ({ children, ...props }) => {
                 </Heading>
                 <Spacer y="xsm" />
                 <Heading variant="h6" color="white">
-                  <AnchorLink href="https://loxone.com" isLight underlined>
+                  <Anchor href="https://loxone.com" isLight underlined>
                     loxone.com
-                  </AnchorLink>
+                  </Anchor>
                 </Heading>
               </Banner>
             </div>
