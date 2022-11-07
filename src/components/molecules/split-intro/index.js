@@ -31,11 +31,7 @@ export const SplitIntro = ({ title, children, ...props }) => {
       <Spacer y="lg">
         <Container size="lg">
           <div className={styles.splitIntroGrid}>
-            {title && (
-              <div className={styles.leftCon}>
-                <Heading variant="h4">{title}</Heading>
-              </div>
-            )}
+            {title && <div className={styles.leftCon}>{title}</div>}
             {children && <div className={styles.rightCon}>{children}</div>}
           </div>
         </Container>

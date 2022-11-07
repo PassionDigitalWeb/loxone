@@ -16,18 +16,6 @@ import {
 import { linkResolver } from "./config/prismic/linkResolver"
 import Layout from "./src/components/layout"
 
-function App({ children }) {
-  return (
-    <PrismicProvider
-      internalLinkComponent={({ href, ...props }) => (
-        <Link to={href} {...props} />
-      )}
-    >
-      {children}
-    </PrismicProvider>
-  )
-}
-
 export const wrapRootElement = ({ element }) => (
   <PrismicPreviewProvider
     repositoryConfigs={[
@@ -45,5 +33,15 @@ export const wrapRootElement = ({ element }) => (
 )
 
 export function wrapPageElement({ element, props }) {
-  return <Layout {...props}>{element}</Layout>
+  return (
+    <Layout {...props}>
+      <PrismicProvider
+        internalLinkComponent={({ href, ...props }) => (
+          <Link to={href} {...props} />
+        )}
+      >
+        {element}
+      </PrismicProvider>
+    </Layout>
+  )
 }

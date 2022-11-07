@@ -5,8 +5,8 @@
 
 .featureGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 62px;
+  grid-template-columns: 1fr ;
+  gap: 30px;
 
   .asset {
     order: 1;
@@ -19,9 +19,14 @@
 
   .content {
     order: 2;
+    display: flex;
+    align-items: center;
   }
 
   @media (min-width: $screen-md) {
+    grid-template-columns: 1fr 1fr;
+    gap: 62px;
+
     &.isRight {
       .asset {
         order: 2;

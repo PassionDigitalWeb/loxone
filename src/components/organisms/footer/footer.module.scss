@@ -5,10 +5,16 @@
 }
 
 .inner {
-  display: grid;
-  grid-template-columns: [logo] 133px [nav] 1fr [cta] minmax(200px, 513px);
-  gap: 83px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   color: var(--color-brand-grey);
+
+  @media (min-width: $screen-md) {
+    display: grid;
+    gap: 83px;
+    grid-template-columns: [logo] 133px [nav] 1fr [cta] minmax(200px, 513px);
+  }
 
   .logoWrap {
     grid-column: logo;

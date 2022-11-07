@@ -7,7 +7,7 @@ import * as styles from "./button.module.scss"
 import { camelize } from "@lib/helper"
 
 export const Button = ({
-  as = "button",
+  as,
   variant = "Button",
   color = "green",
   size = "Medium",
@@ -16,7 +16,7 @@ export const Button = ({
   children,
   ...props
 }) => {
-  let Node = as || (props.href && "a")
+  let Node = (props.href && "a") || as
 
   //check if Link props are there
   if (props.to) {

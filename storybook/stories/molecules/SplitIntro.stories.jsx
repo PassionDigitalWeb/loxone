@@ -11,7 +11,7 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes,
   args: {
     bgImageUrl: Img,
-    title: "The Loxone Experience, London",
+    title: <Heading variant="h4">The Loxone Experience, London</Heading>,
   },
 }
 

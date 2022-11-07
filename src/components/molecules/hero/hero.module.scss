@@ -5,12 +5,14 @@
   display: flex;
   position: relative;
   color: var(--color-brand-white);
+  overflow: hidden;
 }
 
 .bgImage {
   position: absolute;
   inset: 0;
   z-index: 1;
+  display: flex;
 
   &:before {
     content: '';
@@ -20,6 +22,9 @@
     inset: 0;
   }
 
+  > div {
+    flex: 1;
+  }
 
   img.bgImageImg {
     object-fit: cover;

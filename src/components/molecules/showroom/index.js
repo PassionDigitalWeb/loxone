@@ -5,15 +5,43 @@ import Spacer from "@components/atoms/spacer"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import classNames from "classnames"
 import PropTypes from "prop-types"
-import { useSmallScreen } from "@lib/useSmallScreen"
+import { useSmallScreen } from "@lib/hooks/useSmallScreen"
+import { PRichText } from "@lib/richtext"
 
-export const Showroom = ({ title, children, ...props }) => {
-  const childrenWithProps = React.Children.map(children, (child, index) => {
-    if (React.isValidElement(child) && child.props.__TYPE__ === "room") {
-      return React.cloneElement(child)
-    }
-    return child
+const Showroom = ({ title, children, ...props }) => {
+  const isSmallScreen = useSmallScreen()
+  const [activeRoom, setActiveRoom] = useState(0)
+
+  //select all room components
+  const Rooms = React.Children.toArray(children).filter((child, index) => {
+    return React.isValidElement(child) && child.props.__TYPE__ === "room"
   })
+
+  //get rooms titles for dropdown
+  const roomSelectionTitles = React.Children.map(Rooms, (child, index) => {
+    return {
+      text: child.props.title.text,
+      value: index,
+    }
+  })
+
+  //get active room
+  const ActiveRoom = React.Children.toArray(Rooms).filter(
+    (child, index) => activeRoom === index
+  )?.[0]
+
+  //add room options and update function to active room
+  const ActiveRoomComponent =
+    ActiveRoom &&
+    React.cloneElement(ActiveRoom, {
+      activeRoom: activeRoom,
+      options: roomSelectionTitles,
+      onUpdate: ({ target }) => {
+        setActiveRoom(parseInt(target.value))
+      },
+    })
+
+  const ActiveRoomData = ActiveRoom?.props
 
   return (
     <div className={classNames(styles.showroomCon)} {...props}>
@@ -24,25 +52,72 @@ export const Showroom = ({ title, children, ...props }) => {
               {title}
             </Heading>
           </Prose>
-          <div className={classNames(styles.showcase)}>{childrenWithProps}</div>
+          <div className={classNames(styles.showcase)}>
+            {isSmallScreen &&
+              React.Children.toArray(Rooms).map(({ props }, key) => {
+                return <MobileRoom {...props} />
+              })}
+            {!isSmallScreen && <RoomBackground {...ActiveRoomData} />}
+            {!isSmallScreen && ActiveRoomComponent}
+          </div>
         </Container>
       </Spacer>
     </div>
   )
 }
 Showroom.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.node,
 }
 
-Showroom.Room = props => {
-  const { bgImageUrl, bgImage, children, onClose } = props
+const RoomBackground = ({ bgImageUrl, bgImage }) => {
+  return (
+    <>
+      {(bgImageUrl || bgImage) && (
+        <div className={styles.roomBgImage}>
+          {bgImage && (
+            <GatsbyImage alt={bgImage.alt} image={bgImage.gatsbyImageData} />
+          )}
+          {bgImageUrl && (
+            <img className={styles.bgImageImg} src={bgImageUrl} alt="" />
+          )}
+        </div>
+      )}
+    </>
+  )
+}
+
+const RoomSelection = ({ activeRoom, options, onUpdate }) => {
+  return (
+    <div className={styles.roomSelection}>
+      <select onChange={onUpdate} value={activeRoom}>
+        {options.map(({ text, value }, key) => {
+          return (
+            <option value={value} key={key}>
+              {text}
+            </option>
+          )
+        })}
+      </select>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="15"
+        height="9"
+        viewBox="0 0 15 9"
+        fill="none"
+      >
+        <path
+          d="M14.8438 1.09375L14.625 0.875C14.4688 0.71875 14.25 0.71875 14.0938 0.875L8 6.96875L1.875 0.875C1.71875 0.71875 1.5 0.71875 1.34375 0.875L1.125 1.09375C0.96875 1.25 0.96875 1.46875 1.125 1.625L7.71875 8.21875C7.875 8.375 8.09375 8.375 8.25 8.21875L14.8438 1.625C15 1.46875 15 1.25 14.8438 1.09375Z"
+          fill="white"
+        />
+      </svg>
+    </div>
+  )
+}
+
+const Room = props => {
+  const { children, options, onUpdate, activeRoom } = props
   const [isOpen, setIsOpen] = useState(false)
   const [activeInterest, setActiveInterest] = useState(null)
-  const isSmallScreen = useSmallScreen()
-
-  if (isSmallScreen) {
-    return <MobileRoom {...props} />
-  }
 
   const CurrentInterest = React.Children.toArray(children).filter(
     ({ props }, index) =>
@@ -74,14 +149,11 @@ Showroom.Room = props => {
 
   return (
     <div className={styles.room}>
-      {(bgImageUrl || bgImage) && (
-        <div className={styles.bgImage}>
-          {bgImage && <GatsbyImage alt="" image={bgImage} />}
-          {bgImageUrl && (
-            <img className={styles.bgImageImg} src={bgImageUrl} alt="" />
-          )}
-        </div>
-      )}
+      <RoomSelection
+        options={options}
+        onUpdate={onUpdate}
+        activeRoom={activeRoom}
+      />
       <div className={styles.points}>{Points}</div>
 
       <div
@@ -114,19 +186,34 @@ Showroom.Room = props => {
     </div>
   )
 }
-Showroom.Room.propTypes = {
+Room.propTypes = {
   bgImageUrl: PropTypes.string,
   bgImage: PropTypes.object,
 }
-Showroom.Room.defaultProps = {
+Room.defaultProps = {
   __TYPE__: "room",
 }
 
-const MobileRoom = ({ children }) => {
-  const Interests = React.Children.toArray(children).filter(
-    ({ props }, index) => props.__TYPE__ === "interest"
+const MobileRoom = ({ children, title }) => {
+  const childrenWithProps = React.Children.map(children, (child, index) => {
+    if (React.isValidElement(child) && child.props.__TYPE__ === "interest") {
+      return React.cloneElement(child, {
+        isSmall: true,
+      })
+    }
+    return child
+  })
+
+  return (
+    <div>
+      <Spacer y="sm" />
+      <Heading variant="h4" node="h4">
+        {title.text}
+      </Heading>
+      <Spacer y="sm" />
+      <div className={styles.mobileRooms}>{childrenWithProps}</div>
+    </div>
   )
-  return <div className={styles.mobileRooms}>{Interests}</div>
 }
 
 const Point = ({ pos, active, onClick }) => {
@@ -158,12 +245,14 @@ const Point = ({ pos, active, onClick }) => {
   )
 }
 
-Showroom.RoomInterest = ({ bgImageUrl, bgImage, children }) => {
+const RoomInterest = ({ bgImageUrl, bgImage, isSmall, children }) => {
   return (
     <div className={styles.roomInterest}>
       {(bgImageUrl || bgImage) && (
         <div className={styles.bgImage}>
-          {bgImage && <GatsbyImage alt="" image={bgImage} />}
+          {bgImage && (
+            <GatsbyImage alt={bgImage.alt} image={bgImage.gatsbyImageData} />
+          )}
           {bgImageUrl && (
             <img className={styles.bgImageImg} src={bgImageUrl} alt="" />
           )}
@@ -176,17 +265,21 @@ Showroom.RoomInterest = ({ bgImageUrl, bgImage, children }) => {
   )
 }
 
-Showroom.RoomInterest.propTypes = {
+RoomInterest.propTypes = {
   bgImageUrl: PropTypes.string,
   bgImage: PropTypes.object,
   isRight: PropTypes.bool,
+  isSmall: PropTypes.bool,
   pos: PropTypes.shape({
     x: PropTypes.number,
     y: PropTypes.number,
   }).isRequired,
 }
-Showroom.RoomInterest.defaultProps = {
+RoomInterest.defaultProps = {
   __TYPE__: "interest",
 }
+
+Showroom.RoomInterest = RoomInterest
+Showroom.Room = Room
 
 export default Showroom

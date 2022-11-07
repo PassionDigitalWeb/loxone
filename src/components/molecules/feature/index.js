@@ -5,13 +5,7 @@ import Spacer from "@components/atoms/spacer"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import classNames from "classnames"
 
-export const Feature = ({
-  bgImageUrl,
-  bgImage,
-  isImageRight = false,
-  children,
-  ...props
-}) => {
+export const Feature = ({ isImageRight = false, children, ...props }) => {
   return (
     <div className={classNames(styles.feature)} {...props}>
       <Spacer y="lg">
