@@ -7,7 +7,7 @@ import * as styles from "./logo.module.scss"
 import { StaticImage } from "gatsby-plugin-image"
 
 export const Logo = ({
-  isLarge,
+  variant = "medium",
   className,
   children,
   loading = "lazy",
@@ -15,7 +15,7 @@ export const Logo = ({
 }) => {
   return (
     <i
-      className={cn(styles.logo, isLarge && styles.isLarge, className)}
+      className={cn(styles.logo, variant && styles[variant], className)}
       {...props}
     >
       {/*{isLarge ? (*/}
@@ -403,6 +403,7 @@ export const Logo = ({
 
 Logo.propTypes = {
   isLarge: PropTypes.bool,
+  variant: PropTypes.oneOf(["small", "medium", "large"]),
 }
 
 export default Logo

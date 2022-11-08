@@ -30,40 +30,66 @@
 }
 
 //variations
-.variant-h1 {
+.variantH1 {
   font-weight: 800;
-  font-size: 50px;
-  line-height: 59px;
+  font-size: 43px;
+  line-height: 50px;
+
+  @media (min-width: $screen-md) {
+    font-size: 50px;
+    line-height: 59px;
+  }
 }
 
 .variantH2 {
   font-weight: 800;
-  font-size: 43px;
-  line-height: 50px;
+  font-size: 36px;
+  line-height: 42px;
+
+  @media (min-width: $screen-md) {
+    font-size: 43px;
+    line-height: 50px;
+  }
 }
 
 .variantH3 {
   font-weight: 800;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 30px;
+  line-height: 35px;
+
+  @media (min-width: $screen-md) {
+    font-size: 36px;
+    line-height: 42px;
+  }
 }
 
 .variantH4 {
   font-weight: 800;
-  font-size: 30px;
-  line-height: 35px;
+  font-size: 26px;
+  line-height: 30px;
+
+  @media (min-width: $screen-md) {
+    font-size: 30px;
+    line-height: 35px;
+  }
 }
 
 .variantH5 {
   font-weight: 400;
-  font-size: 26px;
-  line-height: 30px;
+  font-size: 23px;
+  line-height: 27px;
+
+  @media (min-width: $screen-md) {
+    font-size: 26px;
+    line-height: 30px;
+  }
 }
 
 .variantH6 {
   font-weight: 400;
   font-size: 23px;
   line-height: 27px;
+
 }
 
 //weights

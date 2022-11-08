@@ -1,3 +1,6 @@
 export { Hero } from "./hero"
 export { SplitIntro } from "./split-intro"
 export { Feature } from "./feature"
+export { ContentBlock } from "./content-block"
+export { Banner } from "./banner"
+export { default as Showroom } from "./showroom"

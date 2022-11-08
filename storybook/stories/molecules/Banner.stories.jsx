@@ -1,5 +1,4 @@
 import React from "react"
-import { Feature } from "@components/molecules"
 import { Button, Heading, Prose, Text } from "@components/atoms"
 
 import Banner from "@components/molecules/banner"
@@ -7,7 +6,7 @@ import Banner from "@components/molecules/banner"
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Loxone/Molecules/Banner",
-  component: Feature,
+  component: Banner,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes,
   args: {},
 }

@@ -20,11 +20,9 @@ export const Hero = ({ bgImageUrl, bgImage, children, ...props }) => {
           )}
         </div>
       )}
-      <div className={styles.heroContent}>
-        <Spacer y="lg">
-          <Container size="lg">{children}</Container>
-        </Spacer>
-      </div>
+      <Container size="lg" className={styles.heroContent}>
+        <Spacer y="lg">{children}</Spacer>
+      </Container>
     </div>
   )
 }

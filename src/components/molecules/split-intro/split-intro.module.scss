@@ -6,8 +6,12 @@
 
 .splitIntroGrid {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 1fr;
   gap: 25px;
+
+  @media (min-width: $screen-md) {
+    grid-template-columns: 40% 60%;
+  }
 
   .leftCon {
 

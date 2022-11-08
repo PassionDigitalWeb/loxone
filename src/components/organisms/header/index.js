@@ -1,26 +1,30 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import * as styles from "./header.module.scss"
-import {
-  Anchor,
-  Button,
-  ButtonGroup,
-  Container,
-  Heading,
-  Logo,
-  Text,
-} from "@components/atoms"
+import { Anchor, Button, ButtonGroup, Container, Logo } from "@components/atoms"
 import classNames from "classnames"
 import Spacer from "@components/atoms/spacer"
-import Banner from "@components/molecules/banner"
 import { Link } from "gatsby"
+import { useShortHead } from "@lib/hooks/useShortHead"
 
 export const Header = ({ children, isLight, ...props }) => {
+  const [light, setLight] = useState(isLight)
+  const isShort = useShortHead()
+  useEffect(() => {
+    setLight(!isShort)
+  }, [isShort])
+
   return (
-    <header className={classNames(styles.header)} {...props}>
+    <header
+      className={classNames(styles.header, isShort && styles.short)}
+      {...props}
+    >
       <Container size="none" padding="xs">
         <div className={styles.inner}>
           <Link to="/" className={styles.logoWrap}>
-            <Logo />
+            <Logo
+              variant={isShort ? "small" : "large"}
+              className={styles.logo}
+            />
           </Link>
 
           <div className={styles.navCtaCol}>
@@ -28,19 +32,19 @@ export const Header = ({ children, isLight, ...props }) => {
               <div className={styles.navCol}>
                 <Spacer y="sm">
                   <nav className={styles.nav}>
-                    <Anchor className={styles.navItem} isLight={isLight}>
+                    <Anchor className={styles.navItem} isLight={light}>
                       <span>Case Studies</span>
                     </Anchor>
 
-                    <Anchor className={styles.navItem} isLight={isLight}>
+                    <Anchor className={styles.navItem} isLight={light}>
                       <span>Architects</span>
                     </Anchor>
 
-                    <Anchor className={styles.navItem} isLight={isLight}>
+                    <Anchor className={styles.navItem} isLight={light}>
                       <span>FAQs</span>
                     </Anchor>
 
-                    <Anchor className={styles.navItem} isLight={isLight}>
+                    <Anchor className={styles.navItem} isLight={light}>
                       <span>Contact</span>
                     </Anchor>
                   </nav>
@@ -51,7 +55,7 @@ export const Header = ({ children, isLight, ...props }) => {
                 <ButtonGroup>
                   <Button
                     variant="text"
-                    color={isLight ? "clear-white" : "clear"}
+                    color={light ? "clear-white" : "clear"}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +71,7 @@ export const Header = ({ children, isLight, ...props }) => {
                     </svg>{" "}
                     <span>020 8342 5016</span>
                   </Button>
-                  <Button>Button Label</Button>
+                  <Button variant="button">Button Label</Button>
                 </ButtonGroup>
               </div>
             </div>

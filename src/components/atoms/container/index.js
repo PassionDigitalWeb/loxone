@@ -10,6 +10,7 @@ export const Container = ({
   size = "lg",
   padding = "sm",
   children,
+  className,
   ...props
 }) => {
   return (
@@ -17,7 +18,8 @@ export const Container = ({
       className={cx(
         styles.container,
         styles[camelize(`size-${size}`)],
-        styles[camelize(`padding-${padding}`)]
+        styles[camelize(`padding-${padding}`)],
+        className
       )}
       {...props}
     >

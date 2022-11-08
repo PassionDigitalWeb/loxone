@@ -9,6 +9,7 @@ import IntroSlice from "@components/slices/IntroSlice"
 import ShowroomSlice from "@components/slices/ShowroomSlice"
 import FeatureSlice from "@components/slices/FeatureSlice"
 import BannerSlice from "@components/slices/BannerSlice"
+import ContentBlockSlice from "@components/slices/ContentBlockSlice"
 
 const components = {
   full_hero: FullHeroSlice,
@@ -16,14 +17,16 @@ const components = {
   showroom: ShowroomSlice,
   feature: FeatureSlice,
   banner: BannerSlice,
+  content_block: ContentBlockSlice,
 }
 
 const IndexPage = props => {
   const document = props.data.prismicHomepage
-
-  console.log({ document })
-
-  return <SliceZone slices={document.data.body} components={components} />
+  return (
+    <>
+      <SliceZone slices={document.data.body} components={components} />
+    </>
+  )
 }
 
 /**
@@ -111,7 +114,6 @@ export const query = graphql`
               button_text
             }
           }
-
           ... on PrismicHomepageDataBodyBanner {
             id
             slice_type
@@ -177,6 +179,17 @@ export const query = graphql`
                   }
                 }
               }
+            }
+          }
+          ... on PrismicHomepageDataBodyContentBlock {
+            id
+            slice_type
+            slice_label
+            primary {
+              content {
+                richText
+              }
+              has_background
             }
           }
         }

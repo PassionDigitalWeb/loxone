@@ -68,7 +68,7 @@ interface PrismicSliceType {
 
 union PrismicAllDocumentTypes = PrismicHomepage | PrismicPage | PrismicShowroom
 
-union PrismicHomepageDataBodySlicesType = PrismicHomepageDataBodyBanner | PrismicHomepageDataBodyFeature | PrismicHomepageDataBodyFullHero | PrismicHomepageDataBodyIntroductionContent | PrismicHomepageDataBodyShowroom
+union PrismicHomepageDataBodySlicesType = PrismicHomepageDataBodyBanner | PrismicHomepageDataBodyContentBlock | PrismicHomepageDataBodyFeature | PrismicHomepageDataBodyFullHero | PrismicHomepageDataBodyIntroductionContent | PrismicHomepageDataBodyShowroom
 
 type Directory implements Node {
     absolutePath: String!
@@ -501,6 +501,19 @@ type PrismicHomepageDataBodyBannerItem {
 
 type PrismicHomepageDataBodyBannerPrimary {
     content: PrismicStructuredTextType
+    title: PrismicStructuredTextType
+}
+
+type PrismicHomepageDataBodyContentBlock implements PrismicSliceType {
+    id: ID!
+    primary: PrismicHomepageDataBodyContentBlockPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicHomepageDataBodyContentBlockPrimary {
+    content: PrismicStructuredTextType
+    has_background: Boolean
 }
 
 type PrismicHomepageDataBodyFeature implements PrismicSliceType {

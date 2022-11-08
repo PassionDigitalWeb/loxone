@@ -43,15 +43,13 @@ const Showroom = ({ title, children, ...props }) => {
 
   const ActiveRoomData = ActiveRoom?.props
 
+  console.log({ ActiveRoomComponent, ActiveRoom, Rooms, children })
+
   return (
     <div className={classNames(styles.showroomCon)} {...props}>
       <Spacer y="lg">
         <Container size="lg">
-          <Prose>
-            <Heading variant="h2" node="h2">
-              {title}
-            </Heading>
-          </Prose>
+          <Prose>{title}</Prose>
           <div className={classNames(styles.showcase)}>
             {isSmallScreen &&
               React.Children.toArray(Rooms).map(({ props }, key) => {

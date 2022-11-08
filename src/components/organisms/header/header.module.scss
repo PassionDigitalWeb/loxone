@@ -5,6 +5,15 @@
   left: 0;
   width: 100%;
   z-index: 3;
+  transition: all .25s;
+
+  &.short{
+    background-color: rgba(255,255,255,.5);
+
+     .logo{
+      height: 63px;
+    }
+  }
 }
 
 .inner {
@@ -24,7 +33,12 @@
 
 .logoWrap {
   flex: 0 0 170px;
+  margin-right: 25px;
+  display: flex;
+  justify-content: center;
 }
+
+
 
 .navCol {
   flex: 1;
@@ -39,4 +53,8 @@
     line-height: 19px;
     font-weight: 700;
   }
+}
+
+.cta{
+
 }

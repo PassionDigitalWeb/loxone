@@ -4,7 +4,7 @@
   max-width: 100%;
 }
 
-.paddingXS {
+.paddingXs {
   padding: 0 20px;
 }
 
@@ -17,11 +17,11 @@
 }
 
 .sizeSm {
-  width: 768px;
+  max-width: 768px;
 }
 .sizeMd {
-  width: 1070px;
+  max-width: 1070px;
 }
 .sizeLg {
-  width: 1282px;
+  max-width: 1282px;
 }

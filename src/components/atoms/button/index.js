@@ -7,10 +7,10 @@ import * as styles from "./button.module.scss"
 import { camelize } from "@lib/helper"
 
 export const Button = ({
-  as,
-  variant = "Button",
+  as = "button",
+  variant = "button",
   color = "green",
-  size = "Medium",
+  size = "medium",
   isOutlined = false,
   className,
   children,
