@@ -12,6 +12,7 @@ import {
   IntroSlice,
   ShowroomSlice,
   SpacerSlice,
+  TwoColContentSlice,
 } from "@components/slices"
 
 const components = {
@@ -22,6 +23,7 @@ const components = {
   feature: FeatureSlice,
   banner: BannerSlice,
   content_block: ContentBlockSlice,
+  two_column_content: TwoColContentSlice,
 }
 
 const IndexPage = props => {
@@ -65,6 +67,7 @@ export const query = graphql`
           ...HomepageDataBodyShowroom
           ...HomepageDataBodyContentBlock
           ...HomepageDataBodySpacer
+          ...HomepageDataBodyTwoColumnContent
         }
       }
     }

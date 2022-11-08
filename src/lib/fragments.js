@@ -142,4 +142,12 @@ export const HomeFragments = graphql`
       y_axis
     }
   }
+  fragment HomepageDataBodyTwoColumnContent on PrismicHomepageDataBodyTwoColumnContent {
+    ...SliceType
+    items {
+      content {
+        richText
+      }
+    }
+  }
 `
