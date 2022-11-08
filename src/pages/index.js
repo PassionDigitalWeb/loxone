@@ -49,6 +49,7 @@ export const Head = props => {
 export const query = graphql`
   {
     prismicHomepage {
+      _previewable
       data {
         meta_description
         meta_title
