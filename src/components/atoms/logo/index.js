@@ -1,10 +1,8 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import * as PropTypes from "prop-types"
 import cn from "classnames"
 import * as styles from "./logo.module.scss"
-import { StaticImage } from "gatsby-plugin-image"
 
 export const Logo = ({
   variant = "medium",

@@ -9,7 +9,6 @@ import * as React from "react"
 import PropTypes from "prop-types"
 
 import "../styles/layout.scss"
-import { Heading, Button } from "@components/atoms"
 import Footer from "@components/organisms/footer"
 import { Header } from "@components/organisms"
 

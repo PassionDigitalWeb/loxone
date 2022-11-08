@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { PRichText } from "@lib/richtext"
 import { Prose } from "@components/atoms"
 import Showroom from "@components/molecules/showroom"

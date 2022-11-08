@@ -1,8 +1,7 @@
 import React from "react"
 import * as styles from "./feature.module.scss"
-import { Container, Heading } from "@components/atoms"
+import { Container } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import classNames from "classnames"
 
 export const Feature = ({ isImageRight = false, children, ...props }) => {

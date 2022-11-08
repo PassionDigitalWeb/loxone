@@ -4,7 +4,7 @@ import { Button, ButtonGroup, Heading, Prose } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
 import { PrismicLink } from "@prismicio/react"
 
-const BannerSlice = ({ slice }) => {
+export const BannerSlice = ({ slice }) => {
   const { primary, items } = slice
   const { content, title } = primary
   return (
@@ -22,7 +22,6 @@ const BannerSlice = ({ slice }) => {
         {items && (
           <ButtonGroup>
             {items?.map(({ button_text, button_link, colour }, key) => {
-              console.log({ colour })
               return (
                 <PrismicLink
                   key={key}

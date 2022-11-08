@@ -67,7 +67,7 @@
   }
 }
 
-.variantButton{
+.variantButton {
   border-radius: 2px;
   white-space: nowrap;
   height: 44px;
@@ -92,7 +92,7 @@
   }
 }
 
-.variantText{
+.variantText {
   --btn-bg-color: transpart;
   --btn-bg-hover-color: transpart;
   --btn-color: var(--color-brand-black);
@@ -129,8 +129,6 @@
     --btn-color: var(--color-brand-white);
   }
 }
-
-
 
 .variantButton.isOutlined {
   --btn-bg-color: transparent;

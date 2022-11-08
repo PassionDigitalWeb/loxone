@@ -15,8 +15,12 @@
   display: flex;
 
   &:before {
-    content: '';
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.81) 0%, rgba(0, 0, 0, 0.06) 100%);
+    content: "";
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.81) 0%,
+      rgba(0, 0, 0, 0.06) 100%
+    );
     position: absolute;
     z-index: 1;
     inset: 0;

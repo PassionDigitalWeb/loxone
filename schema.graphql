@@ -66,9 +66,9 @@ interface PrismicSliceType {
     slice_type: String!
 }
 
-union PrismicAllDocumentTypes = PrismicHomepage | PrismicPage | PrismicShowroom
+union PrismicAllDocumentTypes = PrismicHomepage | PrismicPage | PrismicShowroom | PrismicSiteData
 
-union PrismicHomepageDataBodySlicesType = PrismicHomepageDataBodyBanner | PrismicHomepageDataBodyContentBlock | PrismicHomepageDataBodyFeature | PrismicHomepageDataBodyFullHero | PrismicHomepageDataBodyIntroductionContent | PrismicHomepageDataBodyShowroom
+union PrismicHomepageDataBodySlicesType = PrismicHomepageDataBodyBanner | PrismicHomepageDataBodyContentBlock | PrismicHomepageDataBodyFeature | PrismicHomepageDataBodyFullHero | PrismicHomepageDataBodyIntroductionContent | PrismicHomepageDataBodyShowroom | PrismicHomepageDataBodySpacer
 
 type Directory implements Node {
     absolutePath: String!
@@ -813,6 +813,18 @@ type PrismicHomepageDataBodyShowroomPrimary {
     title: PrismicStructuredTextType
 }
 
+type PrismicHomepageDataBodySpacer implements PrismicSliceType {
+    id: ID!
+    primary: PrismicHomepageDataBodySpacerPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicHomepageDataBodySpacerPrimary {
+    x_axis: String
+    y_axis: String
+}
+
 type PrismicHomepageDataType {
     body: [PrismicHomepageDataBodySlicesType!]!
     meta_description: String
@@ -1365,6 +1377,102 @@ type PrismicShowroomGroupConnection {
     totalCount: Int!
 }
 
+type PrismicSiteData implements Node {
+    _previewable: ID!
+    alternate_languages: [PrismicAlternateLanguageType!]!
+    children: [Node!]!
+    data: PrismicSiteDataDataType!
+    dataRaw: JSON!
+    first_publication_date(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date!
+    href: String!
+    id: ID!
+    internal: Internal!
+    lang: String!
+    last_publication_date(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date!
+    parent: Node
+    prismicId: ID!
+    tags: [String!]!
+    type: String!
+    url: String
+}
+
+type PrismicSiteDataConnection {
+    distinct(field: PrismicSiteDataFieldsEnum!): [String!]!
+    edges: [PrismicSiteDataEdge!]!
+    group(field: PrismicSiteDataFieldsEnum!, limit: Int, skip: Int): [PrismicSiteDataGroupConnection!]!
+    max(field: PrismicSiteDataFieldsEnum!): Float
+    min(field: PrismicSiteDataFieldsEnum!): Float
+    nodes: [PrismicSiteData!]!
+    pageInfo: PageInfo!
+    sum(field: PrismicSiteDataFieldsEnum!): Float
+    totalCount: Int!
+}
+
+type PrismicSiteDataDataFooterNavigation {
+    nav_link: PrismicLinkType
+    nav_text: String
+}
+
+type PrismicSiteDataDataNavigation {
+    nav_link: PrismicLinkType
+    nav_text: String
+}
+
+type PrismicSiteDataDataSocial {
+    social_icon: String
+    social_link: PrismicLinkType
+}
+
+type PrismicSiteDataDataType {
+    address: PrismicStructuredTextType
+    address_map: PrismicGeoPointType
+    cta_link: PrismicLinkType
+    cta_text: String
+    email: String
+    footer_navigation: [PrismicSiteDataDataFooterNavigation]
+    navigation: [PrismicSiteDataDataNavigation]
+    phone_number: String
+    social: [PrismicSiteDataDataSocial]
+}
+
+type PrismicSiteDataEdge {
+    next: PrismicSiteData
+    node: PrismicSiteData!
+    previous: PrismicSiteData
+}
+
+type PrismicSiteDataGroupConnection {
+    distinct(field: PrismicSiteDataFieldsEnum!): [String!]!
+    edges: [PrismicSiteDataEdge!]!
+    field: String!
+    fieldValue: String
+    group(field: PrismicSiteDataFieldsEnum!, limit: Int, skip: Int): [PrismicSiteDataGroupConnection!]!
+    max(field: PrismicSiteDataFieldsEnum!): Float
+    min(field: PrismicSiteDataFieldsEnum!): Float
+    nodes: [PrismicSiteData!]!
+    pageInfo: PageInfo!
+    sum(field: PrismicSiteDataFieldsEnum!): Float
+    totalCount: Int!
+}
+
 type PrismicStructuredTextType {
     html: String
     raw: PrismicStructuredText! @deprecated(reason: "This field has been renamed to `richText`. The `richText` field has the same value the `raw` field.")
@@ -1421,6 +1529,7 @@ type Query {
     allPrismicHomepage(filter: PrismicHomepageFilterInput, limit: Int, skip: Int, sort: PrismicHomepageSortInput): PrismicHomepageConnection!
     allPrismicPage(filter: PrismicPageFilterInput, limit: Int, skip: Int, sort: PrismicPageSortInput): PrismicPageConnection!
     allPrismicShowroom(filter: PrismicShowroomFilterInput, limit: Int, skip: Int, sort: PrismicShowroomSortInput): PrismicShowroomConnection!
+    allPrismicSiteData(filter: PrismicSiteDataFilterInput, limit: Int, skip: Int, sort: PrismicSiteDataSortInput): PrismicSiteDataConnection!
     allPrismicTypePathType(filter: PrismicTypePathTypeFilterInput, limit: Int, skip: Int, sort: PrismicTypePathTypeSortInput): PrismicTypePathTypeConnection!
     allSite(filter: SiteFilterInput, limit: Int, skip: Int, sort: SiteSortInput): SiteConnection!
     allSiteBuildMetadata(filter: SiteBuildMetadataFilterInput, limit: Int, skip: Int, sort: SiteBuildMetadataSortInput): SiteBuildMetadataConnection!
@@ -1433,6 +1542,7 @@ type Query {
     prismicHomepage(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicHomepageDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicHomepage
     prismicPage(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicPageDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, gatsbyPath: StringQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, uid: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicPage
     prismicShowroom(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicShowroomDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicShowroom
+    prismicSiteData(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicSiteDataDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicSiteData
     prismicTypePathType(children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, kind: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, type: StringQueryOperatorInput): PrismicTypePathType
     site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, graphqlTypegen: BooleanQueryOperatorInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, jsxRuntime: StringQueryOperatorInput, parent: NodeFilterInput, pathPrefix: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, trailingSlash: StringQueryOperatorInput): Site
     siteBuildMetadata(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput): SiteBuildMetadata
@@ -2441,6 +2551,217 @@ enum PrismicShowroomFieldsEnum {
     data___title___raw
     data___title___richText
     data___title___text
+    first_publication_date
+    href
+    id
+    internal___content
+    internal___contentDigest
+    internal___contentFilePath
+    internal___description
+    internal___fieldOwners
+    internal___ignoreType
+    internal___mediaType
+    internal___owner
+    internal___type
+    lang
+    last_publication_date
+    parent___children
+    parent___children___children
+    parent___children___children___children
+    parent___children___children___id
+    parent___children___id
+    parent___children___internal___content
+    parent___children___internal___contentDigest
+    parent___children___internal___contentFilePath
+    parent___children___internal___description
+    parent___children___internal___fieldOwners
+    parent___children___internal___ignoreType
+    parent___children___internal___mediaType
+    parent___children___internal___owner
+    parent___children___internal___type
+    parent___children___parent___children
+    parent___children___parent___id
+    parent___id
+    parent___internal___content
+    parent___internal___contentDigest
+    parent___internal___contentFilePath
+    parent___internal___description
+    parent___internal___fieldOwners
+    parent___internal___ignoreType
+    parent___internal___mediaType
+    parent___internal___owner
+    parent___internal___type
+    parent___parent___children
+    parent___parent___children___children
+    parent___parent___children___id
+    parent___parent___id
+    parent___parent___internal___content
+    parent___parent___internal___contentDigest
+    parent___parent___internal___contentFilePath
+    parent___parent___internal___description
+    parent___parent___internal___fieldOwners
+    parent___parent___internal___ignoreType
+    parent___parent___internal___mediaType
+    parent___parent___internal___owner
+    parent___parent___internal___type
+    parent___parent___parent___children
+    parent___parent___parent___id
+    prismicId
+    tags
+    type
+    url
+}
+
+enum PrismicSiteDataFieldsEnum {
+    _previewable
+    alternate_languages
+    alternate_languages___id
+    alternate_languages___lang
+    alternate_languages___raw
+    alternate_languages___type
+    alternate_languages___uid
+    children
+    children___children
+    children___children___children
+    children___children___children___children
+    children___children___children___id
+    children___children___id
+    children___children___internal___content
+    children___children___internal___contentDigest
+    children___children___internal___contentFilePath
+    children___children___internal___description
+    children___children___internal___fieldOwners
+    children___children___internal___ignoreType
+    children___children___internal___mediaType
+    children___children___internal___owner
+    children___children___internal___type
+    children___children___parent___children
+    children___children___parent___id
+    children___id
+    children___internal___content
+    children___internal___contentDigest
+    children___internal___contentFilePath
+    children___internal___description
+    children___internal___fieldOwners
+    children___internal___ignoreType
+    children___internal___mediaType
+    children___internal___owner
+    children___internal___type
+    children___parent___children
+    children___parent___children___children
+    children___parent___children___id
+    children___parent___id
+    children___parent___internal___content
+    children___parent___internal___contentDigest
+    children___parent___internal___contentFilePath
+    children___parent___internal___description
+    children___parent___internal___fieldOwners
+    children___parent___internal___ignoreType
+    children___parent___internal___mediaType
+    children___parent___internal___owner
+    children___parent___internal___type
+    children___parent___parent___children
+    children___parent___parent___id
+    dataRaw
+    data___address___html
+    data___address___raw
+    data___address___richText
+    data___address___text
+    data___address_map___latitude
+    data___address_map___longitude
+    data___cta_link___id
+    data___cta_link___isBroken
+    data___cta_link___lang
+    data___cta_link___link_type
+    data___cta_link___localFile___absolutePath
+    data___cta_link___localFile___accessTime
+    data___cta_link___localFile___atime
+    data___cta_link___localFile___atimeMs
+    data___cta_link___localFile___base
+    data___cta_link___localFile___birthTime
+    data___cta_link___localFile___birthtime
+    data___cta_link___localFile___birthtimeMs
+    data___cta_link___localFile___blksize
+    data___cta_link___localFile___blocks
+    data___cta_link___localFile___changeTime
+    data___cta_link___localFile___children
+    data___cta_link___localFile___ctime
+    data___cta_link___localFile___ctimeMs
+    data___cta_link___localFile___dev
+    data___cta_link___localFile___dir
+    data___cta_link___localFile___ext
+    data___cta_link___localFile___extension
+    data___cta_link___localFile___gid
+    data___cta_link___localFile___id
+    data___cta_link___localFile___ino
+    data___cta_link___localFile___mode
+    data___cta_link___localFile___modifiedTime
+    data___cta_link___localFile___mtime
+    data___cta_link___localFile___mtimeMs
+    data___cta_link___localFile___name
+    data___cta_link___localFile___nlink
+    data___cta_link___localFile___prettySize
+    data___cta_link___localFile___publicURL
+    data___cta_link___localFile___rdev
+    data___cta_link___localFile___relativeDirectory
+    data___cta_link___localFile___relativePath
+    data___cta_link___localFile___root
+    data___cta_link___localFile___size
+    data___cta_link___localFile___sourceInstanceName
+    data___cta_link___localFile___uid
+    data___cta_link___raw
+    data___cta_link___size
+    data___cta_link___slug
+    data___cta_link___tags
+    data___cta_link___target
+    data___cta_link___type
+    data___cta_link___uid
+    data___cta_link___url
+    data___cta_text
+    data___email
+    data___footer_navigation
+    data___footer_navigation___nav_link___id
+    data___footer_navigation___nav_link___isBroken
+    data___footer_navigation___nav_link___lang
+    data___footer_navigation___nav_link___link_type
+    data___footer_navigation___nav_link___raw
+    data___footer_navigation___nav_link___size
+    data___footer_navigation___nav_link___slug
+    data___footer_navigation___nav_link___tags
+    data___footer_navigation___nav_link___target
+    data___footer_navigation___nav_link___type
+    data___footer_navigation___nav_link___uid
+    data___footer_navigation___nav_link___url
+    data___footer_navigation___nav_text
+    data___navigation
+    data___navigation___nav_link___id
+    data___navigation___nav_link___isBroken
+    data___navigation___nav_link___lang
+    data___navigation___nav_link___link_type
+    data___navigation___nav_link___raw
+    data___navigation___nav_link___size
+    data___navigation___nav_link___slug
+    data___navigation___nav_link___tags
+    data___navigation___nav_link___target
+    data___navigation___nav_link___type
+    data___navigation___nav_link___uid
+    data___navigation___nav_link___url
+    data___navigation___nav_text
+    data___phone_number
+    data___social
+    data___social___social_icon
+    data___social___social_link___id
+    data___social___social_link___isBroken
+    data___social___social_link___lang
+    data___social___social_link___link_type
+    data___social___social_link___raw
+    data___social___social_link___size
+    data___social___social_link___slug
+    data___social___social_link___tags
+    data___social___social_link___target
+    data___social___social_link___type
+    data___social___social_link___uid
+    data___social___social_link___url
     first_publication_date
     href
     id
@@ -3849,6 +4170,11 @@ input PrismicEmbedTypeSortInput {
     order: [SortOrderEnum] = [ASC]
 }
 
+input PrismicGeoPointTypeFilterInput {
+    latitude: FloatQueryOperatorInput
+    longitude: FloatQueryOperatorInput
+}
+
 input PrismicHomepageDataTypeFilterInput {
     meta_description: StringQueryOperatorInput
     meta_title: StringQueryOperatorInput
@@ -3881,6 +4207,29 @@ input PrismicHomepageSortInput {
 input PrismicImageDimensionsTypeFilterInput {
     height: IntQueryOperatorInput
     width: IntQueryOperatorInput
+}
+
+input PrismicLinkTypeEnumQueryOperatorInput {
+    eq: PrismicLinkTypeEnum
+    in: [PrismicLinkTypeEnum]
+    ne: PrismicLinkTypeEnum
+    nin: [PrismicLinkTypeEnum]
+}
+
+input PrismicLinkTypeFilterInput {
+    id: IDQueryOperatorInput
+    isBroken: BooleanQueryOperatorInput
+    lang: StringQueryOperatorInput
+    link_type: PrismicLinkTypeEnumQueryOperatorInput
+    localFile: FileFilterInput
+    raw: JSONQueryOperatorInput
+    size: IntQueryOperatorInput
+    slug: StringQueryOperatorInput
+    tags: StringQueryOperatorInput
+    target: StringQueryOperatorInput
+    type: StringQueryOperatorInput
+    uid: StringQueryOperatorInput
+    url: StringQueryOperatorInput
 }
 
 input PrismicPageDataTypeFilterInput {
@@ -3975,6 +4324,69 @@ input PrismicShowroomFilterInput {
 
 input PrismicShowroomSortInput {
     fields: [PrismicShowroomFieldsEnum]
+    order: [SortOrderEnum] = [ASC]
+}
+
+input PrismicSiteDataDataFooterNavigationFilterInput {
+    nav_link: PrismicLinkTypeFilterInput
+    nav_text: StringQueryOperatorInput
+}
+
+input PrismicSiteDataDataFooterNavigationFilterListInput {
+    elemMatch: PrismicSiteDataDataFooterNavigationFilterInput
+}
+
+input PrismicSiteDataDataNavigationFilterInput {
+    nav_link: PrismicLinkTypeFilterInput
+    nav_text: StringQueryOperatorInput
+}
+
+input PrismicSiteDataDataNavigationFilterListInput {
+    elemMatch: PrismicSiteDataDataNavigationFilterInput
+}
+
+input PrismicSiteDataDataSocialFilterInput {
+    social_icon: StringQueryOperatorInput
+    social_link: PrismicLinkTypeFilterInput
+}
+
+input PrismicSiteDataDataSocialFilterListInput {
+    elemMatch: PrismicSiteDataDataSocialFilterInput
+}
+
+input PrismicSiteDataDataTypeFilterInput {
+    address: PrismicStructuredTextTypeFilterInput
+    address_map: PrismicGeoPointTypeFilterInput
+    cta_link: PrismicLinkTypeFilterInput
+    cta_text: StringQueryOperatorInput
+    email: StringQueryOperatorInput
+    footer_navigation: PrismicSiteDataDataFooterNavigationFilterListInput
+    navigation: PrismicSiteDataDataNavigationFilterListInput
+    phone_number: StringQueryOperatorInput
+    social: PrismicSiteDataDataSocialFilterListInput
+}
+
+input PrismicSiteDataFilterInput {
+    _previewable: IDQueryOperatorInput
+    alternate_languages: PrismicAlternateLanguageTypeFilterListInput
+    children: NodeFilterListInput
+    data: PrismicSiteDataDataTypeFilterInput
+    dataRaw: JSONQueryOperatorInput
+    first_publication_date: DateQueryOperatorInput
+    href: StringQueryOperatorInput
+    id: StringQueryOperatorInput
+    internal: InternalFilterInput
+    lang: StringQueryOperatorInput
+    last_publication_date: DateQueryOperatorInput
+    parent: NodeFilterInput
+    prismicId: IDQueryOperatorInput
+    tags: StringQueryOperatorInput
+    type: StringQueryOperatorInput
+    url: StringQueryOperatorInput
+}
+
+input PrismicSiteDataSortInput {
+    fields: [PrismicSiteDataFieldsEnum]
     order: [SortOrderEnum] = [ASC]
 }
 

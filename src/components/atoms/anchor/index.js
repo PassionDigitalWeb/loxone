@@ -24,6 +24,8 @@ export const Anchor = ({
         isLight && styles.light,
         className
       )}
+      to={to}
+      href={href}
       {...props}
     >
       {children}

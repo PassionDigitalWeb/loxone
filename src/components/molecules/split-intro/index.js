@@ -1,8 +1,7 @@
 import React from "react"
 import * as styles from "./split-intro.module.scss"
-import { Container, Heading } from "@components/atoms"
+import { Container } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
-import { StaticImage } from "gatsby-plugin-image"
 
 export const SplitIntro = ({ title, children, ...props }) => {
   return (
@@ -31,8 +30,8 @@ export const SplitIntro = ({ title, children, ...props }) => {
       <Spacer y="lg">
         <Container size="lg">
           <div className={styles.splitIntroGrid}>
-            {title && <div className={styles.leftCon}>{title}</div>}
-            {children && <div className={styles.rightCon}>{children}</div>}
+            {title && <div>{title}</div>}
+            {children && <div>{children}</div>}
           </div>
         </Container>
       </Spacer>

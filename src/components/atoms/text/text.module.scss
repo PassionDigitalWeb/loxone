@@ -1,6 +1,4 @@
 .text {
-  font-size: 16px;
-  line-height: 28px;
   padding: 0;
   color: inherit;
 
@@ -31,6 +29,10 @@
 }
 
 //variations
+.sizeNone {
+  font-size: inherit;
+  line-height: inherit;
+}
 .sizeRegular {
   font-size: 16px;
   line-height: 28px;

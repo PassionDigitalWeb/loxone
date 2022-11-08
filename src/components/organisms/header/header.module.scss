@@ -4,13 +4,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 3;
-  transition: all .25s;
+  z-index: 10;
+  transition: all 0.25s;
 
-  &.short{
-    background-color: rgba(255,255,255,.5);
+  &.short {
+    background-color: rgba(255, 255, 255, 0.5);
 
-     .logo{
+    .logo {
       height: 63px;
     }
   }
@@ -21,11 +21,11 @@
   justify-content: space-between;
 }
 
-.navCtaCol{
+.navCtaCol {
   flex: 1;
 }
 
-.navCtaWrap{
+.navCtaWrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,8 +37,6 @@
   display: flex;
   justify-content: center;
 }
-
-
 
 .navCol {
   flex: 1;
@@ -53,8 +51,4 @@
     line-height: 19px;
     font-weight: 700;
   }
-}
-
-.cta{
-
 }

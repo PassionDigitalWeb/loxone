@@ -8,10 +8,7 @@ import PropTypes from "prop-types"
 
 export const Banner = ({ isMini, children, ...props }) => {
   return (
-    <div
-      className={classNames(styles.banner, isMini && styles.mini)}
-      {...props}
-    >
+    <div className={classNames(styles.banner)} {...props}>
       <Container size="lg" style={{ position: "relative" }}>
         <div className={styles.bannerBg}>
           {isMini ? (

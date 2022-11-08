@@ -2,11 +2,10 @@ import React, { useState } from "react"
 import * as styles from "./showroom.module.scss"
 import { Container, Heading, Prose } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import classNames from "classnames"
 import PropTypes from "prop-types"
 import { useSmallScreen } from "@lib/hooks/useSmallScreen"
-import { PRichText } from "@lib/richtext"
 
 const Showroom = ({ title, children, ...props }) => {
   const isSmallScreen = useSmallScreen()
@@ -42,8 +41,6 @@ const Showroom = ({ title, children, ...props }) => {
     })
 
   const ActiveRoomData = ActiveRoom?.props
-
-  console.log({ ActiveRoomComponent, ActiveRoom, Rooms, children })
 
   return (
     <div className={classNames(styles.showroomCon)} {...props}>
@@ -257,7 +254,7 @@ const RoomInterest = ({ bgImageUrl, bgImage, isSmall, children }) => {
         </div>
       )}
       <Spacer x="sm" y="sm" className={styles.roomInterestContent}>
-        <div className={styles.inner}>{children}</div>
+        <div>{children}</div>
       </Spacer>
     </div>
   )

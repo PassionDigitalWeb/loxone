@@ -1,13 +1,11 @@
 import React from "react"
-import { Prose, Text } from "@components/atoms"
+import { Prose } from "@components/atoms"
 import { SplitIntro } from "@components/molecules"
 import { PRichText } from "@lib/richtext"
 
-const IntroSlice = ({ slice }) => {
-  const { primary, items } = slice
+export const IntroSlice = ({ slice }) => {
+  const { primary } = slice
   const { title, content } = primary
-
-  console.log({ primary })
 
   return (
     <SplitIntro title={<PRichText field={title.richText} />}>
