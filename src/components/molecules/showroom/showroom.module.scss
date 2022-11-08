@@ -1,6 +1,7 @@
 .showroomCon {
   position: relative;
   background: #fafafa;
+  overflow: hidden;
 
   .roomBgImage {
     display: none;
@@ -19,6 +20,24 @@
       display: block;
     }
   }
+}
+
+.showroomBg{
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  height: 100%;
+
+  svg{
+    display: block;
+    height: 100%;
+  }
+}
+
+.showroomInner{
+  position: relative;
+  z-index: 2;
 }
 
 .roomSelection {

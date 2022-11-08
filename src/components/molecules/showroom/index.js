@@ -44,7 +44,28 @@ const Showroom = ({ title, children, ...props }) => {
 
   return (
     <div className={classNames(styles.showroomCon)} {...props}>
-      <Spacer y="lg">
+      <div className={styles.showroomBg}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="792"
+          height="1108"
+          viewBox="0 0 792 1108"
+          fill="none"
+        >
+          <path
+            opacity="0.4"
+            d="M803.669 -17.5001L456.393 584L109.116 -17.5L803.669 -17.5001Z"
+            fill="#FAFAFA"
+            stroke="#333333"
+          />
+          <path
+            opacity="0.4"
+            d="M108.582 1185.38L804 -19.1251L1499.42 1185.38H108.582Z"
+            stroke="#69C350"
+          />
+        </svg>
+      </div>
+      <Spacer y="lg" className={styles.showroomInner}>
         <Container size="lg">
           <Prose>{title}</Prose>
           <div className={classNames(styles.showcase)}>
