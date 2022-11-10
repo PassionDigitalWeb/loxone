@@ -9,19 +9,19 @@ import PropTypes from "prop-types"
 export const ContentBlock = ({ isMini, hasBG, children, ...props }) => {
   return (
     <div className={classNames(styles.contentBlock)} {...props}>
+      {hasBG && (
+        <div className={styles.bg}>
+          <StaticImage
+            src="./simple-block-bg.jpg"
+            alt=""
+            objectFit="cover"
+            objectPosition="center"
+            width="1290"
+            height="359"
+          />
+        </div>
+      )}
       <Container size="lg" style={{ position: "relative" }}>
-        {hasBG && (
-          <div className={styles.bg}>
-            <StaticImage
-              src="./simple-block-bg.jpg"
-              alt=""
-              objectFit="cover"
-              objectPosition="center"
-              width="1290"
-              height="359"
-            />
-          </div>
-        )}
         <Spacer y={isMini ? "md" : "xl"}>
           <Container size="md">
             <div className={classNames(styles.inner)}>{children}</div>

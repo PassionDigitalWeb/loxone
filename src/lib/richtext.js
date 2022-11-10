@@ -34,12 +34,10 @@ export const richComponents = {
     </Heading>
   ),
   paragraph: ({ children, ...props }) => {
-    console.log({ test: props })
     return <Text>{children}</Text>
   },
 }
 
 export const PRichText = ({ field, ...props }) => {
-  console.log({ PRichText: props })
   return <PrismicRichText field={field} components={richComponents} />
 }

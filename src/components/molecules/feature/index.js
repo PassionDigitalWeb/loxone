@@ -23,11 +23,11 @@ export const Feature = ({ isImageRight = false, children, ...props }) => {
   )
 }
 
-Feature.Asset = ({ children }) => {
+const Asset = ({ children }) => {
   return <div className={styles.asset}>{children}</div>
 }
 
-Feature.Content = ({ children }) => {
+const Content = ({ children }) => {
   return (
     <div className={styles.content}>
       <Spacer y="sm">{children}</Spacer>
@@ -35,6 +35,7 @@ Feature.Content = ({ children }) => {
   )
 }
 
-Feature.propTypes = {}
+Feature.Asset = Asset
+Feature.Content = Content
 
 export default Feature

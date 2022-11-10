@@ -5,9 +5,11 @@ import { Container } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import BackgroundImage from "gatsby-background-image"
 import { convertToBgImage } from "gbimage-bridge"
+import { getImage } from "gatsby-plugin-image"
 
 export const Hero = ({ bgImageUrl, bgImage, children, ...props }) => {
-  const bgImageConvert = bgImage && convertToBgImage(bgImage.gatsbyImageData)
+  const bgImageConvert =
+    bgImage && convertToBgImage(getImage(bgImage.localFile))
   return (
     <div className={cn(styles.hero)}>
       {(bgImageUrl || bgImage) && (

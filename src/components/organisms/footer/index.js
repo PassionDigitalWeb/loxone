@@ -144,7 +144,6 @@ export const FooterNav = ({ children, ...props }) => {
         {siteData?.footer_navigation && (
           <nav className={styles.footerNavi}>
             {siteData?.footer_navigation?.map(({ nav_link, nav_text }, key) => {
-              console.log({ nav_link, nav_text })
               const Component = ({ children, ...props }) => (
                 <Anchor className={styles.footerNavItem} {...props}>
                   {children}

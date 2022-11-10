@@ -3,11 +3,11 @@ import { Hero } from "@components/molecules"
 import { Button, ButtonGroup, Prose } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
 import { PrismicLink } from "@prismicio/react"
+import { getImage } from "gatsby-plugin-image"
 
 export const FullHeroSlice = ({ slice }) => {
   const { primary, items } = slice
   const { hero_title, hero_content, hero_image } = primary
-
   return (
     <Hero bgImage={hero_image}>
       <Prose>

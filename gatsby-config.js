@@ -26,6 +26,11 @@ module.exports = {
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
         releaseID: process.env.PRISMIC_RELEASE_ID,
+        shouldDownloadFiles: {
+          "homepage.data.body.full_hero.primary.hero_image": true,
+          "homepage.data.body.feature.primary.image": true,
+          "homepage.data.body.image_block.primary.image": true,
+        },
         linkResolver: doc =>
           require("./config/prismic/linkResolver").linkResolver(doc),
       },
@@ -45,6 +50,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-transformer-sharp`,
+      options: {
+        // The option defaults to true
+        checkSupportedExtensions: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
@@ -53,7 +65,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

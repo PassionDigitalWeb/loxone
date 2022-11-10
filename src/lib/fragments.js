@@ -18,8 +18,12 @@ export const HomeFragments = graphql`
         richText
       }
       hero_image {
-        gatsbyImageData(layout: FULL_WIDTH)
         alt
+        localFile {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
+          }
+        }
       }
     }
     items {
@@ -46,7 +50,11 @@ export const HomeFragments = graphql`
     ...SliceType
     primary {
       image {
-        gatsbyImageData
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
       content {
         richText
@@ -116,7 +124,7 @@ export const HomeFragments = graphql`
                   richText
                 }
                 interest_image {
-                  gatsbyImageData(layout: FULL_WIDTH)
+                  gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
                   alt
                 }
               }
@@ -146,6 +154,45 @@ export const HomeFragments = graphql`
     ...SliceType
     items {
       content {
+        richText
+      }
+    }
+  }
+  fragment HomepageDataBodyImageBlock on PrismicHomepageDataBodyImageBlock {
+    ...SliceType
+    primary {
+      content {
+        richText
+      }
+      image {
+        alt
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+      }
+    }
+    items {
+      button_link {
+        url
+        target
+        link_type
+      }
+      colour
+      button_text
+    }
+  }
+  fragment HomepageDataBodyFAQs on PrismicHomepageDataBodyFaqs {
+    ...SliceType
+    primary {
+      content {
+        richText
+      }
+    }
+    items {
+      question
+      answer {
         richText
       }
     }

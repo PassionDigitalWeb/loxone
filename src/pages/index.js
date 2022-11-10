@@ -7,8 +7,10 @@ import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
 import {
   BannerSlice,
   ContentBlockSlice,
+  FAQsSlice,
   FeatureSlice,
   FullHeroSlice,
+  ImageBlockSlice,
   IntroSlice,
   ShowroomSlice,
   SpacerSlice,
@@ -24,6 +26,8 @@ const components = {
   banner: BannerSlice,
   content_block: ContentBlockSlice,
   two_column_content: TwoColContentSlice,
+  image_block: ImageBlockSlice,
+  faqs: FAQsSlice,
 }
 
 const IndexPage = props => {
@@ -68,6 +72,8 @@ export const query = graphql`
           ...HomepageDataBodyContentBlock
           ...HomepageDataBodySpacer
           ...HomepageDataBodyTwoColumnContent
+          ...HomepageDataBodyImageBlock
+          ...HomepageDataBodyFAQs
         }
       }
     }

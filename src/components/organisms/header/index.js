@@ -52,7 +52,6 @@ export const Header = ({ children, isLight, ...props }) => {
                   <nav className={styles.nav}>
                     {siteData?.navigation?.map(
                       ({ nav_link, nav_text }, key) => {
-                        console.log({ nav_link, nav_text })
                         const Component = ({ children, ...props }) => (
                           <Anchor
                             className={styles.navItem}

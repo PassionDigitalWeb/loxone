@@ -1,25 +1,32 @@
 import React from "react"
-import { Feature } from "@components/molecules"
 import { Button, ButtonGroup, Prose } from "@components/atoms"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { PRichText } from "@lib/richtext"
+import { ContentBlock, ImageBlock } from "@components/molecules"
 import { PrismicLink } from "@prismicio/react"
 
-export const FeatureSlice = ({ slice }) => {
+export const ImageBlockSlice = ({ slice }) => {
   const { primary, items } = slice
-  const { content, image, is_image_right } = primary
+  const { content, image } = primary
+
+  if (!image) {
+    return <></>
+  }
 
   return (
-    <Feature isImageRight={is_image_right}>
-      {image && (
-        <Feature.Asset>
-          <GatsbyImage alt={image.alt} image={getImage(image.localFile)} />
-        </Feature.Asset>
+    <ImageBlock>
+      {content && (
+        <ImageBlock.Content>
+          <Prose align="center">
+            {content && <PRichText field={content.richText} />}
+          </Prose>
+        </ImageBlock.Content>
       )}
-      <Feature.Content>
-        <Prose>
-          {content && <PRichText field={content.richText} />}
-          {items && (
+
+      <ImageBlock.Image image={image} />
+
+      {items && (
+        <ImageBlock.Content>
+          <Prose align="center">
             <ButtonGroup>
               {items?.map(({ button_text, button_link, colour }, key) => {
                 return (
@@ -38,11 +45,11 @@ export const FeatureSlice = ({ slice }) => {
                 )
               })}
             </ButtonGroup>
-          )}
-        </Prose>
-      </Feature.Content>
-    </Feature>
+          </Prose>
+        </ImageBlock.Content>
+      )}
+    </ImageBlock>
   )
 }
 
-export default FeatureSlice
+export default ImageBlockSlice
