@@ -40,4 +40,30 @@ const Template = args => (
   </MediaBlock>
 )
 
-export const Default = Template.bind({})
+export const Image = Template.bind({})
+
+export const Video = args => (
+  <MediaBlock {...args}>
+    <MediaBlock.Content>
+      <Prose align="center">
+        <Heading node="h2" variant="h2">
+          Image Block
+        </Heading>
+        <Text>
+          Placerat vestibulum lectus mauris ultrices eros in. Est pellentesque
+          elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.
+          Euismod elementum nisi quis eleifend.
+        </Text>
+      </Prose>
+    </MediaBlock.Content>
+    <MediaBlock.Video imageUrl={Img} />
+    <MediaBlock.Content>
+      <Prose align="center">
+        <ButtonGroup>
+          <Button color="dark-grey">View our projects</Button>
+          <Button color="green">Book a tour</Button>
+        </ButtonGroup>
+      </Prose>
+    </MediaBlock.Content>
+  </MediaBlock>
+)

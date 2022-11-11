@@ -4,13 +4,11 @@ import { PRichText } from "@lib/richtext"
 import { ContentBlock, MediaBlock } from "@components/molecules"
 import { PrismicLink } from "@prismicio/react"
 
-export const ImageBlockSlice = ({ slice }) => {
+export const VideoBlockSlice = ({ slice }) => {
   const { primary, items } = slice
-  const { content, image } = primary
+  const { content, image, video_embed } = primary
 
-  if (!image) {
-    return <></>
-  }
+  console.log({ primary })
 
   return (
     <MediaBlock>
@@ -22,7 +20,7 @@ export const ImageBlockSlice = ({ slice }) => {
         </MediaBlock.Content>
       )}
 
-      <MediaBlock.Image image={image} />
+      <MediaBlock.Video image={image} videoEmbed={video_embed} />
 
       {items && (
         <MediaBlock.Content>
@@ -52,4 +50,4 @@ export const ImageBlockSlice = ({ slice }) => {
   )
 }
 
-export default ImageBlockSlice
+export default VideoBlockSlice

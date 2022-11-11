@@ -30,6 +30,7 @@ module.exports = {
           "homepage.data.body.full_hero.primary.hero_image": true,
           "homepage.data.body.feature.primary.image": true,
           "homepage.data.body.image_block.primary.image": true,
+          "homepage.data.body.video_block.primary.image": true,
         },
         linkResolver: doc =>
           require("./config/prismic/linkResolver").linkResolver(doc),

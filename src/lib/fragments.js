@@ -1,4 +1,5 @@
 import { graphql } from "gatsby"
+
 export const SliceType = graphql`
   fragment SliceType on PrismicSliceType {
     slice_type
@@ -171,6 +172,36 @@ export const HomeFragments = graphql`
             gatsbyImageData(placeholder: BLURRED)
           }
         }
+      }
+    }
+    items {
+      button_link {
+        url
+        target
+        link_type
+      }
+      colour
+      button_text
+    }
+  }
+
+  fragment HomepageDataBodyVideoBlock on PrismicHomepageDataBodyVideoBlock {
+    ...SliceType
+    primary {
+      content {
+        richText
+      }
+      image {
+        alt
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+      }
+      video_embed {
+        title
+        html
       }
     }
     items {

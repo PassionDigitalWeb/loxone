@@ -1,7 +1,7 @@
 import React from "react"
 import { Button, ButtonGroup, Heading, Prose, Text } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
-import { ContentBlock, FAQs, ImageBlock } from "@components/molecules"
+import { ContentBlock, FAQs, MediaBlock } from "@components/molecules"
 import { PrismicLink } from "@prismicio/react"
 
 export const FAQsSlice = ({ slice }) => {
