@@ -23,7 +23,7 @@ const Layout = ({ children, ...props }) => {
   useEffect(() => {
     const hero = checkHasHero()
     setHasHero(hero)
-  }, [props.data.page])
+  }, [props?.data?.page])
 
   return (
     <>
@@ -38,17 +38,23 @@ const Layout = ({ children, ...props }) => {
 }
 
 const Head = props => {
-  const document = props.data.page.data
+  const document = props?.data?.page?.data
+
+  if (!document) {
+    return <></>
+  }
   const { meta_description, meta_title } = document
 
   return (
-    <Helmet>
-      <SEO
-        title={meta_title}
-        description={meta_description}
-        pathname={props.pathname}
-      />
-    </Helmet>
+    <>
+      <Helmet>
+        <SEO
+          title={meta_title}
+          description={meta_description}
+          pathname={props.pathname}
+        />
+      </Helmet>
+    </>
   )
 }
 
