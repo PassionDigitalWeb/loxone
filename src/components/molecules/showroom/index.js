@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import * as styles from "./showroom.module.scss"
-import { Container, Heading, Prose } from "@components/atoms"
+import { Container, Prose } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import { GatsbyImage } from "gatsby-plugin-image"
 import classNames from "classnames"
 import PropTypes from "prop-types"
 import { useSmallScreen } from "@lib/hooks/useSmallScreen"
+
+//TODO: refactor to use data instead of components. Current way over complicates the component.
 
 const Showroom = ({ title, children, ...props }) => {
   const isSmallScreen = useSmallScreen()
@@ -29,15 +31,17 @@ const Showroom = ({ title, children, ...props }) => {
     (child, index) => activeRoom === index
   )?.[0]
 
+  const onActiveRoomUpdate = ({ target }) => {
+    setActiveRoom(parseInt(target.value))
+  }
+
   //add room options and update function to active room
   const ActiveRoomComponent =
     ActiveRoom &&
     React.cloneElement(ActiveRoom, {
       activeRoom: activeRoom,
       options: roomSelectionTitles,
-      onUpdate: ({ target }) => {
-        setActiveRoom(parseInt(target.value))
-      },
+      onUpdate: onActiveRoomUpdate,
     })
 
   const ActiveRoomData = ActiveRoom?.props
@@ -69,10 +73,14 @@ const Showroom = ({ title, children, ...props }) => {
         <Container size="lg">
           <Prose>{title}</Prose>
           <div className={classNames(styles.showcase)}>
-            {isSmallScreen &&
-              React.Children.toArray(Rooms).map(({ props }, key) => {
-                return <MobileRoom {...props} />
-              })}
+            {isSmallScreen && (
+              <MobileRooms
+                room={ActiveRoom?.props}
+                activeRoom={activeRoom}
+                options={roomSelectionTitles}
+                onUpdate={onActiveRoomUpdate}
+              />
+            )}
             {!isSmallScreen && <RoomBackground {...ActiveRoomData} />}
             {!isSmallScreen && ActiveRoomComponent}
           </div>
@@ -210,6 +218,19 @@ Room.defaultProps = {
   __TYPE__: "room",
 }
 
+const MobileRooms = ({ room, options, onUpdate, activeRoom }) => {
+  return (
+    <div>
+      <RoomSelection
+        options={options}
+        onUpdate={onUpdate}
+        activeRoom={activeRoom}
+      />
+      {room && <MobileRoom {...room} />}
+    </div>
+  )
+}
+
 const MobileRoom = ({ children, title }) => {
   const childrenWithProps = React.Children.map(children, (child, index) => {
     if (React.isValidElement(child) && child.props.__TYPE__ === "interest") {
@@ -222,10 +243,6 @@ const MobileRoom = ({ children, title }) => {
 
   return (
     <div>
-      <Spacer y="sm" />
-      <Heading variant="h4" node="h4">
-        {title.text}
-      </Heading>
       <Spacer y="sm" />
       <div className={styles.mobileRooms}>{childrenWithProps}</div>
     </div>

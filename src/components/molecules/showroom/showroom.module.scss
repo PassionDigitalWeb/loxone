@@ -41,19 +41,28 @@
 }
 
 .roomSelection {
-  position: absolute;
-  z-index: 2;
-  top: 21px;
-  left: 21px;
+  display: inline-flex;
+  position: relative;
+
+  @media (min-width: $screen-md) {
+    position: absolute;
+    z-index: 2;
+    top: 21px;
+    left: 21px;
+  }
 
   select {
-    background: rgba(255, 255, 255, 0.1);
+    background-color: var(--color-brand-black);
     border: 1px solid #ffffff;
     border-radius: 3px;
     color: #ffffff;
     height: 36px;
     padding: 1px 38px 1px 7px;
     appearance: none;
+
+    @media (min-width: $screen-md) {
+      background: rgba(255, 255, 255, 0.1);
+    }
   }
 
   svg {
@@ -61,6 +70,10 @@
     right: 12px;
     top: 0;
     height: 100%;
+
+    path{
+
+    }
   }
 }
 
@@ -234,8 +247,8 @@
   .roomInterest {
     display: flex;
     flex-direction: column;
-    flex: 0 0 80vw;
-    margin-right: 30px;
+    flex: 0 0 330px;
+    margin-right: 25px;
     padding-bottom: 20px;
     filter: drop-shadow(0px 0px 12px rgba(0, 0, 0, 0.15));
 
@@ -259,6 +272,8 @@
     .roomInterestContent {
       background-color: var(--color-brand-white);
       font-weight: 100;
+      padding: 30px 20px;
+      flex: 1;
     }
   }
 }

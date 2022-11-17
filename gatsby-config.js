@@ -29,10 +29,12 @@ module.exports = {
         shouldDownloadFiles: {
           "homepage.data.body.full_hero.primary.hero_image": true,
           "homepage.data.body.feature.primary.image": true,
+          "homepage.data.body.feature_slider.items.image": true,
           "homepage.data.body.image_block.primary.image": true,
           "homepage.data.body.video_block.primary.image": true,
           "page.data.body.full_hero.primary.hero_image": true,
           "page.data.body.feature.primary.image": true,
+          "page.data.body.feature_slider.items.image": true,
           "page.data.body.image_block.primary.image": true,
           "page.data.body.video_block.primary.image": true,
         },

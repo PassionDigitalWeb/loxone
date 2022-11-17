@@ -1,10 +1,14 @@
 .feature {
   position: relative;
+
+  &.darkBG {
+    background: #F5F5F5;
+  }
 }
 
 .featureGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   gap: 30px;
 
   .asset {
@@ -23,7 +27,7 @@
   }
 
   @media (min-width: $screen-md) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     gap: 62px;
 
     &.isRight {
@@ -35,5 +39,39 @@
         order: 1;
       }
     }
+  }
+}
+
+
+.slider {
+  .swiperPrev, .swiperNext {
+    width: 39px;
+    height: 38px;
+    background: var(--color-brand-black);
+    color: var(--color-brand-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    cursor: pointer;
+
+    &[class*='swiper-button-disabled']{
+      opacity: .5;
+      pointer-events: none;
+    }
+  }
+
+  .slide{
+    padding: 0 25px;
+  }
+
+  .swiperPrev {
+    left: 0;
+  }
+  .swiperNext {
+    right: 0;
   }
 }
