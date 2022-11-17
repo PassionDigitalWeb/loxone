@@ -1,6 +1,6 @@
 import React from "react"
 import * as styles from "./feature.module.scss"
-import { Container } from "@components/atoms"
+import { Container, Heading } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import classNames from "classnames"
 import { Navigation } from "swiper"
@@ -59,7 +59,15 @@ const Slider = ({ slides }) => {
                   alt={image.alt}
                   image={getImage(image.localFile)}
                 />
-                <span>{title}</span>
+                <Heading
+                  variant="h6"
+                  node="span"
+                  color="white"
+                  weight="bold"
+                  className={styles.title}
+                >
+                  {title}
+                </Heading>
               </SwiperSlide>
             )
           })}
