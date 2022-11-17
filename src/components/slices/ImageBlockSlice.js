@@ -1,8 +1,9 @@
 import React from "react"
 import { Button, ButtonGroup, Prose } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
-import { ContentBlock, MediaBlock } from "@components/molecules"
+import { MediaBlock } from "@components/molecules"
 import { PrismicLink } from "@prismicio/react"
+import { graphql } from "gatsby"
 
 export const ImageBlockSlice = ({ slice }) => {
   const { primary, items } = slice
@@ -51,5 +52,59 @@ export const ImageBlockSlice = ({ slice }) => {
     </MediaBlock>
   )
 }
+
+export const query = graphql`
+  fragment HomepageDataBodyImageBlock on PrismicHomepageDataBodyImageBlock {
+    ...SliceType
+    primary {
+      content {
+        richText
+      }
+      image {
+        alt
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+      }
+    }
+    items {
+      button_link {
+        url
+        target
+        link_type
+      }
+      colour
+      button_text
+    }
+  }
+
+  fragment PageDataBodyImageBlock on PrismicPageDataBodyImageBlock {
+    ...SliceType
+    primary {
+      content {
+        richText
+      }
+      image {
+        alt
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+      }
+    }
+    items {
+      button_link {
+        url
+        target
+        link_type
+      }
+      colour
+      button_text
+    }
+  }
+`
 
 export default ImageBlockSlice

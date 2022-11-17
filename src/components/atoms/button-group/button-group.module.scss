@@ -1,5 +1,9 @@
 .button-group {
   display: inline-flex;
-  gap: 20px;
+  gap: 15px;
   flex-wrap: wrap;
+
+  @media (min-width: $screen-sm) {
+    gap: 20px;
+  }
 }

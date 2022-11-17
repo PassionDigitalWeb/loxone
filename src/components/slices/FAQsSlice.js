@@ -1,8 +1,8 @@
 import React from "react"
-import { Button, ButtonGroup, Heading, Prose, Text } from "@components/atoms"
+import { Prose } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
-import { ContentBlock, FAQs, MediaBlock } from "@components/molecules"
-import { PrismicLink } from "@prismicio/react"
+import { FAQs } from "@components/molecules"
+import { graphql } from "gatsby"
 
 export const FAQsSlice = ({ slice }) => {
   const { primary, items } = slice
@@ -25,5 +25,36 @@ export const FAQsSlice = ({ slice }) => {
     </FAQs>
   )
 }
+
+export const query = graphql`
+  fragment HomepageDataBodyFAQs on PrismicHomepageDataBodyFaqs {
+    ...SliceType
+    primary {
+      content {
+        richText
+      }
+    }
+    items {
+      question
+      answer {
+        richText
+      }
+    }
+  }
+  fragment PageDataBodyFAQs on PrismicPageDataBodyFaqs {
+    ...SliceType
+    primary {
+      content {
+        richText
+      }
+    }
+    items {
+      question
+      answer {
+        richText
+      }
+    }
+  }
+`
 
 export default FAQsSlice

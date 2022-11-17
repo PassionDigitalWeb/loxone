@@ -4,6 +4,7 @@ import { Button, ButtonGroup, Prose } from "@components/atoms"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { PRichText } from "@lib/richtext"
 import { PrismicLink } from "@prismicio/react"
+import { graphql } from "gatsby"
 
 export const FeatureSlice = ({ slice }) => {
   const { primary, items } = slice
@@ -44,5 +45,59 @@ export const FeatureSlice = ({ slice }) => {
     </Feature>
   )
 }
+
+export const query = graphql`
+  fragment HomepageDataBodyFeature on PrismicHomepageDataBodyFeature {
+    ...SliceType
+    primary {
+      image {
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+      content {
+        richText
+      }
+      is_image_right
+    }
+    items {
+      button_link {
+        url
+        target
+        link_type
+      }
+      colour
+      button_text
+    }
+  }
+
+  fragment PageDataBodyFeature on PrismicPageDataBodyFeature {
+    ...SliceType
+    primary {
+      image {
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+      content {
+        richText
+      }
+      is_image_right
+    }
+    items {
+      button_link {
+        url
+        target
+        link_type
+      }
+      colour
+      button_text
+    }
+  }
+`
 
 export default FeatureSlice

@@ -3,7 +3,7 @@ import { Hero } from "@components/molecules"
 import { Button, ButtonGroup, Prose } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
 import { PrismicLink } from "@prismicio/react"
-import { getImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 
 export const FullHeroSlice = ({ slice }) => {
   const { primary, items } = slice
@@ -33,6 +33,62 @@ export const FullHeroSlice = ({ slice }) => {
   )
 }
 
-FullHeroSlice.propTypes = {}
+export const query = graphql`
+  fragment HomepageDataBodyFullHero on PrismicHomepageDataBodyFullHero {
+    ...SliceType
+    primary {
+      hero_content {
+        richText
+      }
+      hero_title {
+        richText
+      }
+      hero_image {
+        alt
+        localFile {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
+          }
+        }
+      }
+    }
+    items {
+      button_text
+      button_link {
+        url
+        link_type
+        type
+      }
+    }
+  }
+
+  fragment PageDataBodyFullHero on PrismicPageDataBodyFullHero {
+    ...SliceType
+    primary {
+      hero_content {
+        richText
+      }
+      hero_title {
+        richText
+      }
+      hero_image {
+        alt
+        localFile {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
+          }
+        }
+      }
+    }
+    items {
+      button_text
+      button_link {
+        url
+        link_type
+        type
+      }
+    }
+  }
+`
 
 export default FullHeroSlice

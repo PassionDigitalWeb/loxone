@@ -1,8 +1,8 @@
 import React from "react"
 import { Prose } from "@components/atoms"
-import { SplitIntro } from "@components/molecules"
 import { PRichText } from "@lib/richtext"
 import TwoColContent from "@components/molecules/two-column-content"
+import { graphql } from "gatsby"
 
 export const TwoColContentSlice = ({ slice }) => {
   const { items } = slice
@@ -21,5 +21,25 @@ export const TwoColContentSlice = ({ slice }) => {
     </TwoColContent>
   )
 }
+
+export const query = graphql`
+  fragment HomepageDataBodyTwoColumnContent on PrismicHomepageDataBodyTwoColumnContent {
+    ...SliceType
+    items {
+      content {
+        richText
+      }
+    }
+  }
+
+  fragment PageDataBodyTwoColumnContent on PrismicPageDataBodyTwoColumnContent {
+    ...SliceType
+    items {
+      content {
+        richText
+      }
+    }
+  }
+`
 
 export default TwoColContentSlice

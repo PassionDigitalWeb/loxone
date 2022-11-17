@@ -1,10 +1,10 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import * as PropTypes from "prop-types"
 import cn from "classnames"
 import * as styles from "./button.module.scss"
 import { camelize } from "@lib/helper"
+import Link from "@components/atoms/Link"
 
 export const Button = ({
   as = "button",
@@ -16,12 +16,7 @@ export const Button = ({
   children,
   ...props
 }) => {
-  let Node = (props.href && "a") || as
-
-  //check if Link props are there
-  if (props.to) {
-    Node = Link
-  }
+  let Node = ((props.href || props.to) && Link) || as
 
   return (
     <Node
@@ -45,7 +40,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
   variant: PropTypes.oneOf(["text", "button"]),
   isOutlined: PropTypes.bool,
-  color: PropTypes.oneOf(["green", "dark-grey", "clear-white"]),
+  color: PropTypes.oneOf(["inherit", "green", "dark-grey", "clear-white"]),
   href: PropTypes.string,
   to: PropTypes.string,
 }

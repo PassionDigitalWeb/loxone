@@ -1,14 +1,13 @@
 import React from "react"
 import { Button, ButtonGroup, Prose } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
-import { ContentBlock, MediaBlock } from "@components/molecules"
+import { MediaBlock } from "@components/molecules"
 import { PrismicLink } from "@prismicio/react"
+import { graphql } from "gatsby"
 
 export const VideoBlockSlice = ({ slice }) => {
   const { primary, items } = slice
   const { content, image, video_embed } = primary
-
-  console.log({ primary })
 
   return (
     <MediaBlock>
@@ -49,5 +48,67 @@ export const VideoBlockSlice = ({ slice }) => {
     </MediaBlock>
   )
 }
+
+export const query = graphql`
+  fragment HomepageDataBodyVideoBlock on PrismicHomepageDataBodyVideoBlock {
+    ...SliceType
+    primary {
+      content {
+        richText
+      }
+      image {
+        alt
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+      }
+      video_embed {
+        title
+        html
+      }
+    }
+    items {
+      button_link {
+        url
+        target
+        link_type
+      }
+      colour
+      button_text
+    }
+  }
+
+  fragment PageDataBodyVideoBlock on PrismicPageDataBodyVideoBlock {
+    ...SliceType
+    primary {
+      content {
+        richText
+      }
+      image {
+        alt
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+      }
+      video_embed {
+        title
+        html
+      }
+    }
+    items {
+      button_link {
+        url
+        target
+        link_type
+      }
+      colour
+      button_text
+    }
+  }
+`
 
 export default VideoBlockSlice

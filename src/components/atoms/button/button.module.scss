@@ -56,14 +56,14 @@
     color: var(--btn-color);
   }
 
-  svg:first-child,
-  i:first-child {
-    margin-right: 10px;
+  svg + span,
+  i + span {
+    margin-left: 10px;
   }
 
-  svg:last-child,
-  i:last-child {
-    margin-left: 10px;
+  span + svg,
+  span + i {
+    margin-right: 10px;
   }
 }
 
@@ -96,6 +96,10 @@
   --btn-bg-color: transpart;
   --btn-bg-hover-color: transpart;
   --btn-color: var(--color-brand-black);
+
+  &.colorInherit {
+    --btn-color: inherit
+  }
 
   &.colorGreen {
     --btn-color: var(--color-brand-green);

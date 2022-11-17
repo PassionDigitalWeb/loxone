@@ -33,7 +33,7 @@ const components = {
 }
 
 const IndexPage = props => {
-  const document = props.data.prismicHomepage
+  const document = props.data.page
   return (
     <>
       <SliceZone slices={document.data.body} components={components} />
@@ -47,7 +47,7 @@ const IndexPage = props => {
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export const Head = props => {
-  const document = props.data.prismicHomepage.data
+  const document = props.data.page.data
   const { meta_description, meta_title } = document
   return (
     <SEO
@@ -60,7 +60,7 @@ export const Head = props => {
 
 export const query = graphql`
   {
-    prismicHomepage {
+    page: prismicHomepage {
       _previewable
       data {
         meta_description

@@ -14,7 +14,7 @@ import {
 } from "gatsby-plugin-prismic-previews"
 
 import { linkResolver } from "./config/prismic/linkResolver"
-import Layout from "./src/components/layout"
+import Layout from "@components/organisms/layout"
 
 export const wrapRootElement = ({ element }) => (
   <PrismicPreviewProvider

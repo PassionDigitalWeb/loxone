@@ -7,19 +7,22 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { PrismicProvider } from "@prismicio/react"
-
-function App({ children }) {
-  return (
-    <PrismicProvider
-      internalLinkComponent={({ href, ...props }) => (
-        <Link to={href} {...props} />
-      )}
-    >
-      {children}
-    </PrismicProvider>
-  )
-}
+import Layout from "@components/organisms/layout"
 
 export function onRenderBody({ setHtmlAttributes }) {
   setHtmlAttributes({ lang: `en` })
+}
+
+export function wrapPageElement({ element, props }) {
+  return (
+    <Layout {...props}>
+      <PrismicProvider
+        internalLinkComponent={({ href, ...props }) => (
+          <Link to={href} {...props} />
+        )}
+      >
+        {element}
+      </PrismicProvider>
+    </Layout>
+  )
 }
