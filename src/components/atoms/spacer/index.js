@@ -4,7 +4,7 @@ import cn from "classnames"
 import * as styles from "./spacer.module.scss"
 import { camelize } from "@lib/helper"
 
-const Spacer = ({
+export const Spacer = ({
   x,
   y = "md",
   type = "padding",

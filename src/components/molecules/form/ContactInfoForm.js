@@ -1,14 +1,13 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 
 import * as styles from "./form.module.scss"
-import { set, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { Oval, useLoading } from "@agney/react-loading"
 import { TextInput } from "./form-fields/TextInput"
 import { EmailInput } from "./form-fields/EmailInput"
 import { ErrorMessage } from "@hookform/error-message"
 import { TextArea } from "./form-fields/TextArea"
-import Spacer from "../../atoms/Spacer"
-import { Anchor, Button, Heading, Text } from "@components/atoms"
+import { Anchor, Button, Heading, Text, Spacer } from "@components/atoms"
 import classNames from "classnames"
 import { RadioIcons } from "@components/molecules/form/form-fields/RadioIcons"
 import { Helmet } from "react-helmet"
@@ -91,8 +90,6 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
         if (onSubmitOk) {
           onSubmitOk(bodyData)
         }
-
-        console.log(data)
       })
       .catch(error => {
         setFormStatus("error")

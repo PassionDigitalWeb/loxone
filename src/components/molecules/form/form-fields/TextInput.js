@@ -18,8 +18,6 @@ export const TextInput = props => {
 
   const fieldErrors = errors ? errors[name] : false
 
-  console.log(cx)
-
   return (
     <>
       <div

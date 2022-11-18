@@ -25,7 +25,6 @@ export const Gallery = ({ hasDarkBackground, children, ...props }) => {
 }
 
 const Slider = ({ slides }) => {
-  console.log({ slides })
   return (
     <div className={classNames(styles.slider)}>
       <Swiper

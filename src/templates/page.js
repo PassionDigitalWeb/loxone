@@ -37,7 +37,6 @@ const components = {
 export const PageTemplate = props => {
   const document = props.data.page
 
-  console.log({ document })
   return (
     <>
       <SliceZone slices={document.data.body} components={components} />
