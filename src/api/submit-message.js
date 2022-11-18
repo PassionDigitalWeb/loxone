@@ -105,11 +105,13 @@ export default async function handler(req, res) {
       const googleCaptchaScore = recaptchaValidationResult.message
 
       const sendEmailResult = await sendEmail({
-        email,
         googleCaptchaScore,
-        markedSpam,
-        message,
-        name,
+        enquiry_type,
+        first_name,
+        last_name,
+        email,
+        phone_number,
+        describe_your_project,
       })
 
       if (!sendEmailResult.successful) {
