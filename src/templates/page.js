@@ -10,6 +10,7 @@ import {
   SpacerSlice,
   TwoColContentSlice,
   VideoBlockSlice,
+  GallerySlice,
 } from "@components/slices"
 import FeatureSliderSlice from "@components/slices/FeatureSliderSlice"
 import { SliceZone } from "@prismicio/react"
@@ -28,10 +29,13 @@ const components = {
   image_block: ImageBlockSlice,
   faqs: FAQsSlice,
   video_block: VideoBlockSlice,
+  gallery: GallerySlice,
 }
 
 export const PageTemplate = props => {
   const document = props.data.page
+
+  console.log({ document })
   return (
     <>
       <SliceZone slices={document.data.body} components={components} />

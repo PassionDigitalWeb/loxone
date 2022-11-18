@@ -7,6 +7,7 @@ import { camelize } from "@lib/helper"
 const Spacer = ({
   x,
   y = "md",
+  type = "padding",
   isHR = false,
   children,
   className,
@@ -17,6 +18,7 @@ const Spacer = ({
     <Node
       className={cn(
         styles.spacer,
+        styles[type],
         x && styles[camelize(`x-${x}`)],
         y && styles[camelize(`y-${y}`)],
         className
@@ -31,6 +33,7 @@ const Spacer = ({
 Spacer.propTypes = {
   x: PropTypes.oneOf(["xsm", "sm", "md", "lg", "xl"]),
   y: PropTypes.oneOf(["xsm", "sm", "md", "lg", "xl"]),
+  type: PropTypes.oneOf(["padding", "margin"]),
 }
 
 export default Spacer

@@ -27,6 +27,7 @@ export const query = graphql`
           ...PageDataBodyVideoBlock
           ...PageDataBodyFAQs
           ...PageDataBodyFeatureSlider
+          ...PageDataBodyGallery
         }
       }
     }

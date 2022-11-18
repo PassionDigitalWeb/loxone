@@ -3,6 +3,7 @@ import { Prose } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
 import { ContentBlock } from "@components/molecules"
 import { graphql } from "gatsby"
+import Spacer from "@components/atoms/spacer"
 
 export const ContentBlockSlice = ({ slice }) => {
   const { primary } = slice
