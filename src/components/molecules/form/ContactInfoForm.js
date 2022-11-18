@@ -76,7 +76,6 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
     }
 
     fetch("/api/submit-message", requestOptions)
-      .then(response => response.json())
       .then(data => {
         //clear form errors if there are any
         clearErrors("form")
