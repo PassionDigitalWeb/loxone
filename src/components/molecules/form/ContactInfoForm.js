@@ -72,9 +72,7 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
     }
 
     axios
-      .post(process.env.MAIL_ENDPOINT || "/api/submit-message", bodyData, {
-        withCredentials: process.env.MAIL_ENDPOINT ? false : true,
-      })
+      .post(process.env.MAIL_ENDPOINT || "/api/submit-message", bodyData)
       .then(data => {
         //clear form errors if there are any
         clearErrors("form")
