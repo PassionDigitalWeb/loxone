@@ -71,8 +71,11 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
       recaptcha_token: recaptchaToken,
     }
 
-    axios
-      .post(process.env.MAIL_ENDPOINT || "/api/submit-message", bodyData)
+    axios({
+      url: process.env.MAIL_ENDPOINT || "/api/submit-message",
+      method: "POST",
+      data: bodyData,
+    })
       .then(data => {
         //clear form errors if there are any
         clearErrors("form")

@@ -1,7 +1,6 @@
 import axios from "axios"
 import nodemailer from "nodemailer"
 import validator from "validator"
-const sanitizer = require("sanitize")()
 
 const recaptchaValidation = async ({ recaptchaToken }) => {
   const result = await (async () => {
