@@ -39,19 +39,42 @@ const sendEmail = async ({
 }) => {
   const result = await (async () => {
     try {
-      const text = JSON.stringify(
+      const text = JSON.stringify({}, null, 2)
+
+      const html = [
         {
-          googleCaptchaScore,
-          enquiry_type,
-          first_name,
-          last_name,
-          email,
-          phone_number,
-          describe_your_project,
+          title: "googleCaptchaScore",
+          value: googleCaptchaScore,
         },
-        null,
-        2
-      )
+        {
+          title: "Enquiry Type",
+          value: enquiry_type,
+        },
+        {
+          title: "First Name",
+          value: first_name,
+        },
+        {
+          title: "Last Name",
+          value: last_name,
+        },
+        {
+          title: "Email",
+          value: email,
+        },
+        {
+          title: "Phone Number",
+          value: phone_number,
+        },
+        {
+          title: "Describe your project",
+          value: describe_your_project,
+        },
+      ]
+        .map(({ title, value }) => {
+          return `<p><strong>${title}</strong>: <span>${value}</span></p>`
+        })
+        .join("")
 
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
@@ -69,7 +92,7 @@ const sendEmail = async ({
       const info = await transporter.sendMail({
         from: process.env.SMTP_SENDER,
         to: process.env.CONTACT_EMAIL,
-        subject: "example.com Contact Form Message",
+        subject: "Contact Form Submission",
         text,
       })
       return { successful: true, message: info.messageId }
