@@ -93,7 +93,6 @@ export default async function handler(req, res) {
       describe_your_project,
       recaptchaToken,
     } = req.body
-    const markedSpam = botField != null
 
     const recaptchaValidationResult = await recaptchaValidation({
       recaptchaToken,
