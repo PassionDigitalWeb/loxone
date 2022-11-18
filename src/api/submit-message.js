@@ -12,7 +12,7 @@ const recaptchaValidation = async ({ recaptchaToken }) => {
           response: recaptchaToken,
         },
       })
-      return { successful: true, message: response.data.score }
+      return { successful: true }
     } catch (error) {
       let message
       if (error.response) {
@@ -29,7 +29,6 @@ const recaptchaValidation = async ({ recaptchaToken }) => {
 }
 
 const sendEmail = async ({
-  googleCaptchaScore,
   enquiry_type,
   first_name,
   last_name,
@@ -40,10 +39,6 @@ const sendEmail = async ({
   const result = await (async () => {
     try {
       const html = [
-        {
-          title: "googleCaptchaScore",
-          value: googleCaptchaScore,
-        },
         {
           title: "Enquiry Type",
           value: enquiry_type,
@@ -122,10 +117,7 @@ export default async function handler(req, res) {
     if (!recaptchaValidationResult.successful) {
       res.status(400).send(recaptchaValidationResult.message)
     } else {
-      const googleCaptchaScore = recaptchaValidationResult.message
-
       const sendEmailResult = await sendEmail({
-        googleCaptchaScore,
         enquiry_type,
         first_name,
         last_name,
