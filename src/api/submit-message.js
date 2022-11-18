@@ -1,6 +1,15 @@
 import axios from "axios"
 import nodemailer from "nodemailer"
+const sanitizer = require("sanitize")()
 
+const validateInputs = async ({
+  enquiry_type,
+  first_name,
+  last_name,
+  email,
+  phone_number,
+  describe_your_project,
+}) => {}
 const recaptchaValidation = async ({ recaptchaToken }) => {
   const result = await (async () => {
     try {
@@ -65,7 +74,9 @@ const sendEmail = async ({
         },
       ]
         .map(({ title, value }) => {
-          return `<p><strong>${title}</strong>: <span>${value}</span></p>`
+          const sanitizerTitle = sanitizer.value(title, "string")
+          const sanitizerValue = sanitizer.value(value, "string")
+          return `<p><strong>${sanitizerTitle}</strong>: <span>${sanitizerValue}</span></p>`
         })
         .join("")
 
@@ -96,6 +107,7 @@ const sendEmail = async ({
   return result
 }
 
+//TODO: CSRF protection and field validation
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).send("Method not allowed")
@@ -109,6 +121,11 @@ export default async function handler(req, res) {
       describe_your_project,
       recaptchaToken,
     } = req.body
+
+    const validateInput = validateInputs(req.body)
+    if (!validateInput.successful) {
+      res.status(400).send(validateInput.message)
+    }
 
     const recaptchaValidationResult = await recaptchaValidation({
       recaptchaToken,
