@@ -39,8 +39,6 @@ const sendEmail = async ({
 }) => {
   const result = await (async () => {
     try {
-      const text = JSON.stringify({}, null, 2)
-
       const html = [
         {
           title: "googleCaptchaScore",
@@ -93,7 +91,7 @@ const sendEmail = async ({
         from: process.env.SMTP_SENDER,
         to: process.env.CONTACT_EMAIL,
         subject: "Contact Form Submission",
-        text,
+        html,
       })
       return { successful: true, message: info.messageId }
     } catch (error) {
