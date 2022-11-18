@@ -256,7 +256,7 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
         {formStatus === "ok" && (
           <div className={cx(styles.quoteThanks)}>
             <div className={cx(styles.inner)}>
-              <h2>Thank you for your requests</h2>
+              <h2>Thank you for your submission</h2>
             </div>
           </div>
         )}
