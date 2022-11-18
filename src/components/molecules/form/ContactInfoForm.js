@@ -11,6 +11,7 @@ import { Anchor, Button, Heading, Text, Spacer } from "@components/atoms"
 import classNames from "classnames"
 import { RadioIcons } from "@components/molecules/form/form-fields/RadioIcons"
 import { Helmet } from "react-helmet"
+import axios from "axios"
 
 const cx = classNames
 
@@ -70,12 +71,8 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
       recaptcha_token: recaptchaToken,
     }
 
-    const requestOptions = {
-      method: "POST",
-      body: encode(bodyData),
-    }
-
-    fetch(process.env.MAIL_ENDPOINT || "/api/submit-message", requestOptions)
+    axios
+      .post(process.env.MAIL_ENDPOINT || "/api/submit-message", bodyData)
       .then(data => {
         //clear form errors if there are any
         clearErrors("form")
