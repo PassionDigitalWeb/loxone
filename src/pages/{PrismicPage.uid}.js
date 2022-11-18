@@ -28,6 +28,7 @@ export const query = graphql`
           ...PageDataBodyFAQs
           ...PageDataBodyFeatureSlider
           ...PageDataBodyGallery
+          ...PageDataBodyContactForm
         }
       }
     }

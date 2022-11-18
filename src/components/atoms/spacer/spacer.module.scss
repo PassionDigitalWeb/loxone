@@ -6,6 +6,7 @@
 hr.spacer {
   height: auto;
   border: none;
+  width: 100%;
 
   &:before {
     content: "";
@@ -13,6 +14,16 @@ hr.spacer {
     height: 1px;
     background-color: var(--color-brand-dark-grey);
     display: block;
+  }
+
+  &.greenHrColor{
+    &:before {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-brand-green);
+      display: block;
+    }
   }
 }
 

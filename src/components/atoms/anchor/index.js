@@ -9,6 +9,7 @@ export const Anchor = ({
   isLight = false,
   to,
   underlined,
+  colored,
   className,
   children,
   ...props
@@ -18,6 +19,7 @@ export const Anchor = ({
       className={cn(
         styles.link,
         underlined && styles.underlined,
+        colored && styles.colored,
         isLight && styles.light,
         className
       )}

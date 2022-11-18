@@ -1,5 +1,5 @@
 .link {
-  --btn-color: inherit;
+  --link-color: inherit;
   //--link-hover-color: var(--color-brand-green);
 
   display: inline-flex;
@@ -16,11 +16,15 @@
   touch-action: manipulation;
   transition: all 0.25s;
   cursor: pointer;
-  color: var(--btn-color);
+  color: var(--link-color);
 
   &.light {
-    --btn-color: var(--color-brand-white);
+    --link-color: var(--color-brand-white);
     //--link-hover-color: var(--color-brand-green);
+  }
+
+  &.colored{
+    --link-color: var(--color-brand-green);
   }
 
   &:disabled {
@@ -47,7 +51,7 @@
 
   i,
   svg {
-    color: var(--btn-color);
+    color: var(--link-color);
   }
 
   svg:first-child:not(:last-child),

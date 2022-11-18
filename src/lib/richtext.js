@@ -1,6 +1,7 @@
-import { Heading, Text } from "@components/atoms"
+import { Anchor, Heading, Text } from "@components/atoms"
 import React from "react"
-import { PrismicRichText } from "@prismicio/react"
+import { PrismicRichText, PrismicLink } from "@prismicio/react"
+import * as styles from "@components/organisms/footer/footer.module.scss"
 
 export const richComponents = {
   heading1: ({ children }) => (
@@ -35,6 +36,23 @@ export const richComponents = {
   ),
   paragraph: ({ children, ...props }) => {
     return <Text>{children}</Text>
+  },
+  hyperlink: ({ node, children, key }) => {
+    const Component = ({ children, ...props }) => (
+      <Anchor underlined colored {...props}>
+        {children}
+      </Anchor>
+    )
+    return (
+      <PrismicLink
+        key={key}
+        field={node.data}
+        internalComponent={Component}
+        externalComponent={Component}
+      >
+        {children}
+      </PrismicLink>
+    )
   },
 }
 

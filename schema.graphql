@@ -68,9 +68,9 @@ interface PrismicSliceType {
 
 union PrismicAllDocumentTypes = PrismicHomepage | PrismicPage | PrismicShowroom | PrismicSiteData
 
-union PrismicHomepageDataBodySlicesType = PrismicHomepageDataBodyBanner | PrismicHomepageDataBodyContentBlock | PrismicHomepageDataBodyFaqs | PrismicHomepageDataBodyFeature | PrismicHomepageDataBodyFeatureSlider | PrismicHomepageDataBodyFullHero | PrismicHomepageDataBodyGallery | PrismicHomepageDataBodyImageBlock | PrismicHomepageDataBodyIntroductionContent | PrismicHomepageDataBodyShowroom | PrismicHomepageDataBodySpacer | PrismicHomepageDataBodyTwoColumnContent | PrismicHomepageDataBodyVideoBlock
+union PrismicHomepageDataBodySlicesType = PrismicHomepageDataBodyBanner | PrismicHomepageDataBodyContactForm | PrismicHomepageDataBodyContentBlock | PrismicHomepageDataBodyFaqs | PrismicHomepageDataBodyFeature | PrismicHomepageDataBodyFeatureSlider | PrismicHomepageDataBodyFullHero | PrismicHomepageDataBodyGallery | PrismicHomepageDataBodyImageBlock | PrismicHomepageDataBodyIntroductionContent | PrismicHomepageDataBodyShowroom | PrismicHomepageDataBodySpacer | PrismicHomepageDataBodyTwoColumnContent | PrismicHomepageDataBodyVideoBlock
 
-union PrismicPageDataBodySlicesType = PrismicPageDataBodyBanner | PrismicPageDataBodyContentBlock | PrismicPageDataBodyFaqs | PrismicPageDataBodyFeature | PrismicPageDataBodyFeatureSlider | PrismicPageDataBodyFullHero | PrismicPageDataBodyGallery | PrismicPageDataBodyImageBlock | PrismicPageDataBodyIntroductionContent | PrismicPageDataBodyShowroom | PrismicPageDataBodySpacer | PrismicPageDataBodyTwoColumnContent | PrismicPageDataBodyVideoBlock
+union PrismicPageDataBodySlicesType = PrismicPageDataBodyBanner | PrismicPageDataBodyContactForm | PrismicPageDataBodyContentBlock | PrismicPageDataBodyFaqs | PrismicPageDataBodyFeature | PrismicPageDataBodyFeatureSlider | PrismicPageDataBodyFullHero | PrismicPageDataBodyGallery | PrismicPageDataBodyImageBlock | PrismicPageDataBodyIntroductionContent | PrismicPageDataBodyShowroom | PrismicPageDataBodySpacer | PrismicPageDataBodyTwoColumnContent | PrismicPageDataBodyVideoBlock
 
 type Directory implements Node {
     absolutePath: String!
@@ -719,6 +719,17 @@ type PrismicHomepageDataBodyBannerItem {
 type PrismicHomepageDataBodyBannerPrimary {
     content: PrismicStructuredTextType
     title: PrismicStructuredTextType
+}
+
+type PrismicHomepageDataBodyContactForm implements PrismicSliceType {
+    id: ID!
+    primary: PrismicHomepageDataBodyContactFormPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicHomepageDataBodyContactFormPrimary {
+    content: PrismicStructuredTextType
 }
 
 type PrismicHomepageDataBodyContentBlock implements PrismicSliceType {
@@ -1840,6 +1851,17 @@ type PrismicPageDataBodyBannerItem {
 type PrismicPageDataBodyBannerPrimary {
     content: PrismicStructuredTextType
     title: PrismicStructuredTextType
+}
+
+type PrismicPageDataBodyContactForm implements PrismicSliceType {
+    id: ID!
+    primary: PrismicPageDataBodyContactFormPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicPageDataBodyContactFormPrimary {
+    content: PrismicStructuredTextType
 }
 
 type PrismicPageDataBodyContentBlock implements PrismicSliceType {
