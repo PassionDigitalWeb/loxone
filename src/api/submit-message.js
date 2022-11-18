@@ -1,5 +1,6 @@
 import axios from "axios"
 import nodemailer from "nodemailer"
+import validator from "validator"
 const sanitizer = require("sanitize")()
 
 const recaptchaValidation = async ({ recaptchaToken }) => {
@@ -66,8 +67,8 @@ const sendEmail = async ({
         },
       ]
         .map(({ title, value }) => {
-          const sanitizerTitle = sanitizer.value(title, "string")
-          const sanitizerValue = sanitizer.value(value, "string")
+          const sanitizerTitle = validator.escape(title)
+          const sanitizerValue = validator.escape(value)
           return `<p><strong>${sanitizerTitle}</strong>: <span>${sanitizerValue}</span></p>`
         })
         .join("")

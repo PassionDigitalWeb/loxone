@@ -67,15 +67,15 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
 
     const bodyData = {
       ...data,
-      recaptchaToken,
+      recaptcha_token: recaptchaToken,
     }
 
     const requestOptions = {
       method: "POST",
-      body: encode(data),
+      body: encode(bodyData),
     }
 
-    fetch("/api/submit-message", requestOptions)
+    fetch(process.env.MAIL_ENDPOINT || "/api/submit-message", requestOptions)
       .then(data => {
         //clear form errors if there are any
         clearErrors("form")
@@ -96,7 +96,6 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
         setError("form", {
           type: "manual",
           message:
-            error.message ||
             "There seems to be an issue with our form. Please check back later",
         })
       })
