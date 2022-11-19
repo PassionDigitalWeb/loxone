@@ -10,17 +10,18 @@ export const ContactFormSlice = ({ slice }) => {
   const { primary } = slice
 
   return (
-    <Spacer y="md">
-      <Container>
+    <Container bg="light-grey">
+      <Spacer y="md">
         <Prose align="center">
           {primary?.content && <PRichText field={primary.content.richText} />}
         </Prose>
-      </Container>
-      <Spacer y="md" />
-      <Container size="sm">
-        <ContactInfoForm />
-      </Container>
-    </Spacer>
+
+        <Spacer y="md" />
+        <Container size="sm" padding="none">
+          <ContactInfoForm />
+        </Container>
+      </Spacer>
+    </Container>
   )
 }
 

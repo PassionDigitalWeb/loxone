@@ -9,6 +9,7 @@ const cx = classNames.bind(styles)
 export const Container = ({
   size = "lg",
   padding = "sm",
+  bg = "none",
   children,
   className,
   ...props
@@ -18,6 +19,7 @@ export const Container = ({
       className={cx(
         styles.container,
         styles[camelize(`size-${size}`)],
+        styles[camelize(`bg-${bg}`)],
         styles[camelize(`padding-${padding}`)],
         className
       )}
