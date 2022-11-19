@@ -2,6 +2,7 @@ import * as React from "react"
 import { withPrismicPreviewResolver } from "gatsby-plugin-prismic-previews"
 import Loader from "@components/atoms/loader"
 import { Heading } from "@components/atoms"
+import { PageHead } from "@components/organisms/layout"
 
 const PreviewPage = () => {
   return (
@@ -20,6 +21,10 @@ const PreviewPage = () => {
       <Loader></Loader>
     </div>
   )
+}
+
+export const Head = props => {
+  return <PageHead {...props} />
 }
 
 export default withPrismicPreviewResolver(PreviewPage)

@@ -237,7 +237,7 @@
   padding-bottom: 20px;
   padding-left: 22px;
   padding-top: 22px;
-  margin-left: -22px;
+  margin-left: calc(var(--gutter-sm) * -1);
 
   .roomInterests {
     flex-direction: row;

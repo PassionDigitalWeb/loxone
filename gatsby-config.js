@@ -81,10 +81,11 @@ module.exports = {
         name: `loxone`,
         short_name: `loxone`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#69c350`,
+        title: "Loxone",
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        theme_color: `#69c350`,
         display: `minimal-ui`,
         icon: `src/assets/images/logo.png`, // This path is relative to the root of the site.
       },

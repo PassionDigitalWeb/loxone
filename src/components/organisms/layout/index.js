@@ -30,7 +30,6 @@ const Layout = ({ children, ...props }) => {
 
   return (
     <>
-      <Head {...props} />
       <SiteProvider>
         <div style={{ position: "relative" }}>
           <Header hasHero={hasHero} />
@@ -43,7 +42,7 @@ const Layout = ({ children, ...props }) => {
   )
 }
 
-const Head = props => {
+export const PageHead = props => {
   const document = props?.data?.page?.data
 
   if (!document) {
@@ -52,15 +51,13 @@ const Head = props => {
   const { meta_description, meta_title } = document
 
   return (
-    <>
-      <Helmet>
-        <SEO
-          title={meta_title}
-          description={meta_description}
-          pathname={props.pathname}
-        />
-      </Helmet>
-    </>
+    <Helmet>
+      <SEO
+        title={meta_title}
+        description={meta_description}
+        pathname={props.pathname}
+      />
+    </Helmet>
   )
 }
 

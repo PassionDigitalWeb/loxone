@@ -5,26 +5,37 @@
 }
 
 .paddingXs {
-  padding: 0 20px;
+  padding: 0 var(--gutter-sm);
 }
 
 .paddingSm {
-  padding: 0 32px;
+  padding: 0 var(--gutter-sm);
+
+  @media (min-width: $screen-md) {
+    padding: 0 var(--gutter-md);
+  }
 }
 
 .paddingMd {
-  padding: 0 40px;
+  padding: 0 var(--gutter-md);
+
+  @media (min-width: $screen-md) {
+    padding: 0 var(--gutter-lg);
+  }
 }
 
 .sizeXs {
   max-width: 630px;
 }
+
 .sizeSm {
   max-width: 768px;
 }
+
 .sizeMd {
   max-width: 1070px;
 }
+
 .sizeLg {
   max-width: 1282px;
 }

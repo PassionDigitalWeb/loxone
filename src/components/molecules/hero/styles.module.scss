@@ -57,4 +57,9 @@
   justify-content: flex-start;
   flex-direction: column;
   margin: 0 auto;
+  padding-top: 30px;
+
+  @media (min-width: $screen-md) {
+    padding-bottom: 70px;
+  }
 }

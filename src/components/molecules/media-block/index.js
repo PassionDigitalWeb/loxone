@@ -9,12 +9,8 @@ import BackgroundImage from "gatsby-background-image"
 
 export const MediaBlock = ({ children, ...props }) => {
   return (
-    <div className={classNames(styles.imageBlock)} {...props}>
-      <Container size="lg">
-        <Spacer y={"md"}>
-          <Container size="md">{children}</Container>
-        </Spacer>
-      </Container>
+    <div className={classNames(styles.mediaBlock)} {...props}>
+      <Container size="md">{children}</Container>
     </div>
   )
 }

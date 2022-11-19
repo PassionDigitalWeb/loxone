@@ -65,7 +65,7 @@
 
 .cta {
   text-align: center;
-  margin: 0px -32px;
+  margin: 0 calc(var(--gutter-sm) * -1);
   margin-bottom: -20px;
   padding-top: 20px;
 

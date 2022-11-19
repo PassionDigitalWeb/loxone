@@ -1,5 +1,5 @@
-.imageBlock {
-
+.mediaBlock {
+overflow: hidden;
 }
 
 .content {
@@ -10,19 +10,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 calc(var(--gutter-sm) * -1);
 
-  .imageImg{
+  @media (min-width: $screen-md) {
+    margin: 0;
+  }
+
+  .imageImg {
     max-width: 100%;
   }
 }
 
 .videoCon {
-  .videoImage{
+  margin: 0 calc(var(--gutter-sm) * -1);
+
+  @media (min-width: $screen-md) {
+    margin: 0;
+  }
+
+  .videoImage {
     position: relative;
     aspect-ratio: 1068 / 712;
   }
 
-  .videoIcon{
+  .videoIcon {
     background-color: var(--color-brand-green);
     border-radius: 100%;
     position: absolute;
@@ -41,7 +52,7 @@
       height: 120px;
     }
 
-    svg{
+    svg {
       transform: translateX(14%);
       width: 22px;
       height: 29px;
@@ -53,12 +64,12 @@
     }
   }
 
-  .iframeCon{
+  .iframeCon {
     display: flex;
     justify-content: center;
     aspect-ratio: 896 / 512;
 
-    iframe{
+    iframe {
       width: 100%;
       height: 100%;
     }
