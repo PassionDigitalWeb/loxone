@@ -1,0 +1,7 @@
+.contactFormCon{
+  background-color: var(--color-brand-light-grey-2);
+
+  @media (min-width: $screen-md) {
+    background-color: transparent;
+  }
+}

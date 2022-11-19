@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import * as styles from "./form.module.scss"
+import * as styles from "./styles.module.scss"
 import { useForm } from "react-hook-form"
 import { Oval, useLoading } from "@agney/react-loading"
 import { TextInput } from "./form-fields/TextInput"

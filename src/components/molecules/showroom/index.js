@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import * as styles from "./showroom.module.scss"
+import * as styles from "./styles.module.scss"
 import { Container, Prose } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import { GatsbyImage } from "gatsby-plugin-image"

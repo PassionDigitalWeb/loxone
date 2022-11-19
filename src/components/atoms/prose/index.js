@@ -1,7 +1,7 @@
 import React from "react"
 import classNames from "classnames"
 import PropTypes from "prop-types"
-import * as styles from "./prose.module.scss"
+import * as styles from "./styles.module.scss"
 
 export const Prose = ({ align = "left", children, ...props }) => {
   return (

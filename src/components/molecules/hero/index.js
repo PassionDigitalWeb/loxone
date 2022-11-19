@@ -1,6 +1,6 @@
 import React from "react"
 import cn from "classnames"
-import * as styles from "./hero.module.scss"
+import * as styles from "./styles.module.scss"
 import { Container } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import BackgroundImage from "gatsby-background-image"

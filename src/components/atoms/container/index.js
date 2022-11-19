@@ -1,5 +1,5 @@
 import React from "react"
-import * as styles from "./container.module.scss"
+import * as styles from "./styles.module.scss"
 import classNames from "classnames/bind"
 import PropTypes from "prop-types"
 import { camelize } from "@lib/helper"
@@ -9,7 +9,6 @@ const cx = classNames.bind(styles)
 export const Container = ({
   size = "lg",
   padding = "sm",
-  bg = "none",
   children,
   className,
   ...props
@@ -19,7 +18,6 @@ export const Container = ({
       className={cx(
         styles.container,
         styles[camelize(`size-${size}`)],
-        styles[camelize(`bg-${bg}`)],
         styles[camelize(`padding-${padding}`)],
         className
       )}

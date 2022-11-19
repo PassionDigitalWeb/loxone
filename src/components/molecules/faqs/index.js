@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import * as styles from "./faqs.module.scss"
+import * as styles from "./styles.module.scss"
 import { Container, Heading } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import classNames from "classnames"

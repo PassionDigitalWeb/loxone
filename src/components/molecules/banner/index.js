@@ -1,5 +1,5 @@
 import React from "react"
-import * as styles from "./banner.module.scss"
+import * as styles from "./styles.module.scss"
 import { Container } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import { StaticImage } from "gatsby-plugin-image"
@@ -31,7 +31,7 @@ export const Banner = ({ isMini, children, ...props }) => {
             />
           )}
         </div>
-        <Spacer y={isMini ? "md" : "xl"}>
+        <Spacer responsive={false} y={isMini ? "md" : "xl"}>
           <Container size="md">
             <div className={classNames(styles.bannerInner)}>{children}</div>
           </Container>

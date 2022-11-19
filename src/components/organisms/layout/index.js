@@ -8,7 +8,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import "@styles/layout.scss"
-import * as styles from "./layout.module.scss"
+import * as styles from "./styles.module.scss"
 import Footer from "@components/organisms/footer"
 import { Header } from "@components/organisms"
 import { useEffect, useState } from "react"

@@ -1,5 +1,5 @@
 import React from "react"
-import * as styles from "./gallery.module.scss"
+import * as styles from "./styles.module.scss"
 import { Arrows, Container, Heading, Prose } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import classNames from "classnames"

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 import classNames from "classnames"
-import * as styles from "./heading.module.scss"
+import * as styles from "./styles.module.scss"
 import { camelize } from "@lib/helper"
 
 export const Heading = ({

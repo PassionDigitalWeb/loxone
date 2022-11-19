@@ -1,5 +1,5 @@
 import React from "react"
-import * as styles from "./footer.module.scss"
+import * as styles from "./styles.module.scss"
 import { Anchor, Container, Heading, Logo, Text } from "@components/atoms"
 import classNames from "classnames"
 import Spacer from "@components/atoms/spacer"

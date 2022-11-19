@@ -15,7 +15,7 @@ import {
 import FeatureSliderSlice from "@components/slices/FeatureSliderSlice"
 import { SliceZone } from "@prismicio/react"
 import * as React from "react"
-import ContactFormSlice from "@components/slices/ContactFormSlice"
+import ContactFormSlice from "@components/slices/contact-form-slice/ContactFormSlice"
 
 const components = {
   full_hero: FullHeroSlice,

@@ -2,7 +2,7 @@ import React from "react"
 
 import * as PropTypes from "prop-types"
 import cn from "classnames"
-import * as styles from "./anchor.module.scss"
+import * as styles from "./styles.module.scss"
 import Link from "@components/atoms/Link"
 
 export const Anchor = ({

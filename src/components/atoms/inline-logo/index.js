@@ -2,7 +2,7 @@ import React from "react"
 
 import * as PropTypes from "prop-types"
 import cn from "classnames"
-import * as styles from "./inline-logo.module.scss"
+import * as styles from "./styles.module.scss"
 import Img from "./logo.png"
 
 export const InlineLogo = ({

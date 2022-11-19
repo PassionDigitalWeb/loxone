@@ -1,5 +1,5 @@
 import React from "react"
-import * as styles from "./loader.module.scss"
+import * as styles from "./styles.module.scss"
 import ReactLoading from "react-loading"
 import Spacer from "@components/atoms/spacer"
 

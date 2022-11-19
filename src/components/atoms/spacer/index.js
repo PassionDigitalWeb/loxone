@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import cn from "classnames"
-import * as styles from "./spacer.module.scss"
+import * as styles from "./styles.module.scss"
 import { camelize } from "@lib/helper"
 
 export const Spacer = ({
@@ -9,6 +9,7 @@ export const Spacer = ({
   y = "md",
   type = "padding",
   isHR = false,
+  responsive = true,
   children,
   className,
   ...props
@@ -20,6 +21,7 @@ export const Spacer = ({
         styles.spacer,
         styles[type],
         styles[isHR + "HrColor"],
+        responsive && styles.responsive,
         x && styles[camelize(`x-${x}`)],
         y && styles[camelize(`y-${y}`)],
         className

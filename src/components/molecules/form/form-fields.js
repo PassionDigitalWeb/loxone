@@ -2,7 +2,7 @@ import React from "react"
 import { ErrorMessage } from "@hookform/error-message"
 
 import classNames from "classnames/bind"
-import * as styles from "./form.module.scss"
+import * as styles from "./styles.module.scss"
 
 let cx = classNames
 

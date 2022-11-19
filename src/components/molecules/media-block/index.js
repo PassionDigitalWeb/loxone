@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import * as styles from "./image-block.module.scss"
+import * as styles from "./styles.module.scss"
 import { Container } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"

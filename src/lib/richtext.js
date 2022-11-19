@@ -1,7 +1,6 @@
 import { Anchor, Heading, Text } from "@components/atoms"
 import React from "react"
 import { PrismicRichText, PrismicLink } from "@prismicio/react"
-import * as styles from "@components/organisms/footer/footer.module.scss"
 
 export const richComponents = {
   heading1: ({ children }) => (

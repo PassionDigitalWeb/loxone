@@ -2,7 +2,7 @@ import React from "react"
 
 import * as PropTypes from "prop-types"
 import cn from "classnames"
-import * as styles from "./logo.module.scss"
+import * as styles from "./styles.module.scss"
 
 export const Logo = ({
   variant = "medium",

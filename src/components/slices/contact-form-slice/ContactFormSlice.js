@@ -5,23 +5,26 @@ import { PRichText } from "@lib/richtext"
 import { graphql } from "gatsby"
 import { ContactInfoForm } from "@components/molecules/form/ContactInfoForm"
 import Spacer from "@components/atoms/spacer"
+import * as styles from "./styles.module.scss"
 
 export const ContactFormSlice = ({ slice }) => {
   const { primary } = slice
 
   return (
-    <Container bg="light-grey">
-      <Spacer y="md">
-        <Prose align="center">
-          {primary?.content && <PRichText field={primary.content.richText} />}
-        </Prose>
+    <div className={styles.contactFormCon}>
+      <Container>
+        <Spacer y="md">
+          <Prose align="center">
+            {primary?.content && <PRichText field={primary.content.richText} />}
+          </Prose>
 
-        <Spacer y="md" />
-        <Container size="sm" padding="none">
-          <ContactInfoForm />
-        </Container>
-      </Spacer>
-    </Container>
+          <Spacer y="md" />
+          <Container size="sm" padding="none">
+            <ContactInfoForm />
+          </Container>
+        </Spacer>
+      </Container>
+    </div>
   )
 }
 

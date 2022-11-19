@@ -9,7 +9,7 @@ import {
 } from "../form-fields"
 
 import classNames from "classnames/bind"
-import * as styles from "../form.module.scss"
+import * as styles from "../styles.module.scss"
 
 let cx = classNames
 

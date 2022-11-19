@@ -1,5 +1,5 @@
 import React from "react"
-import * as styles from "./feature.module.scss"
+import * as styles from "./styles.module.scss"
 import { Arrows, Container, Heading } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import classNames from "classnames"

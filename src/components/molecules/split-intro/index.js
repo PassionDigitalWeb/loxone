@@ -1,5 +1,5 @@
 import React from "react"
-import * as styles from "./split-intro.module.scss"
+import * as styles from "./styles.module.scss"
 import { Container } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 
