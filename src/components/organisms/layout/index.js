@@ -14,6 +14,9 @@ import { Header } from "@components/organisms"
 import { useEffect, useState } from "react"
 import { SEO } from "@components/utils/SEO"
 import { Helmet } from "react-helmet"
+import Modal from "@components/molecules/modal"
+import { SiteProvider } from "@lib/context/siteContext"
+import BookingModal from "@components/molecules/booking-modal"
 
 const Layout = ({ children, ...props }) => {
   const checkHasHero = () =>
@@ -28,11 +31,14 @@ const Layout = ({ children, ...props }) => {
   return (
     <>
       <Head {...props} />
-      <div style={{ position: "relative" }}>
-        <Header hasHero={hasHero} />
-        <main className={!hasHero && styles.noHero}>{children}</main>
-        <Footer />
-      </div>
+      <SiteProvider>
+        <div style={{ position: "relative" }}>
+          <Header hasHero={hasHero} />
+          <main className={!hasHero && styles.noHero}>{children}</main>
+          <Footer />
+        </div>
+        <BookingModal />
+      </SiteProvider>
     </>
   )
 }

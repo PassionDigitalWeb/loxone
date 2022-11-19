@@ -81,13 +81,16 @@ export const Header = ({ children, hasHero, ...props }) => {
     }
   }, [])
 
+  useEffect(() => {
+    if (isShort) {
+      document.body.classList.add("short-head")
+    } else {
+      document.body.classList.remove("short-head")
+    }
+  }, [isShort])
+
   return (
     <>
-      <Helmet
-        bodyAttributes={{
-          class: isShort && "short-head",
-        }}
-      />
       {isSmallScreen && (
         <Menu
           isOpen={isOpen}

@@ -12,14 +12,14 @@ export const ContactFormSlice = ({ slice }) => {
 
   return (
     <div className={styles.contactFormCon}>
-      <Container>
+      <Container size="md">
         <Spacer y="md">
           <Prose align="center">
             {primary?.content && <PRichText field={primary.content.richText} />}
           </Prose>
 
           <Spacer y="md" />
-          <Container size="sm" padding="none">
+          <Container size="xs" padding="none">
             <ContactInfoForm />
           </Container>
         </Spacer>

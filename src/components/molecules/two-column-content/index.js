@@ -10,7 +10,7 @@ export const TwoColContent = ({ title, children, ...props }) => {
   return (
     <div className={styles.twoColContent} {...props}>
       <Spacer y="lg">
-        <Container size="lg">
+        <Container size="md">
           <div className={styles.twoColContentGrid}>{children}</div>
         </Container>
       </Spacer>
