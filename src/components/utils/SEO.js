@@ -18,7 +18,11 @@ export const SEO = ({ title, description, pathname, children }) => {
     twitterUsername,
   }
 
-  const robots = process.env.NO_INDEX ? "noindex, nofollow" : "index, follow"
+  const robots = process.env.GATSBY_NO_INDEX
+    ? "noindex, nofollow"
+    : "index, follow"
+
+  const hideReactDevTools = process.env.GATSBY_REACT_DEVTOOLS === "false"
 
   return (
     <>
@@ -57,6 +61,10 @@ export const SEO = ({ title, description, pathname, children }) => {
       <meta name="msapplication-TileColor" content="#69c350" />
       <meta name="theme-color" content="#69c350" />
       <meta name="robots" content={robots} />
+      {hideReactDevTools && (
+        <script>{`if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object') {__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function() {}}`}</script>
+      )}
+
       {children}
     </>
   )
