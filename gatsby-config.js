@@ -76,6 +76,36 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+          {
+            allSitePage {
+              nodes {
+                  path
+                  pageContext
+              }
+            }
+          }
+          `,
+        resolveSiteUrl: () => process.env.GATSBY_SITEURL,
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
+          return allPages
+            ?.filter(({ pageContext }) => pageContext?.noindex !== true)
+            .map(page => {
+              return { ...page }
+            })
+        },
+        serialize: ({ path }) => {
+          return {
+            url: path,
+            changefreq: "daily",
+            priority: 0.7,
+          }
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `loxone`,
@@ -87,7 +117,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         theme_color: `#69c350`,
         display: `minimal-ui`,
-        icon: `src/assets/images/logo.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/logo.png`,
       },
     },
   ],
