@@ -18,6 +18,8 @@ export const SEO = ({ title, description, pathname, children }) => {
     twitterUsername,
   }
 
+  const robots = process.env.NO_INDEX ? "noindex, nofollow" : "index, follow"
+
   return (
     <>
       <title>{seo.title}</title>
@@ -54,6 +56,7 @@ export const SEO = ({ title, description, pathname, children }) => {
       <meta name="application-name" content="Loxone" />
       <meta name="msapplication-TileColor" content="#69c350" />
       <meta name="theme-color" content="#69c350" />
+      <meta name="robots" content={robots} />
       {children}
     </>
   )
