@@ -11,12 +11,6 @@ export const BookingModal = ({ ...props }) => {
       isOpen={siteContext.bookingModalOpen}
       onClose={siteContext.closeBookingModal}
     >
-      <Prose>
-        <Heading node="div" variant="h2">
-          Book a showroom tour
-        </Heading>
-      </Prose>
-      <Spacer y="xsm" />
       <iframe
         src="https://outlook.office365.com/owa/calendar/LoxoneFlagshipPartnerAutomate@loxone.london/bookings/"
         width="100%"

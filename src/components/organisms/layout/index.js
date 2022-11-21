@@ -51,13 +51,11 @@ export const PageHead = props => {
   const { meta_description, meta_title } = document
 
   return (
-    <Helmet>
-      <SEO
-        title={meta_title}
-        description={meta_description}
-        pathname={props.pathname}
-      />
-    </Helmet>
+    <SEO
+      title={meta_title}
+      description={meta_description}
+      pathname={props.pathname}
+    />
   )
 }
 

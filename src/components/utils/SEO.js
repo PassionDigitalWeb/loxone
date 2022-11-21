@@ -1,9 +1,7 @@
 import React from "react"
 import { useSiteMetadata } from "@lib/hooks/use-site-meta"
-import { Helmet } from "react-helmet"
 
 export const SEO = ({ title, description, pathname, children }) => {
-  console.log("test")
   const {
     title: defaultTitle,
     description: defaultDescription,
@@ -11,8 +9,6 @@ export const SEO = ({ title, description, pathname, children }) => {
     siteUrl,
     twitterUsername,
   } = useSiteMetadata()
-
-  console.log({ defaultTitle })
 
   const seo = {
     title: title + " | " + defaultTitle,
