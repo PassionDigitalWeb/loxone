@@ -135,6 +135,32 @@ $narrow-breakpoint: $screen-md;
 
 .buttons {
   padding: 5px 0;
+  display: flex;
+  align-items: center;
+
+  .sep {
+    border-left: 1px solid var(--color-brand-light-grey-2);
+    height: 19px;
+    margin: 0 20px;
+    display: none;
+
+    @media (min-width: 500px) {
+      display: block;
+    }
+
+    .short & {
+      border-left: 1px solid var(--color-brand-light-grey);
+    }
+  }
+
+  .social {
+    color: var(--color-brand-green);
+    display: none;
+
+    @media (min-width: 500px) {
+      display: block;
+    }
+  }
 
   .phoneNumberBtn {
     span {

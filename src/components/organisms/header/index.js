@@ -12,6 +12,7 @@ import InlineLogo from "@components/atoms/inline-logo"
 import { Helmet } from "react-helmet"
 import { slide as Menu } from "react-burger-menu"
 import { useSmallScreen } from "@lib/hooks/useSmallScreen"
+import Social from "@components/atoms/social"
 
 const Cta = ({ link, text, className }) => {
   const Component = ({ children, ...props }) => (
@@ -172,6 +173,10 @@ export const Header = ({ children, hasHero, ...props }) => {
                 </div>
 
                 <div className={styles.buttons}>
+                  <div className={styles.social}>
+                    <Social baseColors={false} />
+                  </div>
+                  <div className={styles.sep} />
                   <ButtonGroup>
                     {siteData.phone_number && (
                       <Button
