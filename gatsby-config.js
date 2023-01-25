@@ -12,10 +12,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        additionalData: `@use 'variables' as *;`,
-        sassOptions: {
-          includePaths: [`${__dirname}/src/styles/global`],
-        },
+        additionalData: `@import "${__dirname}/src/styles/global/variables";`,
       },
     },
     "gatsby-plugin-image",
