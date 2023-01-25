@@ -64,6 +64,58 @@ const burgerStyles = {
   },
 }
 
+const LinkComponent = ({ children, href, ...props }) => {
+  return (
+    <Anchor className={styles.navItem} to={href} {...props}>
+      {children}
+    </Anchor>
+  )
+}
+
+const MenuNavDropdown = ({ children, active }) => {
+  return (
+    <div
+      className={classNames(styles.navDropdown, {
+        [styles.active]: active,
+      })}
+    >
+      <div className={styles.inner}>{children}</div>
+    </div>
+  )
+}
+
+const FeatureDropdown = ({ links }) => {
+  const [isActive, setIsActive] = useState(false)
+  return (
+    <div
+      className={classNames(styles.navItemWrap, styles.hasDropdown)}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+    >
+      <Anchor
+        className={styles.navItem}
+        href="#"
+        onClick={e => e.preventDefault()}
+      >
+        <span>Features</span>
+      </Anchor>
+      <MenuNavDropdown active={isActive}>
+        {links.map(({ nav_link, nav_text }, key) => {
+          return (
+            <PrismicLink
+              field={nav_link}
+              externalComponent={LinkComponent}
+              internalComponent={LinkComponent}
+            >
+              <span>{nav_text}</span>
+            </PrismicLink>
+          )
+        })}
+      </MenuNavDropdown>
+    </div>
+  )
+}
+
 export const Header = ({ children, hasHero, ...props }) => {
   const [isOpen, setIsOpen] = useState(false)
   const siteData = useSiteMetadata()
@@ -101,19 +153,38 @@ export const Header = ({ children, hasHero, ...props }) => {
           onClose={() => setIsOpen(false)}
           itemListClassName={styles.mobileMenuNav}
         >
+          {siteData?.feature_dropdown_links && (
+            <>
+              <Anchor
+                className={styles.navItem}
+                href="#"
+                onClick={e => e.preventDefault()}
+              >
+                <span>Features</span>
+              </Anchor>
+              <div className={styles.mobileMenuNavSub}>
+                {siteData?.feature_dropdown_links.map(
+                  ({ nav_link, nav_text }, key) => {
+                    return (
+                      <PrismicLink
+                        field={nav_link}
+                        externalComponent={LinkComponent}
+                        internalComponent={LinkComponent}
+                      >
+                        <span>{nav_text}</span>
+                      </PrismicLink>
+                    )
+                  }
+                )}
+              </div>
+            </>
+          )}
           {siteData?.navigation?.map(({ nav_link, nav_text }, key) => {
-            const Component = ({ children, href, ...props }) => {
-              return (
-                <Anchor className={styles.navItem} to={href} {...props}>
-                  {children}
-                </Anchor>
-              )
-            }
             return (
               <PrismicLink
                 field={nav_link}
-                externalComponent={Component}
-                internalComponent={Component}
+                externalComponent={LinkComponent}
+                internalComponent={LinkComponent}
               >
                 <span>{nav_text}</span>
               </PrismicLink>
@@ -144,24 +215,18 @@ export const Header = ({ children, hasHero, ...props }) => {
                 <div className={styles.navCol}>
                   <Spacer y="sm">
                     <nav className={styles.nav}>
+                      {siteData?.feature_dropdown_links && (
+                        <FeatureDropdown
+                          links={siteData?.feature_dropdown_links}
+                        />
+                      )}
                       {siteData?.navigation?.map(
                         ({ nav_link, nav_text }, key) => {
-                          const Component = ({ children, href, ...props }) => {
-                            return (
-                              <Anchor
-                                className={styles.navItem}
-                                to={href}
-                                {...props}
-                              >
-                                {children}
-                              </Anchor>
-                            )
-                          }
                           return (
                             <PrismicLink
                               field={nav_link}
-                              externalComponent={Component}
-                              internalComponent={Component}
+                              externalComponent={LinkComponent}
+                              internalComponent={LinkComponent}
                             >
                               <span>{nav_text}</span>
                             </PrismicLink>

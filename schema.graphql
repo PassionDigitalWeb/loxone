@@ -3141,6 +3141,11 @@ type PrismicSiteDataConnection {
     totalCount: Int!
 }
 
+type PrismicSiteDataDataFeatureDropdownLinks {
+    nav_link: PrismicLinkType
+    nav_text: String
+}
+
 type PrismicSiteDataDataFooterNavigation {
     nav_link: PrismicLinkType
     nav_text: String
@@ -3162,6 +3167,7 @@ type PrismicSiteDataDataType {
     cta_link: PrismicLinkType
     cta_text: String
     email: String
+    feature_dropdown_links: [PrismicSiteDataDataFeatureDropdownLinks]
     footer_navigation: [PrismicSiteDataDataFooterNavigation]
     navigation: [PrismicSiteDataDataNavigation]
     phone_number: String
@@ -4782,6 +4788,20 @@ enum PrismicSiteDataFieldsEnum {
     data___cta_link___url
     data___cta_text
     data___email
+    data___feature_dropdown_links
+    data___feature_dropdown_links___nav_link___id
+    data___feature_dropdown_links___nav_link___isBroken
+    data___feature_dropdown_links___nav_link___lang
+    data___feature_dropdown_links___nav_link___link_type
+    data___feature_dropdown_links___nav_link___raw
+    data___feature_dropdown_links___nav_link___size
+    data___feature_dropdown_links___nav_link___slug
+    data___feature_dropdown_links___nav_link___tags
+    data___feature_dropdown_links___nav_link___target
+    data___feature_dropdown_links___nav_link___type
+    data___feature_dropdown_links___nav_link___uid
+    data___feature_dropdown_links___nav_link___url
+    data___feature_dropdown_links___nav_text
     data___footer_navigation
     data___footer_navigation___nav_link___id
     data___footer_navigation___nav_link___isBroken
@@ -6523,6 +6543,15 @@ input PrismicShowroomSortInput {
     order: [SortOrderEnum] = [ASC]
 }
 
+input PrismicSiteDataDataFeatureDropdownLinksFilterInput {
+    nav_link: PrismicLinkTypeFilterInput
+    nav_text: StringQueryOperatorInput
+}
+
+input PrismicSiteDataDataFeatureDropdownLinksFilterListInput {
+    elemMatch: PrismicSiteDataDataFeatureDropdownLinksFilterInput
+}
+
 input PrismicSiteDataDataFooterNavigationFilterInput {
     nav_link: PrismicLinkTypeFilterInput
     nav_text: StringQueryOperatorInput
@@ -6556,6 +6585,7 @@ input PrismicSiteDataDataTypeFilterInput {
     cta_link: PrismicLinkTypeFilterInput
     cta_text: StringQueryOperatorInput
     email: StringQueryOperatorInput
+    feature_dropdown_links: PrismicSiteDataDataFeatureDropdownLinksFilterListInput
     footer_navigation: PrismicSiteDataDataFooterNavigationFilterListInput
     navigation: PrismicSiteDataDataNavigationFilterListInput
     phone_number: StringQueryOperatorInput

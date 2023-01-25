@@ -13,6 +13,13 @@ export const useSiteMetadata = () => {
             }
             nav_text
           }
+          feature_dropdown_links {
+            nav_text
+            nav_link {
+              link_type
+              url
+            }
+          }
           navigation {
             nav_link {
               type

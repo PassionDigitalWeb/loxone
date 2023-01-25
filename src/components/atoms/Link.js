@@ -17,7 +17,7 @@ const Link = ({
   const siteContext = useContext(SiteContext)
   let link = to || href
   let onLinkClick = e => {
-    onClick && onClick()
+    onClick && onClick(e)
   }
 
   // Tailor the following test to your environment.
@@ -33,7 +33,7 @@ const Link = ({
 
     onLinkClick = e => {
       e.preventDefault()
-      onClick && onClick()
+      onClick && onClick(e)
       siteContext.openBookingModal()
     }
   }
