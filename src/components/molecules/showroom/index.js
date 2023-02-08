@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import * as styles from "./styles.module.scss"
-import { Container, Prose } from "@components/atoms"
+import { Anchor, Button, Container, Prose } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import { GatsbyImage } from "gatsby-plugin-image"
 import classNames from "classnames"
 import PropTypes from "prop-types"
 import { useSmallScreen } from "@lib/hooks/useSmallScreen"
+import { PrismicLink } from "@prismicio/react"
 
 //TODO: refactor to use data instead of components. Current way over complicates the component.
 
@@ -251,7 +252,6 @@ const MobileRoom = ({ children, title }) => {
 }
 
 const Point = ({ pinColor, pos, active, onClick }) => {
-  console.log({ pinColor })
   return (
     <i
       onClick={onClick}
@@ -280,7 +280,7 @@ const Point = ({ pinColor, pos, active, onClick }) => {
   )
 }
 
-const RoomInterest = ({ bgImageUrl, bgImage, children }) => {
+const RoomInterest = ({ bgImageUrl, bgImage, learnMoreLink, children }) => {
   return (
     <div className={styles.roomInterest}>
       {(bgImageUrl || bgImage) && (
@@ -295,6 +295,21 @@ const RoomInterest = ({ bgImageUrl, bgImage, children }) => {
       )}
       <Spacer x="sm" y="sm" className={styles.roomInterestContent}>
         <div>{children}</div>
+        {learnMoreLink && (
+          <div className={styles.linkWrap}>
+            <PrismicLink
+              field={learnMoreLink}
+              internalComponent={props => (
+                <Anchor colored underlined {...props} />
+              )}
+              externalComponent={props => (
+                <Anchor colored underlined {...props} />
+              )}
+            >
+              Learn more
+            </PrismicLink>
+          </div>
+        )}
       </Spacer>
     </div>
   )

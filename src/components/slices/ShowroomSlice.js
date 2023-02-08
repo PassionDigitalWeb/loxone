@@ -36,6 +36,11 @@ export const query = graphql`
                 gatsbyImageData(layout: FULL_WIDTH)
               }
               interests {
+                learn_more_link {
+                  url
+                  target
+                  link_type
+                }
                 y_axis_percent
                 x_axis_percent
                 is_popup_right
@@ -81,6 +86,11 @@ export const query = graphql`
                 gatsbyImageData(layout: FULL_WIDTH)
               }
               interests {
+                learn_more_link {
+                  url
+                  target
+                  link_type
+                }
                 y_axis_percent
                 x_axis_percent
                 is_popup_right

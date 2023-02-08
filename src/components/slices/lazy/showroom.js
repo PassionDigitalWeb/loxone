@@ -1,7 +1,8 @@
 import React from "react"
 import { PRichText } from "@lib/richtext"
-import { Prose } from "@components/atoms"
+import { Button, ButtonGroup, Prose, Spacer } from "@components/atoms"
 import Showroom from "@components/molecules/showroom"
+import { PrismicLink } from "@prismicio/react"
 
 const MyComponent = ({ slice }) => {
   const { primary, items } = slice
@@ -21,6 +22,7 @@ const MyComponent = ({ slice }) => {
                 y_axis_percent,
                 is_popup_right,
                 pin_color,
+                learn_more_link,
               } = interest
 
               return (
@@ -30,6 +32,7 @@ const MyComponent = ({ slice }) => {
                   bgImage={interest_image}
                   key={key}
                   pinColor={pin_color}
+                  learnMoreLink={learn_more_link}
                 >
                   <Prose>
                     <PRichText field={interest_title.richText} />

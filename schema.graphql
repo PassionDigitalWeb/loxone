@@ -734,9 +734,16 @@ type PrismicHomepageDataBodyContactFormPrimary {
 
 type PrismicHomepageDataBodyContentBlock implements PrismicSliceType {
     id: ID!
+    items: [PrismicHomepageDataBodyContentBlockItem!]!
     primary: PrismicHomepageDataBodyContentBlockPrimary!
     slice_label: String
     slice_type: String!
+}
+
+type PrismicHomepageDataBodyContentBlockItem {
+    button_link: PrismicLinkType
+    button_text: String
+    colour: String
 }
 
 type PrismicHomepageDataBodyContentBlockPrimary {
@@ -1867,9 +1874,16 @@ type PrismicPageDataBodyContactFormPrimary {
 
 type PrismicPageDataBodyContentBlock implements PrismicSliceType {
     id: ID!
+    items: [PrismicPageDataBodyContentBlockItem!]!
     primary: PrismicPageDataBodyContentBlockPrimary!
     slice_label: String
     slice_type: String!
+}
+
+type PrismicPageDataBodyContentBlockItem {
+    button_link: PrismicLinkType
+    button_text: String
+    colour: String
 }
 
 type PrismicPageDataBodyContentBlockPrimary {
@@ -2834,6 +2848,7 @@ type PrismicShowroomDataInterests {
     interest_image: PrismicShowroomDataInterestsInterestImageImageType
     interest_title: PrismicStructuredTextType
     is_popup_right: Boolean
+    learn_more_link: PrismicLinkType
     pin_color: String
     x_axis_percent: Float
     y_axis_percent: Float
@@ -4556,6 +4571,18 @@ enum PrismicShowroomFieldsEnum {
     data___interests___interest_title___richText
     data___interests___interest_title___text
     data___interests___is_popup_right
+    data___interests___learn_more_link___id
+    data___interests___learn_more_link___isBroken
+    data___interests___learn_more_link___lang
+    data___interests___learn_more_link___link_type
+    data___interests___learn_more_link___raw
+    data___interests___learn_more_link___size
+    data___interests___learn_more_link___slug
+    data___interests___learn_more_link___tags
+    data___interests___learn_more_link___target
+    data___interests___learn_more_link___type
+    data___interests___learn_more_link___uid
+    data___interests___learn_more_link___url
     data___interests___pin_color
     data___interests___x_axis_percent
     data___interests___y_axis_percent
@@ -6487,6 +6514,7 @@ input PrismicShowroomDataInterestsFilterInput {
     interest_image: PrismicShowroomDataInterestsInterestImageImageTypeFilterInput
     interest_title: PrismicStructuredTextTypeFilterInput
     is_popup_right: BooleanQueryOperatorInput
+    learn_more_link: PrismicLinkTypeFilterInput
     pin_color: StringQueryOperatorInput
     x_axis_percent: FloatQueryOperatorInput
     y_axis_percent: FloatQueryOperatorInput
