@@ -3,14 +3,14 @@ import { Prose } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
 import { ContentBlock } from "@components/molecules"
 import { graphql } from "gatsby"
-import Spacer from "@components/atoms/spacer"
 
 export const ContentBlockSlice = ({ slice }) => {
   const { primary } = slice
-  const { content, has_background } = primary
+  const { content, has_background, align } = primary
+  console.log({ primary })
   return (
     <ContentBlock hasBG={has_background}>
-      <Prose align="center">
+      <Prose align={align || "center"}>
         {content && <PRichText field={content.richText} />}
       </Prose>
     </ContentBlock>
@@ -25,6 +25,7 @@ export const query = graphql`
         richText
       }
       has_background
+      align
     }
   }
 
@@ -35,6 +36,7 @@ export const query = graphql`
         richText
       }
       has_background
+      align
     }
   }
 `

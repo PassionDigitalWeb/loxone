@@ -22,20 +22,20 @@
   }
 }
 
-.showroomBg{
+.showroomBg {
   position: absolute;
   z-index: 1;
   right: 0;
   top: 0;
   height: 100%;
 
-  svg{
+  svg {
     display: block;
     height: 100%;
   }
 }
 
-.showroomInner{
+.showroomInner {
   position: relative;
   z-index: 2;
 }
@@ -71,7 +71,7 @@
     top: 0;
     height: 100%;
 
-    path{
+    path {
 
     }
   }
@@ -107,19 +107,13 @@
     cursor: pointer;
 
     svg {
-      path,
-      circle {
-        transition: fill 0.15s;
-      }
+      transition: opacity 0.15s;
     }
 
     &.active,
     &:hover {
       svg {
-        path,
-        circle {
-          fill: var(--color-brand-green);
-        }
+        opacity: .5;
       }
     }
   }

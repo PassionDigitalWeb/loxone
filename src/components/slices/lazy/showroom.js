@@ -20,6 +20,7 @@ const MyComponent = ({ slice }) => {
                 x_axis_percent,
                 y_axis_percent,
                 is_popup_right,
+                pin_color,
               } = interest
 
               return (
@@ -28,6 +29,7 @@ const MyComponent = ({ slice }) => {
                   isRight={is_popup_right}
                   bgImage={interest_image}
                   key={key}
+                  pinColor={pin_color}
                 >
                   <Prose>
                     <PRichText field={interest_title.richText} />

@@ -740,6 +740,7 @@ type PrismicHomepageDataBodyContentBlock implements PrismicSliceType {
 }
 
 type PrismicHomepageDataBodyContentBlockPrimary {
+    align: String
     content: PrismicStructuredTextType
     has_background: Boolean
 }
@@ -1872,6 +1873,7 @@ type PrismicPageDataBodyContentBlock implements PrismicSliceType {
 }
 
 type PrismicPageDataBodyContentBlockPrimary {
+    align: String
     content: PrismicStructuredTextType
     has_background: Boolean
 }
@@ -2832,6 +2834,7 @@ type PrismicShowroomDataInterests {
     interest_image: PrismicShowroomDataInterestsInterestImageImageType
     interest_title: PrismicStructuredTextType
     is_popup_right: Boolean
+    pin_color: String
     x_axis_percent: Float
     y_axis_percent: Float
 }
@@ -4553,6 +4556,7 @@ enum PrismicShowroomFieldsEnum {
     data___interests___interest_title___richText
     data___interests___interest_title___text
     data___interests___is_popup_right
+    data___interests___pin_color
     data___interests___x_axis_percent
     data___interests___y_axis_percent
     data___showroom_image___alt
@@ -6483,6 +6487,7 @@ input PrismicShowroomDataInterestsFilterInput {
     interest_image: PrismicShowroomDataInterestsInterestImageImageTypeFilterInput
     interest_title: PrismicStructuredTextTypeFilterInput
     is_popup_right: BooleanQueryOperatorInput
+    pin_color: StringQueryOperatorInput
     x_axis_percent: FloatQueryOperatorInput
     y_axis_percent: FloatQueryOperatorInput
 }

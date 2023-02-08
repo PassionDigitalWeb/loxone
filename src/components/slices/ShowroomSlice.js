@@ -39,6 +39,7 @@ export const query = graphql`
                 y_axis_percent
                 x_axis_percent
                 is_popup_right
+                pin_color
                 interest_title {
                   richText
                 }
@@ -83,6 +84,7 @@ export const query = graphql`
                 y_axis_percent
                 x_axis_percent
                 is_popup_right
+                pin_color
                 interest_title {
                   richText
                 }

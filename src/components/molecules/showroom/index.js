@@ -163,6 +163,7 @@ const Room = props => {
       return (
         <Point
           pos={child.props.pos}
+          pinColor={child.props.pinColor}
           onClick={() => setInterest(index)}
           active={activeInterest === index}
         />
@@ -249,7 +250,8 @@ const MobileRoom = ({ children, title }) => {
   )
 }
 
-const Point = ({ pos, active, onClick }) => {
+const Point = ({ pinColor, pos, active, onClick }) => {
+  console.log({ pinColor })
   return (
     <i
       onClick={onClick}
@@ -266,19 +268,19 @@ const Point = ({ pos, active, onClick }) => {
         viewBox="0 0 34 34"
         fill="none"
       >
-        <circle cx="16.9998" cy="16.9998" r="10.2" fill="white" />
+        <circle cx="16.9998" cy="16.9998" r="10.2" fill={pinColor || "#FFF"} />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
           d="M17 31.875C25.2152 31.875 31.875 25.2152 31.875 17C31.875 8.78477 25.2152 2.125 17 2.125C8.78477 2.125 2.125 8.78477 2.125 17C2.125 25.2152 8.78477 31.875 17 31.875ZM17 34C26.3888 34 34 26.3888 34 17C34 7.61116 26.3888 0 17 0C7.61116 0 0 7.61116 0 17C0 26.3888 7.61116 34 17 34Z"
-          fill="white"
+          fill={pinColor || "#FFF"}
         />
       </svg>
     </i>
   )
 }
 
-const RoomInterest = ({ bgImageUrl, bgImage, isSmall, children }) => {
+const RoomInterest = ({ bgImageUrl, bgImage, children }) => {
   return (
     <div className={styles.roomInterest}>
       {(bgImageUrl || bgImage) && (
