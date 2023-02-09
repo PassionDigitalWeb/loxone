@@ -20,7 +20,7 @@ export const Spacer = ({
       className={cn(
         styles.spacer,
         styles[type],
-        styles[isHR + "HrColor"],
+        isHR && styles.greenHrColor,
         responsive && styles.responsive,
         x && styles[camelize(`x-${x}`)],
         y && styles[camelize(`y-${y}`)],

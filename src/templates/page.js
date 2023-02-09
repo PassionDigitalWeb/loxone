@@ -11,6 +11,7 @@ import {
   TwoColContentSlice,
   VideoBlockSlice,
   GallerySlice,
+  CardsSlice,
 } from "@components/slices"
 import FeatureSliderSlice from "@components/slices/FeatureSliderSlice"
 import { SliceZone } from "@prismicio/react"
@@ -32,6 +33,7 @@ const components = {
   video_block: VideoBlockSlice,
   gallery: GallerySlice,
   contact_form: ContactFormSlice,
+  cards: CardsSlice,
 }
 
 export const PageTemplate = props => {

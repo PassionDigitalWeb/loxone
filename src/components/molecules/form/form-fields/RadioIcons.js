@@ -33,7 +33,7 @@ export const RadioIcons = props => {
               <FormElementWrap>
                 <input
                   id={id}
-                  className={cx(styles.formFieldRadioIcon, fieldClass())}
+                  className={cx(fieldClass())}
                   {...register(name, validationSetup(props))}
                   placeholder={placeholder}
                   defaultChecked={key === 0}

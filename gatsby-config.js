@@ -30,6 +30,7 @@ module.exports = {
           "homepage.data.body.image_block.primary.image": true,
           "homepage.data.body.video_block.primary.image": true,
           "homepage.data.body.gallery.items.image": true,
+          "homepage.data.body.cards.items.card_image": true,
 
           "page.data.body.full_hero.primary.hero_image": true,
           "page.data.body.feature.primary.image": true,
@@ -37,6 +38,7 @@ module.exports = {
           "page.data.body.image_block.primary.image": true,
           "page.data.body.video_block.primary.image": true,
           "page.data.body.gallery.items.image": true,
+          "page.data.body.cards.items.card_image": true,
         },
         linkResolver: doc =>
           require("./config/prismic/linkResolver").linkResolver(doc),

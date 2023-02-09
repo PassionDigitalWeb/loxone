@@ -20,9 +20,7 @@ export const TextInput = props => {
 
   return (
     <>
-      <div
-        className={cx(styles.formFieldTextWrap, fieldWrapClass(fieldErrors))}
-      >
+      <div className={cx(fieldWrapClass(fieldErrors))}>
         <FormLabel
           label={label}
           required={required}

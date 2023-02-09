@@ -9,7 +9,6 @@ import { useShortHead } from "@lib/hooks/useShortHead"
 import { PrismicLink } from "@prismicio/react"
 import { useSiteMetadata } from "@lib/hooks/useSiteData"
 import InlineLogo from "@components/atoms/inline-logo"
-import { Helmet } from "react-helmet"
 import { slide as Menu } from "react-burger-menu"
 import { useSmallScreen } from "@lib/hooks/useSmallScreen"
 import Social from "@components/atoms/social"
@@ -88,7 +87,7 @@ const FeatureDropdown = ({ links }) => {
   const [isActive, setIsActive] = useState(false)
   return (
     <div
-      className={classNames(styles.navItemWrap, styles.hasDropdown)}
+      className={classNames(styles.navItemWrap)}
       onMouseEnter={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
     >

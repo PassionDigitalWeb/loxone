@@ -21,9 +21,7 @@ export const TextArea = props => {
 
   return (
     <>
-      <div
-        className={cx(styles.formFieldTextWrap, fieldWrapClass(fieldErrors))}
-      >
+      <div className={cx(fieldWrapClass(fieldErrors))}>
         <FormLabel
           label={label}
           required={required}
@@ -31,7 +29,7 @@ export const TextArea = props => {
         />
         <FormElementWrap>
           <textarea
-            className={cx(styles.formFieldTextarea, fieldClass())}
+            className={cx(fieldClass())}
             placeholder={placeholder}
             {...register(name, validationSetup(props))}
           />

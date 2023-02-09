@@ -21,13 +21,11 @@ export const Select = props => {
 
   return (
     <>
-      <div
-        className={cx(styles.formFieldSelectWrap, fieldWrapClass(fieldErrors))}
-      >
+      <div className={cx(fieldWrapClass(fieldErrors))}>
         <FormLabel label={label} required={required} />
         <FormElementWrap>
           <select
-            className={cx(styles.formFieldSelect, fieldClass())}
+            className={cx(fieldClass())}
             {...register(name, validationSetup(props))}
             defaultValue={defaultOption}
           >

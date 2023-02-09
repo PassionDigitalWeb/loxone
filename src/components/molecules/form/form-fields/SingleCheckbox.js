@@ -30,7 +30,7 @@ export const SingleCheckbox = props => {
         <FormElementWrap>
           <input
             id={name}
-            className={cx(styles.formFieldCheckbox, fieldClass())}
+            className={cx(fieldClass())}
             {...register(name, validationSetup(props))}
             placeholder={placeholder}
             type="checkbox"

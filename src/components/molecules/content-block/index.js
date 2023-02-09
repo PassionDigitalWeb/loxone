@@ -7,6 +7,7 @@ import classNames from "classnames"
 import PropTypes from "prop-types"
 
 export const ContentBlock = ({ isMini, hasBG, children, ...props }) => {
+  console.log({ children })
   return (
     <div className={classNames(styles.contentBlock)} {...props}>
       {hasBG && (

@@ -13,7 +13,7 @@ export const ContentBlockSlice = ({ slice }) => {
     <ContentBlock hasBG={has_background}>
       <Prose align={align || "center"}>
         {content && <PRichText field={content.richText} />}
-        {items && (
+        {items?.length > 0 && (
           <Spacer y="sm">
             <ButtonGroup>
               {items?.map(({ button_text, button_link, colour }, key) => {

@@ -13,8 +13,6 @@ import Footer from "@components/organisms/footer"
 import { Header } from "@components/organisms"
 import { useEffect, useState } from "react"
 import { SEO } from "@components/utils/SEO"
-import { Helmet } from "react-helmet"
-import Modal from "@components/molecules/modal"
 import { SiteProvider } from "@lib/context/siteContext"
 import BookingModal from "@components/molecules/booking-modal"
 

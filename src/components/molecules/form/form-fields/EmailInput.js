@@ -21,9 +21,7 @@ export const EmailInput = props => {
 
   return (
     <>
-      <div
-        className={cx(styles.formFieldEmailWrap, fieldWrapClass(fieldErrors))}
-      >
+      <div className={cx(fieldWrapClass(fieldErrors))}>
         <FormLabel
           label={label}
           required={required}
@@ -31,7 +29,7 @@ export const EmailInput = props => {
         />
         <FormElementWrap>
           <input
-            className={cx(styles.formFieldEmail, fieldClass())}
+            className={cx(fieldClass())}
             type="text"
             placeholder={placeholder}
             {...register(name, {
