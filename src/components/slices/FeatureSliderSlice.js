@@ -1,6 +1,13 @@
 import React from "react"
 import { Feature } from "@components/molecules"
-import { Button, ButtonGroup, Heading, Prose, Text } from "@components/atoms"
+import {
+  Button,
+  ButtonGroup,
+  Heading,
+  Prose,
+  Spacer,
+  Text,
+} from "@components/atoms"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { PRichText } from "@lib/richtext"
 import { PrismicLink } from "@prismicio/react"
@@ -15,40 +22,49 @@ export const FeatureSliderSlice = ({ slice }) => {
     button_text,
     button_link,
     dark_background,
+    spacing,
   } = primary
 
   return (
-    <Feature isImageRight={is_image_right} hasDarkBackground={dark_background}>
-      {items && <Feature.Slider slides={items} />}
-      <Feature.Content>
-        <Prose>
-          {label && (
-            <Heading color="green" node="h6" weight="100" variant="h6">
-              {label}
-            </Heading>
-          )}
-          {content && <PRichText field={content.richText} />}
-          {button_text && button_link && (
-            <ButtonGroup>
-              <PrismicLink
-                field={button_link}
-                internalComponent={props => <Button {...props} />}
-                externalComponent={props => <Button {...props} />}
-              >
-                {button_text}
-              </PrismicLink>
-            </ButtonGroup>
-          )}
-        </Prose>
-      </Feature.Content>
-    </Feature>
+    <>
+      <Spacer y={spacing || "lg"} type="margin" topOnly />
+      <Feature
+        isImageRight={is_image_right}
+        hasDarkBackground={dark_background}
+      >
+        {items && <Feature.Slider slides={items} />}
+        <Feature.Content>
+          <Prose>
+            {label && (
+              <Heading color="green" node="h6" weight="100" variant="h6">
+                {label}
+              </Heading>
+            )}
+            {content && <PRichText field={content.richText} />}
+            {button_text && button_link && (
+              <ButtonGroup>
+                <PrismicLink
+                  field={button_link}
+                  internalComponent={props => <Button {...props} />}
+                  externalComponent={props => <Button {...props} />}
+                >
+                  {button_text}
+                </PrismicLink>
+              </ButtonGroup>
+            )}
+          </Prose>
+        </Feature.Content>
+      </Feature>
+    </>
   )
 }
 
 export const query = graphql`
   fragment HomepageDataBodyFeatureSlider on PrismicHomepageDataBodyFeatureSlider {
     ...SliceType
+
     primary {
+      spacing
       content {
         richText
       }
@@ -77,7 +93,9 @@ export const query = graphql`
 
   fragment PageDataBodyFeatureSlider on PrismicPageDataBodyFeatureSlider {
     ...SliceType
+
     primary {
+      spacing
       content {
         richText
       }

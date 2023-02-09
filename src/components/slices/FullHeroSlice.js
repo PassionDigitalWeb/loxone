@@ -1,35 +1,38 @@
 import React from "react"
 import { Hero } from "@components/molecules"
-import { Button, ButtonGroup, Prose } from "@components/atoms"
+import { Button, ButtonGroup, Prose, Spacer } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
 import { PrismicLink } from "@prismicio/react"
 import { graphql } from "gatsby"
 
 export const FullHeroSlice = ({ slice }) => {
   const { primary, items } = slice
-  const { hero_title, hero_content, hero_image } = primary
+  const { hero_title, hero_content, hero_image, spacing } = primary
   return (
-    <Hero bgImage={hero_image}>
-      <Prose>
-        <PRichText field={hero_title.richText} />
-        <PRichText field={hero_content.richText} />
+    <>
+      {spacing && <Spacer y={spacing || "lg"} type="margin" topOnly />}
+      <Hero bgImage={hero_image}>
+        <Prose>
+          <PRichText field={hero_title.richText} />
+          <PRichText field={hero_content.richText} />
 
-        <ButtonGroup>
-          {items?.map(({ button_text, button_link }, key) => {
-            return (
-              <PrismicLink
-                key={key}
-                field={button_link}
-                internalComponent={Button}
-                externalComponent={Button}
-              >
-                {button_text}
-              </PrismicLink>
-            )
-          })}
-        </ButtonGroup>
-      </Prose>
-    </Hero>
+          <ButtonGroup>
+            {items?.map(({ button_text, button_link }, key) => {
+              return (
+                <PrismicLink
+                  key={key}
+                  field={button_link}
+                  internalComponent={Button}
+                  externalComponent={Button}
+                >
+                  {button_text}
+                </PrismicLink>
+              )
+            })}
+          </ButtonGroup>
+        </Prose>
+      </Hero>
+    </>
   )
 }
 
@@ -37,6 +40,7 @@ export const query = graphql`
   fragment HomepageDataBodyFullHero on PrismicHomepageDataBodyFullHero {
     ...SliceType
     primary {
+      spacing
       hero_content {
         richText
       }
@@ -65,6 +69,7 @@ export const query = graphql`
   fragment PageDataBodyFullHero on PrismicPageDataBodyFullHero {
     ...SliceType
     primary {
+      spacing
       hero_content {
         richText
       }

@@ -7,9 +7,7 @@ import classNames from "classnames"
 export const FAQs = ({ children, ...props }) => {
   return (
     <div className={classNames(styles.faqs)} {...props}>
-      <Spacer y="lg">
-        <Container size="md">{children}</Container>
-      </Spacer>
+      <Container size="md">{children}</Container>
     </div>
   )
 }

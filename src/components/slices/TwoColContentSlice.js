@@ -1,30 +1,37 @@
 import React from "react"
-import { Prose } from "@components/atoms"
+import { Prose, Spacer } from "@components/atoms"
 import { PRichText } from "@lib/richtext"
 import TwoColContent from "@components/molecules/two-column-content"
 import { graphql } from "gatsby"
 
 export const TwoColContentSlice = ({ slice }) => {
-  const { items } = slice
+  const { items, primary } = slice
+  const { spacing } = primary
 
   return (
-    <TwoColContent>
-      {items?.map(({ content }, key) => {
-        return (
-          <TwoColContent.Col key={key}>
-            <Prose>
-              <PRichText field={content.richText} />
-            </Prose>
-          </TwoColContent.Col>
-        )
-      })}
-    </TwoColContent>
+    <>
+      <Spacer y={spacing || "lg"} type="margin" topOnly />
+      <TwoColContent>
+        {items?.map(({ content }, key) => {
+          return (
+            <TwoColContent.Col key={key}>
+              <Prose>
+                <PRichText field={content.richText} />
+              </Prose>
+            </TwoColContent.Col>
+          )
+        })}
+      </TwoColContent>
+    </>
   )
 }
 
 export const query = graphql`
   fragment HomepageDataBodyTwoColumnContent on PrismicHomepageDataBodyTwoColumnContent {
     ...SliceType
+    primary {
+      spacing
+    }
     items {
       content {
         richText
@@ -34,6 +41,9 @@ export const query = graphql`
 
   fragment PageDataBodyTwoColumnContent on PrismicPageDataBodyTwoColumnContent {
     ...SliceType
+    primary {
+      spacing
+    }
     items {
       content {
         richText

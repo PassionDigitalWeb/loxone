@@ -22,7 +22,7 @@ export const Feature = ({
       className={classNames(styles.feature, hasDarkBackground && styles.darkBG)}
       {...props}
     >
-      <Spacer type={hasDarkBackground ? "padding" : "margin"} y="lg">
+      <Spacer type={hasDarkBackground ? "padding" : ""} y="lg">
         <Container size="md">
           <div
             className={classNames(

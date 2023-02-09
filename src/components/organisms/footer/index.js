@@ -140,7 +140,7 @@ export const Footer = ({ children, ...props }) => {
                 <Heading variant="h6" color="white">
                   Find out more about Loxone at:
                 </Heading>
-                <Spacer y="xsm" />
+                <Spacer y="xs" />
                 <Heading variant="h6" color="white">
                   <Anchor href="https://loxone.com" isLight underlined>
                     loxone.com

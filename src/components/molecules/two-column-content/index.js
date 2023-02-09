@@ -9,11 +9,9 @@ const Col = ({ title, children, ...props }) => {
 export const TwoColContent = ({ title, children, ...props }) => {
   return (
     <div className={styles.twoColContent} {...props}>
-      <Spacer y="lg">
-        <Container size="md">
-          <div className={styles.twoColContentGrid}>{children}</div>
-        </Container>
-      </Spacer>
+      <Container size="md">
+        <div className={styles.twoColContentGrid}>{children}</div>
+      </Container>
     </div>
   )
 }

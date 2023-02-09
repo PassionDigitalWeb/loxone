@@ -7,42 +7,46 @@ import { PrismicLink } from "@prismicio/react"
 
 export const ContentBlockSlice = ({ slice }) => {
   const { primary, items } = slice
-  const { content, has_background, align } = primary
+  const { content, has_background, align, spacing } = primary
 
   return (
-    <ContentBlock hasBG={has_background}>
-      <Prose align={align || "center"}>
-        {content && <PRichText field={content.richText} />}
-        {items?.length > 0 && (
-          <Spacer y="sm">
-            <ButtonGroup>
-              {items?.map(({ button_text, button_link, colour }, key) => {
-                return (
-                  <PrismicLink
-                    key={key}
-                    field={button_link}
-                    internalComponent={props => (
-                      <Button color={colour} {...props} />
-                    )}
-                    externalComponent={props => (
-                      <Button color={colour} {...props} />
-                    )}
-                  >
-                    {button_text}
-                  </PrismicLink>
-                )
-              })}
-            </ButtonGroup>
-          </Spacer>
-        )}
-      </Prose>
-    </ContentBlock>
+    <>
+      <Spacer y={spacing || "lg"} type="margin" topOnly />
+      <ContentBlock hasBG={has_background}>
+        <Prose align={align || "center"}>
+          {content && <PRichText field={content.richText} />}
+          {items?.length > 0 && (
+            <Spacer y="sm">
+              <ButtonGroup>
+                {items?.map(({ button_text, button_link, colour }, key) => {
+                  return (
+                    <PrismicLink
+                      key={key}
+                      field={button_link}
+                      internalComponent={props => (
+                        <Button color={colour} {...props} />
+                      )}
+                      externalComponent={props => (
+                        <Button color={colour} {...props} />
+                      )}
+                    >
+                      {button_text}
+                    </PrismicLink>
+                  )
+                })}
+              </ButtonGroup>
+            </Spacer>
+          )}
+        </Prose>
+      </ContentBlock>
+    </>
   )
 }
 
 export const query = graphql`
   fragment HomepageDataBodyContentBlock on PrismicHomepageDataBodyContentBlock {
     ...SliceType
+
     items {
       button_link {
         url
@@ -53,6 +57,7 @@ export const query = graphql`
       button_text
     }
     primary {
+      spacing
       content {
         richText
       }
@@ -63,6 +68,7 @@ export const query = graphql`
 
   fragment PageDataBodyContentBlock on PrismicPageDataBodyContentBlock {
     ...SliceType
+
     items {
       button_link {
         url
@@ -73,6 +79,7 @@ export const query = graphql`
       button_text
     }
     primary {
+      spacing
       content {
         richText
       }

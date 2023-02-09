@@ -8,9 +8,10 @@ import Spacer from "@components/atoms/spacer"
 
 export const BannerSlice = ({ slice }) => {
   const { primary, items } = slice
-  const { content, title } = primary
+  const { content, title, spacing } = primary
   return (
-    <Spacer type="margin" y="md">
+    <>
+      <Spacer y={spacing || "lg"} type="margin" topOnly />
       <Banner>
         <Prose align="center">
           {title && (
@@ -44,7 +45,7 @@ export const BannerSlice = ({ slice }) => {
           )}
         </Prose>
       </Banner>
-    </Spacer>
+    </>
   )
 }
 
@@ -61,6 +62,7 @@ export const query = graphql`
       button_text
     }
     primary {
+      spacing
       title {
         html
       }
@@ -81,6 +83,7 @@ export const query = graphql`
       button_text
     }
     primary {
+      spacing
       title {
         html
       }

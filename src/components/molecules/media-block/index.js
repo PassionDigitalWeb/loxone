@@ -24,7 +24,6 @@ const Image = ({ imageUrl, image, ...props }) => {
     <>
       {(imageUrl || image) && (
         <>
-          <Spacer y="sm" />
           <div className={styles.image}>
             {image && (
               <GatsbyImage alt={image.alt} image={getImage(image.localFile)} />
@@ -54,7 +53,6 @@ const Video = ({ imageUrl, image, videoEmbed, ...props }) => {
 
   return (
     <>
-      <Spacer y="sm" />
       <div className={styles.videoCon}>
         {!isActive && (
           <div className={styles.videoImage} onClick={() => setIsActive(true)}>

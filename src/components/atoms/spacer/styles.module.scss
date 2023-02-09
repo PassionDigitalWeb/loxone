@@ -27,15 +27,29 @@ hr.spacer {
   }
 }
 
+
+//Desktop
 $xsm: 10px;
-$sm: 20px;
+$sm: 25px;
 $md: 50px;
-$lg: 70px;
+$lg: 75px;
 $xl: 100px;
 
-.xXsm {
+//Mobile
+$xsm_mobile: 0px;
+$sm_mobile: 20px;
+$md_mobile: 30px;
+$lg_mobile: 50px;
+$xl_mobile: 75px;
+
+.xXs {
   padding-left: $xsm;
   padding-right: $xsm;
+
+  @media (max-width: $screen-md) {
+    padding-left: $xsm_mobile;
+    padding-right: $xsm_mobile;
+  }
 }
 
 .xSm {
@@ -44,8 +58,8 @@ $xl: 100px;
 
   &.responsive {
     @media (max-width: $screen-md) {
-      padding-left: $xsm;
-      padding-right: $xsm;
+      padding-left: $sm_mobile;
+      padding-right: $sm_mobile;
     }
   }
 }
@@ -56,8 +70,8 @@ $xl: 100px;
 
   &.responsive {
     @media (max-width: $screen-md) {
-      padding-left: $sm;
-      padding-right: $sm;
+      padding-left: $md_mobile;
+      padding-right: $md_mobile;
     }
   }
 }
@@ -68,8 +82,8 @@ $xl: 100px;
 
   &.responsive {
     @media (max-width: $screen-md) {
-      padding-left: $md;
-      padding-right: $md;
+      padding-left: $lg_mobile;
+      padding-right: $lg_mobile;
     }
   }
 }
@@ -80,22 +94,32 @@ $xl: 100px;
 
   &.responsive {
     @media (max-width: $screen-md) {
-      padding-left: $lg;
-      padding-right: $lg;
+      padding-left: $xl_mobile;
+      padding-right: $xl_mobile;
     }
   }
 }
 
 //Yaxis
-.yXsm {
+.yXs {
   &.padding {
     padding-top: $xsm;
     padding-bottom: $xsm;
+
+    @media (max-width: $screen-md) {
+      padding-top: $xsm_mobile;
+      padding-bottom: $xsm_mobile;
+    }
   }
 
   &.margin {
-    margin-top: $xsm;
-    margin-bottom: $xsm;
+    padding-top: $xsm;
+    padding-bottom: $xsm;
+
+    @media (max-width: $screen-md) {
+      margin-top: $xsm_mobile;
+      margin-bottom: $xsm_mobile;
+    }
   }
 }
 
@@ -106,8 +130,8 @@ $xl: 100px;
 
     &.responsive {
       @media (max-width: $screen-md) {
-        padding-top: $xsm;
-        padding-bottom: $xsm;
+        padding-top: $sm_mobile;
+        padding-bottom: $sm_mobile;
       }
     }
   }
@@ -118,8 +142,8 @@ $xl: 100px;
 
     &.responsive {
       @media (max-width: $screen-md) {
-        margin-top: $xsm;
-        margin-bottom: $xsm;
+        margin-top: $sm_mobile;
+        margin-bottom: $sm_mobile;
       }
     }
   }
@@ -132,8 +156,8 @@ $xl: 100px;
 
     &.responsive {
       @media (max-width: $screen-md) {
-        padding-top: $sm;
-        padding-bottom: $sm;
+        padding-top: $md_mobile;
+        padding-bottom: $md_mobile;
       }
     }
   }
@@ -144,8 +168,8 @@ $xl: 100px;
 
     &.responsive {
       @media (max-width: $screen-md) {
-        margin-top: $sm;
-        margin-bottom: $sm;
+        margin-top: $md_mobile;
+        margin-bottom: $md_mobile;
       }
     }
   }
@@ -158,8 +182,8 @@ $xl: 100px;
 
     &.responsive {
       @media (max-width: $screen-md) {
-        padding-top: $md;
-        padding-bottom: $md;
+        padding-top: $lg_mobile;
+        padding-bottom: $lg_mobile;
       }
     }
   }
@@ -170,8 +194,8 @@ $xl: 100px;
 
     &.responsive {
       @media (max-width: $screen-md) {
-        margin-top: $md;
-        margin-bottom: $md;
+        margin-top: $lg_mobile;
+        margin-bottom: $lg_mobile;
       }
     }
   }
@@ -184,8 +208,8 @@ $xl: 100px;
 
     &.responsive {
       @media (max-width: $screen-md) {
-        padding-top: $lg;
-        padding-bottom: $lg;
+        padding-top: $xl_mobile;
+        padding-bottom: $xl_mobile;
       }
     }
   }
@@ -196,9 +220,14 @@ $xl: 100px;
 
     &.responsive {
       @media (max-width: $screen-md) {
-        margin-top: $lg;
-        margin-bottom: $lg;
+        margin-top: $xl_mobile;
+        margin-bottom: $xl_mobile;
       }
     }
   }
+}
+
+
+[class*="y"].topOnly {
+  margin-bottom: 0;
 }

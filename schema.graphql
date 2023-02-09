@@ -718,6 +718,7 @@ type PrismicHomepageDataBodyBannerItem {
 
 type PrismicHomepageDataBodyBannerPrimary {
     content: PrismicStructuredTextType
+    spacing: String
     title: PrismicStructuredTextType
 }
 
@@ -856,6 +857,7 @@ type PrismicHomepageDataBodyCardsPrimary {
     button_text_1: String
     button_text_2: String
     section_title: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicHomepageDataBodyContactForm implements PrismicSliceType {
@@ -867,6 +869,7 @@ type PrismicHomepageDataBodyContactForm implements PrismicSliceType {
 
 type PrismicHomepageDataBodyContactFormPrimary {
     content: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicHomepageDataBodyContentBlock implements PrismicSliceType {
@@ -887,6 +890,7 @@ type PrismicHomepageDataBodyContentBlockPrimary {
     align: String
     content: PrismicStructuredTextType
     has_background: Boolean
+    spacing: String
 }
 
 type PrismicHomepageDataBodyFaqs implements PrismicSliceType {
@@ -904,6 +908,7 @@ type PrismicHomepageDataBodyFaqsItem {
 
 type PrismicHomepageDataBodyFaqsPrimary {
     content: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicHomepageDataBodyFeature implements PrismicSliceType {
@@ -924,6 +929,7 @@ type PrismicHomepageDataBodyFeaturePrimary {
     content: PrismicStructuredTextType
     image: PrismicHomepageDataBodyFeaturePrimaryImageImageType
     is_image_right: Boolean
+    spacing: String
 }
 
 type PrismicHomepageDataBodyFeaturePrimaryImageImageType {
@@ -1176,6 +1182,7 @@ type PrismicHomepageDataBodyFeatureSliderPrimary {
     dark_background: Boolean
     is_image_right: Boolean
     label: String
+    spacing: String
 }
 
 type PrismicHomepageDataBodyFullHero implements PrismicSliceType {
@@ -1195,6 +1202,7 @@ type PrismicHomepageDataBodyFullHeroPrimary {
     hero_content: PrismicStructuredTextType
     hero_image: PrismicHomepageDataBodyFullHeroPrimaryHeroImageImageType
     hero_title: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicHomepageDataBodyFullHeroPrimaryHeroImageImageType {
@@ -1443,6 +1451,7 @@ type PrismicHomepageDataBodyGalleryItemsImageImageType {
 
 type PrismicHomepageDataBodyGalleryPrimary {
     content: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicHomepageDataBodyImageBlock implements PrismicSliceType {
@@ -1462,6 +1471,7 @@ type PrismicHomepageDataBodyImageBlockItem {
 type PrismicHomepageDataBodyImageBlockPrimary {
     content: PrismicStructuredTextType
     image: PrismicHomepageDataBodyImageBlockPrimaryImageImageType
+    spacing: String
 }
 
 type PrismicHomepageDataBodyImageBlockPrimaryImageImageType {
@@ -1588,6 +1598,7 @@ type PrismicHomepageDataBodyIntroductionContent implements PrismicSliceType {
 
 type PrismicHomepageDataBodyIntroductionContentPrimary {
     content: PrismicStructuredTextType
+    spacing: String
     title: PrismicStructuredTextType
 }
 
@@ -1604,6 +1615,7 @@ type PrismicHomepageDataBodyShowroomItem {
 }
 
 type PrismicHomepageDataBodyShowroomPrimary {
+    spacing: String
     title: PrismicStructuredTextType
 }
 
@@ -1622,12 +1634,17 @@ type PrismicHomepageDataBodySpacerPrimary {
 type PrismicHomepageDataBodyTwoColumnContent implements PrismicSliceType {
     id: ID!
     items: [PrismicHomepageDataBodyTwoColumnContentItem!]!
+    primary: PrismicHomepageDataBodyTwoColumnContentPrimary!
     slice_label: String
     slice_type: String!
 }
 
 type PrismicHomepageDataBodyTwoColumnContentItem {
     content: PrismicStructuredTextType
+}
+
+type PrismicHomepageDataBodyTwoColumnContentPrimary {
+    spacing: String
 }
 
 type PrismicHomepageDataBodyVideoBlock implements PrismicSliceType {
@@ -1647,6 +1664,7 @@ type PrismicHomepageDataBodyVideoBlockItem {
 type PrismicHomepageDataBodyVideoBlockPrimary {
     content: PrismicStructuredTextType
     image: PrismicHomepageDataBodyVideoBlockPrimaryImageImageType
+    spacing: String
     video_embed: PrismicEmbedType
 }
 
@@ -1963,7 +1981,6 @@ type PrismicPage implements Node {
     prismicId: ID!
     tags: [String!]!
     type: String!
-    uid: String!
     url: String
 }
 
@@ -1995,6 +2012,7 @@ type PrismicPageDataBodyBannerItem {
 
 type PrismicPageDataBodyBannerPrimary {
     content: PrismicStructuredTextType
+    spacing: String
     title: PrismicStructuredTextType
 }
 
@@ -2133,6 +2151,7 @@ type PrismicPageDataBodyCardsPrimary {
     button_text_1: String
     button_text_2: String
     section_title: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicPageDataBodyContactForm implements PrismicSliceType {
@@ -2144,6 +2163,7 @@ type PrismicPageDataBodyContactForm implements PrismicSliceType {
 
 type PrismicPageDataBodyContactFormPrimary {
     content: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicPageDataBodyContentBlock implements PrismicSliceType {
@@ -2164,6 +2184,7 @@ type PrismicPageDataBodyContentBlockPrimary {
     align: String
     content: PrismicStructuredTextType
     has_background: Boolean
+    spacing: String
 }
 
 type PrismicPageDataBodyFaqs implements PrismicSliceType {
@@ -2181,6 +2202,7 @@ type PrismicPageDataBodyFaqsItem {
 
 type PrismicPageDataBodyFaqsPrimary {
     content: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicPageDataBodyFeature implements PrismicSliceType {
@@ -2201,6 +2223,7 @@ type PrismicPageDataBodyFeaturePrimary {
     content: PrismicStructuredTextType
     image: PrismicPageDataBodyFeaturePrimaryImageImageType
     is_image_right: Boolean
+    spacing: String
 }
 
 type PrismicPageDataBodyFeaturePrimaryImageImageType {
@@ -2453,6 +2476,7 @@ type PrismicPageDataBodyFeatureSliderPrimary {
     dark_background: Boolean
     is_image_right: Boolean
     label: String
+    spacing: String
 }
 
 type PrismicPageDataBodyFullHero implements PrismicSliceType {
@@ -2472,6 +2496,7 @@ type PrismicPageDataBodyFullHeroPrimary {
     hero_content: PrismicStructuredTextType
     hero_image: PrismicPageDataBodyFullHeroPrimaryHeroImageImageType
     hero_title: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicPageDataBodyFullHeroPrimaryHeroImageImageType {
@@ -2720,6 +2745,7 @@ type PrismicPageDataBodyGalleryItemsImageImageType {
 
 type PrismicPageDataBodyGalleryPrimary {
     content: PrismicStructuredTextType
+    spacing: String
 }
 
 type PrismicPageDataBodyImageBlock implements PrismicSliceType {
@@ -2739,6 +2765,7 @@ type PrismicPageDataBodyImageBlockItem {
 type PrismicPageDataBodyImageBlockPrimary {
     content: PrismicStructuredTextType
     image: PrismicPageDataBodyImageBlockPrimaryImageImageType
+    spacing: String
 }
 
 type PrismicPageDataBodyImageBlockPrimaryImageImageType {
@@ -2865,6 +2892,7 @@ type PrismicPageDataBodyIntroductionContent implements PrismicSliceType {
 
 type PrismicPageDataBodyIntroductionContentPrimary {
     content: PrismicStructuredTextType
+    spacing: String
     title: PrismicStructuredTextType
 }
 
@@ -2881,6 +2909,7 @@ type PrismicPageDataBodyShowroomItem {
 }
 
 type PrismicPageDataBodyShowroomPrimary {
+    spacing: String
     title: PrismicStructuredTextType
 }
 
@@ -2899,12 +2928,17 @@ type PrismicPageDataBodySpacerPrimary {
 type PrismicPageDataBodyTwoColumnContent implements PrismicSliceType {
     id: ID!
     items: [PrismicPageDataBodyTwoColumnContentItem!]!
+    primary: PrismicPageDataBodyTwoColumnContentPrimary!
     slice_label: String
     slice_type: String!
 }
 
 type PrismicPageDataBodyTwoColumnContentItem {
     content: PrismicStructuredTextType
+}
+
+type PrismicPageDataBodyTwoColumnContentPrimary {
+    spacing: String
 }
 
 type PrismicPageDataBodyVideoBlock implements PrismicSliceType {
@@ -2924,6 +2958,7 @@ type PrismicPageDataBodyVideoBlockItem {
 type PrismicPageDataBodyVideoBlockPrimary {
     content: PrismicStructuredTextType
     image: PrismicPageDataBodyVideoBlockPrimaryImageImageType
+    spacing: String
     video_embed: PrismicEmbedType
 }
 
@@ -3555,7 +3590,7 @@ type Query {
     imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, gatsbyImageData: GatsbyImageDataQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput): ImageSharp
     prismicEmbedType(author_name: StringQueryOperatorInput, author_url: StringQueryOperatorInput, children: NodeFilterListInput, embed_url: StringQueryOperatorInput, height: IntQueryOperatorInput, html: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, prismicId: StringQueryOperatorInput, provider_name: StringQueryOperatorInput, provider_url: StringQueryOperatorInput, thumbnail_height: IntQueryOperatorInput, thumbnail_url: StringQueryOperatorInput, thumbnail_width: IntQueryOperatorInput, title: StringQueryOperatorInput, type: StringQueryOperatorInput, version: StringQueryOperatorInput, width: IntQueryOperatorInput): PrismicEmbedType
     prismicHomepage(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicHomepageDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicHomepage
-    prismicPage(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicPageDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, gatsbyPath: StringQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, uid: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicPage
+    prismicPage(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicPageDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, gatsbyPath: StringQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicPage
     prismicShowroom(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicShowroomDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicShowroom
     prismicSiteData(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicSiteDataDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicSiteData
     prismicTypePathType(children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, kind: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, type: StringQueryOperatorInput): PrismicTypePathType
@@ -4776,7 +4811,6 @@ enum PrismicPageFieldsEnum {
     prismicId
     tags
     type
-    uid
     url
 }
 
@@ -6774,7 +6808,6 @@ input PrismicPageFilterInput {
     prismicId: IDQueryOperatorInput
     tags: StringQueryOperatorInput
     type: StringQueryOperatorInput
-    uid: StringQueryOperatorInput
     url: StringQueryOperatorInput
 }
 

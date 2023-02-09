@@ -145,8 +145,8 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
               errors={errors}
             />
           </div>
-          <Spacer y="xsm" isHR="green" />
-          <Spacer y="xsm">
+          <Spacer y="xs" isHR="green" />
+          <Spacer y="xs">
             <Heading node="div" variant="h6" weight="700">
               Your Details
             </Heading>

@@ -8,6 +8,7 @@ export const Spacer = ({
   x,
   y = "md",
   type = "padding",
+  topOnly = false,
   isHR = false,
   responsive = true,
   children,
@@ -22,6 +23,7 @@ export const Spacer = ({
         styles[type],
         isHR && styles.greenHrColor,
         responsive && styles.responsive,
+        topOnly && styles.topOnly,
         x && styles[camelize(`x-${x}`)],
         y && styles[camelize(`y-${y}`)],
         className
@@ -34,8 +36,8 @@ export const Spacer = ({
 }
 
 Spacer.propTypes = {
-  x: PropTypes.oneOf(["xsm", "sm", "md", "lg", "xl"]),
-  y: PropTypes.oneOf(["xsm", "sm", "md", "lg", "xl"]),
+  x: PropTypes.oneOf(["none", "xs", "sm", "md", "lg", "xl"]),
+  y: PropTypes.oneOf(["none", "xs", "sm", "md", "lg", "xl"]),
   type: PropTypes.oneOf(["padding", "margin"]),
 }
 
