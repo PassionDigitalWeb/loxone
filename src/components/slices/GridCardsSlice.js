@@ -9,21 +9,25 @@ export const CardsSlice = ({ slice }) => {
   const { spacing } = primary
 
   return (
-    <Container>
+    <>
       <Spacer y={spacing || "lg"} type="margin" topOnly />
-      <GridCards>
-        {items &&
-          items.map(({ card_content, card_image }) => {
-            return (
-              <GridCard cardImage={card_image}>
-                <Prose>
-                  {card_content && <PRichText field={card_content.richText} />}
-                </Prose>
-              </GridCard>
-            )
-          })}
-      </GridCards>
-    </Container>
+      <Container>
+        <GridCards>
+          {items &&
+            items.map(({ card_content, card_image }) => {
+              return (
+                <GridCard cardImage={card_image}>
+                  <Prose>
+                    {card_content && (
+                      <PRichText field={card_content.richText} />
+                    )}
+                  </Prose>
+                </GridCard>
+              )
+            })}
+        </GridCards>
+      </Container>
+    </>
   )
 }
 
