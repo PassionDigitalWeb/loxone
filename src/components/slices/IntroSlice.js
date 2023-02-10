@@ -20,29 +20,28 @@ export const IntroSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyIntroductionContent on PrismicHomepageDataBodyIntroductionContent {
+  fragment PageDataBodyIntroductionContent on PrismicSliceType {
     ...SliceType
-    primary {
-      spacing
-      title {
-        richText
-      }
-      content {
-        richText
+    ... on PrismicHomepageDataBodyIntroductionContent {
+      primary {
+        spacing
+        title {
+          richText
+        }
+        content {
+          richText
+        }
       }
     }
-  }
-
-  fragment PageDataBodyIntroductionContent on PrismicPageDataBodyIntroductionContent {
-    ...SliceType
-
-    primary {
-      spacing
-      title {
-        richText
-      }
-      content {
-        richText
+    ... on PrismicPageDataBodyIntroductionContent {
+      primary {
+        spacing
+        title {
+          richText
+        }
+        content {
+          richText
+        }
       }
     }
   }

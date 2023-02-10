@@ -21,21 +21,22 @@ export const query = graphql`
         meta_description
         meta_title
         body {
-          ...HomepageDataBodyFullHero
-          ...HomepageDataBodyIntroductionContent
-          ...HomepageDataBodyFeature
-          ...HomepageDataBodyBanner
-          ...HomepageDataBodyShowroom
-          ...HomepageDataBodyContentBlock
-          ...HomepageDataBodySpacer
-          ...HomepageDataBodyTwoColumnContent
-          ...HomepageDataBodyImageBlock
-          ...HomepageDataBodyVideoBlock
-          ...HomepageDataBodyFAQs
-          ...HomepageDataBodyFeatureSlider
-          ...HomepageDataBodyGallery
-          ...HomepageDataBodyContactForm
-          ...HomepageDataBodyCards
+          ...PageDataBodyFullHero
+          ...PageDataBodyIntroductionContent
+          ...PageDataBodyFeature
+          ...PageDataBodyBanner
+          ...PageDataBodyShowroom
+          ...PageDataBodyContentBlock
+          ...PageDataBodySpacer
+          ...PageDataBodyTwoColumnContent
+          ...PageDataBodyImageBlock
+          ...PageDataBodyVideoBlock
+          ...PageDataBodyFAQs
+          ...PageDataBodyFeatureSlider
+          ...PageDataBodyGallery
+          ...PageDataBodyContactForm
+          ...PageDataBodyCards
+          ...PageDataBodyGridCards
         }
       }
     }

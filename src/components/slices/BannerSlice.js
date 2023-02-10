@@ -19,8 +19,7 @@ export const BannerSlice = ({ slice }) => {
               node="h3"
               variant="h3"
               weight="300"
-              dangerouslySetInnerHTML={{ __html: title.html }}
-            ></Heading>
+              dangerouslySetInnerHTML={{ __html: title.html }}></Heading>
           )}
           {content && <PRichText field={content.richText} />}
           {items && (
@@ -35,8 +34,7 @@ export const BannerSlice = ({ slice }) => {
                     )}
                     externalComponent={props => (
                       <Button color={colour} {...props} />
-                    )}
-                  >
+                    )}>
                     {button_text}
                   </PrismicLink>
                 )
@@ -50,45 +48,48 @@ export const BannerSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyBanner on PrismicHomepageDataBodyBanner {
+  fragment PageDataBodyBanner on PrismicSliceType {
     ...SliceType
-    items {
-      button_link {
-        url
-        target
-        link_type
+    ... on PrismicHomepageDataBodyBanner {
+      ...SliceType
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
       }
-      colour
-      button_text
+      primary {
+        spacing
+        title {
+          html
+        }
+        content {
+          richText
+        }
+      }
     }
-    primary {
-      spacing
-      title {
-        html
+    ... on PrismicPageDataBodyBanner {
+      ...SliceType
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
       }
-      content {
-        richText
-      }
-    }
-  }
-  fragment PageDataBodyBanner on PrismicPageDataBodyBanner {
-    ...SliceType
-    items {
-      button_link {
-        url
-        target
-        link_type
-      }
-      colour
-      button_text
-    }
-    primary {
-      spacing
-      title {
-        html
-      }
-      content {
-        richText
+      primary {
+        spacing
+        title {
+          html
+        }
+        content {
+          richText
+        }
       }
     }
   }

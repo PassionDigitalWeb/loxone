@@ -30,35 +30,34 @@ export const FAQsSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyFAQs on PrismicHomepageDataBodyFaqs {
+  fragment PageDataBodyFAQs on PrismicSliceType {
     ...SliceType
-
-    primary {
-      spacing
-      content {
-        richText
+    ... on PrismicHomepageDataBodyFaqs {
+      primary {
+        spacing
+        content {
+          richText
+        }
+      }
+      items {
+        question
+        answer {
+          richText
+        }
       }
     }
-    items {
-      question
-      answer {
-        richText
+    ... on PrismicPageDataBodyFaqs {
+      primary {
+        spacing
+        content {
+          richText
+        }
       }
-    }
-  }
-  fragment PageDataBodyFAQs on PrismicPageDataBodyFaqs {
-    ...SliceType
-
-    primary {
-      spacing
-      content {
-        richText
-      }
-    }
-    items {
-      question
-      answer {
-        richText
+      items {
+        question
+        answer {
+          richText
+        }
       }
     }
   }

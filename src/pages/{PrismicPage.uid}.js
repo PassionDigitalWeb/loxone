@@ -35,6 +35,7 @@ export const query = graphql`
           ...PageDataBodyGallery
           ...PageDataBodyContactForm
           ...PageDataBodyCards
+          ...PageDataBodyGridCards
         }
       }
     }

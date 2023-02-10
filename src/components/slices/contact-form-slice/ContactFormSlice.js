@@ -20,7 +20,7 @@ export const ContactFormSlice = ({ slice }) => {
 
           <Spacer y="md" />
           <Container size="xs" padding="none">
-            <ContactInfoForm />
+            <ContactInfoForm enquiryTitle={primary?.enquiry_title} />
           </Container>
         </Spacer>
       </Container>
@@ -29,20 +29,23 @@ export const ContactFormSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyContactForm on PrismicHomepageDataBodyContactForm {
+  fragment PageDataBodyContactForm on PrismicSliceType {
     ...SliceType
-    primary {
-      content {
-        richText
+    ... on PrismicHomepageDataBodyContactForm {
+      primary {
+        content {
+          richText
+        }
+        enquiry_title
       }
     }
-  }
 
-  fragment PageDataBodyContactForm on PrismicPageDataBodyContactForm {
-    ...SliceType
-    primary {
-      content {
-        richText
+    ... on PrismicPageDataBodyContactForm {
+      primary {
+        content {
+          richText
+        }
+        enquiry_title
       }
     }
   }

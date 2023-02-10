@@ -87,8 +87,9 @@ export const CardsSlice = ({ slice }) => {
                 key={key}
                 field={button_link}
                 internalComponent={props => <Button color={color} {...props} />}
-                externalComponent={props => <Button color={color} {...props} />}
-              >
+                externalComponent={props => (
+                  <Button color={color} {...props} />
+                )}>
                 {button_text}
               </PrismicLink>
             )
@@ -100,72 +101,71 @@ export const CardsSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyCards on PrismicHomepageDataBodyCards {
+  fragment PageDataBodyCards on PrismicSliceType {
     ...SliceType
-
-    primary {
-      spacing
-      section_title {
-        richText
+    ... on PrismicHomepageDataBodyCards {
+      primary {
+        spacing
+        section_title {
+          richText
+        }
+        button_link_1 {
+          url
+          target
+          link_type
+        }
+        button_text_1
+        button_link_2 {
+          url
+          target
+          link_type
+        }
+        button_text_2
       }
-      button_link_1 {
-        url
-        target
-        link_type
-      }
-      button_text_1
-      button_link_2 {
-        url
-        target
-        link_type
-      }
-      button_text_2
-    }
-    items {
-      card_image {
-        localFile {
-          childImageSharp {
-            gatsbyImageData
+      items {
+        card_image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
-      }
-      card_content {
-        richText
-      }
-    }
-  }
-
-  fragment PageDataBodyCards on PrismicPageDataBodyCards {
-    ...SliceType
-
-    primary {
-      spacing
-      section_title {
-        richText
-      }
-      button_link_1 {
-        url
-        target
-        link_type
-      }
-      button_text_1
-      button_link_2 {
-        url
-        target
-        link_type
-      }
-      button_text_2
-    }
-    items {
-      card_image {
-        localFile {
-          childImageSharp {
-            gatsbyImageData
-          }
+        card_content {
+          richText
         }
       }
-      card_content {
-        richText
+    }
+
+    ... on PrismicPageDataBodyCards {
+      primary {
+        spacing
+        section_title {
+          richText
+        }
+        button_link_1 {
+          url
+          target
+          link_type
+        }
+        button_text_1
+        button_link_2 {
+          url
+          target
+          link_type
+        }
+        button_text_2
+      }
+      items {
+        card_image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        card_content {
+          richText
+        }
       }
     }
   }

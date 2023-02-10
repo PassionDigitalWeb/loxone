@@ -30,8 +30,7 @@ export const FeatureSliderSlice = ({ slice }) => {
       <Spacer y={spacing || "lg"} type="margin" topOnly />
       <Feature
         isImageRight={is_image_right}
-        hasDarkBackground={dark_background}
-      >
+        hasDarkBackground={dark_background}>
         {items && <Feature.Slider slides={items} />}
         <Feature.Content>
           <Prose>
@@ -46,8 +45,7 @@ export const FeatureSliderSlice = ({ slice }) => {
                 <PrismicLink
                   field={button_link}
                   internalComponent={props => <Button {...props} />}
-                  externalComponent={props => <Button {...props} />}
-                >
+                  externalComponent={props => <Button {...props} />}>
                   {button_text}
                 </PrismicLink>
               </ButtonGroup>
@@ -60,65 +58,64 @@ export const FeatureSliderSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyFeatureSlider on PrismicHomepageDataBodyFeatureSlider {
+  fragment PageDataBodyFeatureSlider on PrismicSliceType {
     ...SliceType
-
-    primary {
-      spacing
-      content {
-        richText
+    ... on PrismicHomepageDataBodyFeatureSlider {
+      primary {
+        spacing
+        content {
+          richText
+        }
+        is_image_right
+        button_link {
+          url
+          target
+          link_type
+        }
+        button_text
+        dark_background
+        label
       }
-      is_image_right
-      button_link {
-        url
-        target
-        link_type
-      }
-      button_text
-      dark_background
-      label
-    }
-    items {
-      image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      items {
+        image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            }
           }
         }
+        title
       }
-      title
     }
-  }
 
-  fragment PageDataBodyFeatureSlider on PrismicPageDataBodyFeatureSlider {
-    ...SliceType
-
-    primary {
-      spacing
-      content {
-        richText
+    ... on PrismicPageDataBodyFeatureSlider {
+      primary {
+        spacing
+        content {
+          richText
+        }
+        is_image_right
+        button_link {
+          url
+          target
+          link_type
+        }
+        button_text
+        dark_background
+        label
       }
-      is_image_right
-      button_link {
-        url
-        target
-        link_type
-      }
-      button_text
-      dark_background
-      label
-    }
-    items {
-      image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      items {
+        image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            }
           }
         }
+        title
       }
-      title
     }
   }
 `

@@ -28,8 +28,7 @@ export const ContentBlockSlice = ({ slice }) => {
                       )}
                       externalComponent={props => (
                         <Button color={colour} {...props} />
-                      )}
-                    >
+                      )}>
                       {button_text}
                     </PrismicLink>
                   )
@@ -44,47 +43,46 @@ export const ContentBlockSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyContentBlock on PrismicHomepageDataBodyContentBlock {
+  fragment PageDataBodyContentBlock on PrismicSliceType {
     ...SliceType
-
-    items {
-      button_link {
-        url
-        target
-        link_type
+    ... on PrismicHomepageDataBodyContentBlock {
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
       }
-      colour
-      button_text
+      primary {
+        spacing
+        content {
+          richText
+        }
+        has_background
+        align
+      }
     }
-    primary {
-      spacing
-      content {
-        richText
-      }
-      has_background
-      align
-    }
-  }
 
-  fragment PageDataBodyContentBlock on PrismicPageDataBodyContentBlock {
-    ...SliceType
-
-    items {
-      button_link {
-        url
-        target
-        link_type
+    ... on PrismicPageDataBodyContentBlock {
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
       }
-      colour
-      button_text
-    }
-    primary {
-      spacing
-      content {
-        richText
+      primary {
+        spacing
+        content {
+          richText
+        }
+        has_background
+        align
       }
-      has_background
-      align
     }
   }
 `

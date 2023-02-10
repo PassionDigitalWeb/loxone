@@ -41,8 +41,7 @@ export const ImageBlockSlice = ({ slice }) => {
                       )}
                       externalComponent={props => (
                         <Button color={colour} {...props} />
-                      )}
-                    >
+                      )}>
                       {button_text}
                     </PrismicLink>
                   )
@@ -57,59 +56,58 @@ export const ImageBlockSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyImageBlock on PrismicHomepageDataBodyImageBlock {
+  fragment PageDataBodyImageBlock on PrismicSliceType {
     ...SliceType
-
-    primary {
-      spacing
-      content {
-        richText
-      }
-      image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(placeholder: BLURRED)
+    ... on PrismicHomepageDataBodyImageBlock {
+      primary {
+        spacing
+        content {
+          richText
+        }
+        image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
           }
         }
       }
-    }
-    items {
-      button_link {
-        url
-        target
-        link_type
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
       }
-      colour
-      button_text
     }
-  }
 
-  fragment PageDataBodyImageBlock on PrismicPageDataBodyImageBlock {
-    ...SliceType
-
-    primary {
-      spacing
-      content {
-        richText
-      }
-      image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(placeholder: BLURRED)
+    ... on PrismicPageDataBodyImageBlock {
+      primary {
+        spacing
+        content {
+          richText
+        }
+        image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
           }
         }
       }
-    }
-    items {
-      button_link {
-        url
-        target
-        link_type
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
       }
-      colour
-      button_text
     }
   }
 `

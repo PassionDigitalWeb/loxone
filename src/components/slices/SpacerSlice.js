@@ -9,18 +9,19 @@ export const SpacerSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodySpacer on PrismicHomepageDataBodySpacer {
+  fragment PageDataBodySpacer on PrismicSliceType {
     ...SliceType
-    primary {
-      x_axis
-      y_axis
+    ... on PrismicHomepageDataBodySpacer {
+      primary {
+        x_axis
+        y_axis
+      }
     }
-  }
-  fragment PageDataBodySpacer on PrismicPageDataBodySpacer {
-    ...SliceType
-    primary {
-      x_axis
-      y_axis
+    ... on PrismicPageDataBodySpacer {
+      primary {
+        x_axis
+        y_axis
+      }
     }
   }
 `

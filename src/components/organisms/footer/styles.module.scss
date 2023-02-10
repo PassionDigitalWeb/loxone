@@ -2,6 +2,16 @@
   position: relative;
   background-color: #f7f7f7;
   background: linear-gradient(85.83deg, #efefef 10.34%, #f7f7f7 88.58%);
+
+  margin-top: 25px;
+
+  @media (min-width: $screen-md) {
+    margin-top: 50px;
+  }
+
+  @media (min-width: $screen-lg) {
+    margin-top: 75px;
+  }
 }
 
 .inner {

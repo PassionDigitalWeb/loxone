@@ -26,7 +26,12 @@ const Image = ({ imageUrl, image, ...props }) => {
         <>
           <div className={styles.image}>
             {image && (
-              <GatsbyImage alt={image.alt} image={getImage(image.localFile)} />
+              <GatsbyImage
+                objectFit="cover"
+                objectPosition="center"
+                alt={image.alt}
+                image={getImage(image.localFile)}
+              />
             )}
             {imageUrl && (
               <img className={styles.imageImg} src={imageUrl} alt="" />
@@ -63,8 +68,7 @@ const Video = ({ imageUrl, image, videoEmbed, ...props }) => {
                 width="42"
                 height="49"
                 viewBox="0 0 42 49"
-                fill="none"
-              >
+                fill="none">
                 <path
                   d="M39.75 20.1132L6.75 0.613178C4.03125 -0.980572 0 0.613177 0 4.45693V43.4569C0 47.0194 3.75 49.1757 6.75 47.3944L39.75 27.8944C42.6562 26.1132 42.6562 21.8944 39.75 20.1132Z"
                   fill="white"
@@ -76,8 +80,7 @@ const Video = ({ imageUrl, image, videoEmbed, ...props }) => {
         {isActive && (
           <div
             className={styles.iframeCon}
-            dangerouslySetInnerHTML={{ __html: videoEmbed.html }}
-          ></div>
+            dangerouslySetInnerHTML={{ __html: videoEmbed.html }}></div>
         )}
       </div>
       <Spacer y="sm" />

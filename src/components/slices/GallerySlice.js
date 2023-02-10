@@ -23,61 +23,61 @@ export const GallerySlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyGallery on PrismicHomepageDataBodyGallery {
+  fragment PageDataBodyGallery on PrismicSliceType {
     ...SliceType
-    primary {
-      spacing
-      content {
-        richText
-      }
-    }
-    items {
-      image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(
-              layout: CONSTRAINED
-              placeholder: BLURRED
-              width: 650
-              height: 415
-            )
-          }
+    ... on PrismicHomepageDataBodyGallery {
+      primary {
+        spacing
+        content {
+          richText
         }
       }
-      title
-      caption {
-        richText
-      }
-    }
-  }
-
-  fragment PageDataBodyGallery on PrismicPageDataBodyGallery {
-    ...SliceType
-
-    primary {
-      spacing
-      content {
-        richText
-      }
-    }
-    items {
-      image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(
-              layout: CONSTRAINED
-              placeholder: BLURRED
-              width: 650
-              height: 415
-            )
+      items {
+        image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                width: 650
+                height: 415
+              )
+            }
           }
         }
+        title
+        caption {
+          richText
+        }
       }
-      title
-      caption {
-        richText
+    }
+
+    ... on PrismicPageDataBodyGallery {
+      primary {
+        spacing
+        content {
+          richText
+        }
+      }
+      items {
+        image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                width: 650
+                height: 415
+              )
+            }
+          }
+        }
+        title
+        caption {
+          richText
+        }
       }
     }
   }

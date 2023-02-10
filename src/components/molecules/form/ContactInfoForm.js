@@ -25,7 +25,7 @@ function encode(data) {
   return formData
 }
 
-export const ContactInfoForm = ({ onSubmitOk }) => {
+export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
   const recaptchaSiteKey = process.env.GATSBY_RECAPTCHA_V3_SITE_KEY
   const form = useForm({
     mode: "onChange",
@@ -117,14 +117,9 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
         onSubmit={handleSubmit(onSubmit)}
         {...containerProps}
       >
-        <div className={cx(styles.fieldsRequired)}>
-          Fields marked with an{" "}
-          <span className={cx(styles.formsReqSymbol)}>*</span> are required
-        </div>
-
         <div className={cx(styles.formRows)}>
           <Heading node="div" variant="h6" weight="700">
-            What is your enquiry about?
+            {enquiryTitle || "What is your enquiry about?"}
           </Heading>
           <div className={cx(styles.formRow)}>
             <RadioIcons
@@ -151,6 +146,10 @@ export const ContactInfoForm = ({ onSubmitOk }) => {
               Your Details
             </Heading>
           </Spacer>
+          <div className={cx(styles.fieldsRequired)}>
+            Fields marked with an{" "}
+            <span className={cx(styles.formsReqSymbol)}>*</span> are required
+          </div>
           <div className={cx(styles.formRow)}>
             <TextInput
               label="First Name"

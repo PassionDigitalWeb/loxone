@@ -37,8 +37,7 @@ export const VideoBlockSlice = ({ slice }) => {
                       )}
                       externalComponent={props => (
                         <Button color={colour} {...props} />
-                      )}
-                    >
+                      )}>
                       {button_text}
                     </PrismicLink>
                   )
@@ -53,67 +52,66 @@ export const VideoBlockSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyVideoBlock on PrismicHomepageDataBodyVideoBlock {
+  fragment PageDataBodyVideoBlock on PrismicSliceType {
     ...SliceType
-
-    primary {
-      spacing
-      content {
-        richText
-      }
-      image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(placeholder: BLURRED)
+    ... on PrismicHomepageDataBodyVideoBlock {
+      primary {
+        spacing
+        content {
+          richText
+        }
+        image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
           }
         }
-      }
-      video_embed {
-        title
-        html
-      }
-    }
-    items {
-      button_link {
-        url
-        target
-        link_type
-      }
-      colour
-      button_text
-    }
-  }
-
-  fragment PageDataBodyVideoBlock on PrismicPageDataBodyVideoBlock {
-    ...SliceType
-
-    primary {
-      spacing
-      content {
-        richText
-      }
-      image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(placeholder: BLURRED)
-          }
+        video_embed {
+          title
+          html
         }
       }
-      video_embed {
-        title
-        html
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
       }
     }
-    items {
-      button_link {
-        url
-        target
-        link_type
+
+    ... on PrismicPageDataBodyVideoBlock {
+      primary {
+        spacing
+        content {
+          richText
+        }
+        image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
+          }
+        }
+        video_embed {
+          title
+          html
+        }
       }
-      colour
-      button_text
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
+      }
     }
   }
 `

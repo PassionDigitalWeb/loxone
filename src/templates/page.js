@@ -17,6 +17,7 @@ import FeatureSliderSlice from "@components/slices/FeatureSliderSlice"
 import { SliceZone } from "@prismicio/react"
 import * as React from "react"
 import ContactFormSlice from "@components/slices/contact-form-slice/ContactFormSlice"
+import GridCardsSlice from "@components/slices/GridCardsSlice"
 
 const components = {
   full_hero: FullHeroSlice,
@@ -34,6 +35,7 @@ const components = {
   gallery: GallerySlice,
   contact_form: ContactFormSlice,
   cards: CardsSlice,
+  grid_cards: GridCardsSlice,
 }
 
 export const PageTemplate = props => {

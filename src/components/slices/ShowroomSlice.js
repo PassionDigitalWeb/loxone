@@ -13,47 +13,49 @@ export const ShowroomSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyShowroom on PrismicHomepageDataBodyShowroom {
+  fragment PageDataBodyShowroom on PrismicSliceType {
     ...SliceType
-    primary {
-      title {
-        richText
+    ... on PrismicHomepageDataBodyShowroom {
+      primary {
+        title {
+          richText
+        }
       }
-    }
-    items {
-      showroom {
-        document {
-          ... on PrismicShowroom {
-            id
-            data {
-              title {
-                text
-              }
-              showroom_image {
-                alt
-                copyright
-                url
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
-              interests {
-                learn_more_link {
-                  url
-                  target
-                  link_type
+      items {
+        showroom {
+          document {
+            ... on PrismicShowroom {
+              id
+              data {
+                title {
+                  text
                 }
-                y_axis_percent
-                x_axis_percent
-                is_popup_right
-                pin_color
-                interest_title {
-                  richText
-                }
-                interest_content {
-                  richText
-                }
-                interest_image {
-                  gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+                showroom_image {
                   alt
+                  copyright
+                  url
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+                interests {
+                  learn_more_link {
+                    url
+                    target
+                    link_type
+                  }
+                  y_axis_percent
+                  x_axis_percent
+                  is_popup_right
+                  pin_color
+                  interest_title {
+                    richText
+                  }
+                  interest_content {
+                    richText
+                  }
+                  interest_image {
+                    gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+                    alt
+                  }
                 }
               }
             }
@@ -61,49 +63,48 @@ export const query = graphql`
         }
       }
     }
-  }
 
-  fragment PageDataBodyShowroom on PrismicPageDataBodyShowroom {
-    ...SliceType
-    primary {
-      title {
-        richText
+    ... on PrismicPageDataBodyShowroom {
+      primary {
+        title {
+          richText
+        }
       }
-    }
-    items {
-      showroom {
-        document {
-          ... on PrismicShowroom {
-            id
-            data {
-              title {
-                text
-              }
-              showroom_image {
-                alt
-                copyright
-                url
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
-              interests {
-                learn_more_link {
-                  url
-                  target
-                  link_type
+      items {
+        showroom {
+          document {
+            ... on PrismicShowroom {
+              id
+              data {
+                title {
+                  text
                 }
-                y_axis_percent
-                x_axis_percent
-                is_popup_right
-                pin_color
-                interest_title {
-                  richText
-                }
-                interest_content {
-                  richText
-                }
-                interest_image {
-                  gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+                showroom_image {
                   alt
+                  copyright
+                  url
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+                interests {
+                  learn_more_link {
+                    url
+                    target
+                    link_type
+                  }
+                  y_axis_percent
+                  x_axis_percent
+                  is_popup_right
+                  pin_color
+                  interest_title {
+                    richText
+                  }
+                  interest_content {
+                    richText
+                  }
+                  interest_image {
+                    gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+                    alt
+                  }
                 }
               }
             }

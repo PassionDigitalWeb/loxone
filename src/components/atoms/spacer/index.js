@@ -38,7 +38,7 @@ export const Spacer = ({
 Spacer.propTypes = {
   x: PropTypes.oneOf(["none", "xs", "sm", "md", "lg", "xl"]),
   y: PropTypes.oneOf(["none", "xs", "sm", "md", "lg", "xl"]),
-  type: PropTypes.oneOf(["padding", "margin"]),
+  type: PropTypes.oneOf(["", "padding", "margin"]),
 }
 
 export default Spacer

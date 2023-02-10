@@ -27,26 +27,27 @@ export const TwoColContentSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyTwoColumnContent on PrismicHomepageDataBodyTwoColumnContent {
+  fragment PageDataBodyTwoColumnContent on PrismicSliceType {
     ...SliceType
-    primary {
-      spacing
-    }
-    items {
-      content {
-        richText
+    ... on PrismicHomepageDataBodyTwoColumnContent {
+      primary {
+        spacing
+      }
+      items {
+        content {
+          richText
+        }
       }
     }
-  }
 
-  fragment PageDataBodyTwoColumnContent on PrismicPageDataBodyTwoColumnContent {
-    ...SliceType
-    primary {
-      spacing
-    }
-    items {
-      content {
-        richText
+    ... on PrismicPageDataBodyTwoColumnContent {
+      primary {
+        spacing
+      }
+      items {
+        content {
+          richText
+        }
       }
     }
   }

@@ -23,8 +23,7 @@ export const FullHeroSlice = ({ slice }) => {
                   key={key}
                   field={button_link}
                   internalComponent={Button}
-                  externalComponent={Button}
-                >
+                  externalComponent={Button}>
                   {button_text}
                 </PrismicLink>
               )
@@ -37,60 +36,61 @@ export const FullHeroSlice = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment HomepageDataBodyFullHero on PrismicHomepageDataBodyFullHero {
+  fragment PageDataBodyFullHero on PrismicSliceType {
     ...SliceType
-    primary {
-      spacing
-      hero_content {
-        richText
-      }
-      hero_title {
-        richText
-      }
-      hero_image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+    ... on PrismicHomepageDataBodyFullHero {
+      primary {
+        spacing
+        hero_content {
+          richText
+        }
+        hero_title {
+          richText
+        }
+        hero_image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            }
           }
         }
       }
-    }
-    items {
-      button_text
-      button_link {
-        url
-        link_type
-        type
+      items {
+        button_text
+        button_link {
+          url
+          link_type
+          type
+        }
       }
     }
-  }
 
-  fragment PageDataBodyFullHero on PrismicPageDataBodyFullHero {
-    ...SliceType
-    primary {
-      spacing
-      hero_content {
-        richText
-      }
-      hero_title {
-        richText
-      }
-      hero_image {
-        alt
-        localFile {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+    ... on PrismicPageDataBodyFullHero {
+      primary {
+        spacing
+        hero_content {
+          richText
+        }
+        hero_title {
+          richText
+        }
+        hero_image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            }
           }
         }
       }
-    }
-    items {
-      button_text
-      button_link {
-        url
-        link_type
-        type
+      items {
+        button_text
+        button_link {
+          url
+          link_type
+          type
+        }
       }
     }
   }
