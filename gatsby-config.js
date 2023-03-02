@@ -41,6 +41,15 @@ module.exports = {
           "page.data.body.gallery.items.image": true,
           "page.data.body.cards.items.card_image": true,
           "page.data.body.grid_cards.items.card_image": true,
+
+          "caseStudies.data.body.full_hero.primary.hero_image": true,
+          "caseStudies.data.body.feature.primary.image": true,
+          "caseStudies.data.body.feature_slider.items.image": true,
+          "caseStudies.data.body.image_block.primary.image": true,
+          "caseStudies.data.body.video_block.primary.image": true,
+          "caseStudies.data.body.gallery.items.image": true,
+          "caseStudies.data.body.cards.items.card_image": true,
+          "caseStudies.data.body.grid_cards.items.card_image": true,
         },
         linkResolver: doc =>
           require("./config/prismic/linkResolver").linkResolver(doc),

@@ -84,6 +84,25 @@ export const query = graphql`
         align
       }
     }
+    ... on PrismicCaseStudiesDataBodyContentBlock {
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
+      }
+      primary {
+        spacing
+        content {
+          richText
+        }
+        has_background
+        align
+      }
+    }
   }
 `
 

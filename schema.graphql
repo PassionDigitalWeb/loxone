@@ -66,7 +66,9 @@ interface PrismicSliceType {
     slice_type: String!
 }
 
-union PrismicAllDocumentTypes = PrismicHomepage | PrismicPage | PrismicShowroom | PrismicSiteData
+union PrismicAllDocumentTypes = PrismicCaseStudies | PrismicHomepage | PrismicPage | PrismicShowroom | PrismicSiteData
+
+union PrismicCaseStudiesDataBodySlicesType = PrismicCaseStudiesDataBodyBanner | PrismicCaseStudiesDataBodyCards | PrismicCaseStudiesDataBodyContactForm | PrismicCaseStudiesDataBodyContentBlock | PrismicCaseStudiesDataBodyFaqs | PrismicCaseStudiesDataBodyFeature | PrismicCaseStudiesDataBodyFeatureSlider | PrismicCaseStudiesDataBodyFullHero | PrismicCaseStudiesDataBodyGallery | PrismicCaseStudiesDataBodyGridCards | PrismicCaseStudiesDataBodyImageBlock | PrismicCaseStudiesDataBodyIntroductionContent | PrismicCaseStudiesDataBodyShowroom | PrismicCaseStudiesDataBodySpacer | PrismicCaseStudiesDataBodyTwoColumnContent | PrismicCaseStudiesDataBodyVideoBlock
 
 union PrismicHomepageDataBodySlicesType = PrismicHomepageDataBodyBanner | PrismicHomepageDataBodyCards | PrismicHomepageDataBodyContactForm | PrismicHomepageDataBodyContentBlock | PrismicHomepageDataBodyFaqs | PrismicHomepageDataBodyFeature | PrismicHomepageDataBodyFeatureSlider | PrismicHomepageDataBodyFullHero | PrismicHomepageDataBodyGallery | PrismicHomepageDataBodyGridCards | PrismicHomepageDataBodyImageBlock | PrismicHomepageDataBodyIntroductionContent | PrismicHomepageDataBodyShowroom | PrismicHomepageDataBodySpacer | PrismicHomepageDataBodyTwoColumnContent | PrismicHomepageDataBodyVideoBlock
 
@@ -592,6 +594,1297 @@ type PrismicAlternateLanguageType {
     raw: JSON
     type: String
     uid: String
+}
+
+type PrismicCaseStudies implements Node {
+    _previewable: ID!
+    alternate_languages: [PrismicAlternateLanguageType!]!
+    children: [Node!]!
+    data: PrismicCaseStudiesDataType!
+    dataRaw: JSON!
+    first_publication_date(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date!
+    gatsbyPath(filePath: String): String
+    href: String!
+    id: ID!
+    internal: Internal!
+    lang: String!
+    last_publication_date(
+        "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+        difference: String,
+        "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+        formatString: String,
+        "Returns a string generated with Moment.js' `fromNow` function"
+        fromNow: Boolean,
+        "Configures the locale Moment.js will use to format the date."
+        locale: String
+    ): Date!
+    parent: Node
+    prismicId: ID!
+    tags: [String!]!
+    type: String!
+    uid: String!
+    url: String
+}
+
+type PrismicCaseStudiesConnection {
+    distinct(field: PrismicCaseStudiesFieldsEnum!): [String!]!
+    edges: [PrismicCaseStudiesEdge!]!
+    group(field: PrismicCaseStudiesFieldsEnum!, limit: Int, skip: Int): [PrismicCaseStudiesGroupConnection!]!
+    max(field: PrismicCaseStudiesFieldsEnum!): Float
+    min(field: PrismicCaseStudiesFieldsEnum!): Float
+    nodes: [PrismicCaseStudies!]!
+    pageInfo: PageInfo!
+    sum(field: PrismicCaseStudiesFieldsEnum!): Float
+    totalCount: Int!
+}
+
+type PrismicCaseStudiesDataBodyBanner implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyBannerItem!]!
+    primary: PrismicCaseStudiesDataBodyBannerPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyBannerItem {
+    button_link: PrismicLinkType
+    button_text: String
+    colour: String
+}
+
+type PrismicCaseStudiesDataBodyBannerPrimary {
+    content: PrismicStructuredTextType
+    spacing: String
+    title: PrismicStructuredTextType
+}
+
+type PrismicCaseStudiesDataBodyCards implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyCardsItem!]!
+    primary: PrismicCaseStudiesDataBodyCardsPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyCardsItem {
+    card_content: PrismicStructuredTextType
+    card_image: PrismicCaseStudiesDataBodyCardsItemsCardImageImageType
+    card_title: PrismicStructuredTextType
+}
+
+type PrismicCaseStudiesDataBodyCardsItemsCardImageImageType {
+    alt: String
+    copyright: String
+    dimensions: PrismicImageDimensionsType
+    "Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are \"fixed\"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information."
+    fixed(
+        "The fixed image height to render, in px."
+        height: Int,
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "The image quality to use for compression. Range: 0-100, with 100 being highest quality. This setting is not recommended as the quality is already optimized by decreasing quality as the dpr increases to reduce image size while retaining visual quality."
+        quality: Int,
+        "The fixed image width to render, in px."
+        width: Int = 8192
+    ): ImgixFixed
+    "Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information."
+    fluid(
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "The maximum px height of the *image* to be *requested*. This does NOT affect the height of the image displayed."
+        maxHeight: Int,
+        "The maximum px width of the *image* to be *requested*. This does NOT affect the width of the image displayed. The width of the image displayed can be controlled by adding a sizes parameter to the GatsbyImage component. For more information, see this project's readme."
+        maxWidth: Int = 8192,
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "A custom set of widths (in px) to use for the srcset widths. This feature is not recommended as the default widths are optimized for imgix's caching infrastructure."
+        srcSetBreakpoints: [Int]
+    ): ImgixFluid
+    gatsbyImageData(
+        """
+
+        If set along with width or height, this will set the value of the other dimension to match the provided aspect ratio, cropping the image if needed.
+        If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+        """
+        aspectRatio: Float,
+        "Background color applied to the wrapper, or when \"letterboxing\" an image to another aspect ratio."
+        backgroundColor: String,
+        """
+
+        Specifies the image widths to generate. You should rarely need to change this. For FIXED and CONSTRAINED images it is better to allow these to be determined automatically,
+        based on the image size. For FULL_WIDTH images this can be used to override the default, which is [750, 1080, 1366, 1920].
+        It will never generate any images larger than the source.
+        """
+        breakpoints: [Int],
+        "If set, the height of the generated image. If omitted, it is calculated from the supplied width, matching the aspect ratio of the source image."
+        height: Int,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the image.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        imgixParams: ImgixParamsInput,
+        """
+
+        The layout for the image.
+        FIXED: A static image sized, that does not resize according to the screen width
+        FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if it isn't going to be the full width of the screen.
+        CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+        """
+        layout: GatsbyImageLayout,
+        """
+
+        A list of image pixel densities to generate for FIXED and CONSTRAINED images. You should rarely need to change this. It will never generate images larger than the source, and will always include a 1x image.
+        Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1, 2] for fluid. In this case, an image with a fluid layout and width = 400 would generate images at 100, 200, 400 and 800px wide.
+        """
+        outputPixelDensities: [Float],
+        """
+
+        Format of generated placeholder image, displayed while the main image loads.
+        BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+        DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+        NONE: no placeholder. Set "backgroundColor" to use a fixed background color.
+        """
+        placeholder: ImgixPlaceholder,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the placeholder image. By default all parameters passed to 'imgixParams' are already set here, but this can be used to override or set extra parameters.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        placeholderImgixParams: ImgixParamsInput,
+        """
+
+        The "sizes" property, passed to the img tag. This describes the display size of the image.
+        This does not affect the generated images, but is used by the browser to decide which images to download. You can leave this blank for fixed images, or if the responsive image
+        container will be the full width of the screen. In these cases we will generate an appropriate value.
+        """
+        sizes: String,
+        "This argument determines the maximum srcset width that is generated, if the layout type is FULL_WIDTH. If the layout type is CONSTRAINED, the width argument will be used. Furthermore, in every case, the maximum srcset width is constrained by the width of the source image. The default is 8192px, which is the render limit of the imgix service."
+        srcSetMaxWidth: Int = 8192,
+        "This argument determines the minimum srcset width that is generated. The default is 100px."
+        srcSetMinWidth: Int = 100,
+        """
+
+        The display width of the generated image for layout = FIXED, and the display width of the largest image for layout = CONSTRAINED.
+        The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+        Ignored if layout = FLUID.
+        """
+        width: Int,
+        """
+
+        This argument affects the breakpoints used for the srcsets, dictates the maximum tolerated size difference between an image's downloaded size and its rendered size. For example: setting this value to 0.1 means that an image will not render more than 10% larger or smaller than its native size. In practice, the image URLs generated for a width-based srcset attribute will grow by twice this rate. A lower tolerance means images will render closer to their native size (thereby increasing perceived image quality), but a large srcset list will be generated and consequently users may experience lower rates of cache-hit for pre-rendered images on your site.
+
+        By default this rate is set to 8 percent, which we consider to be the ideal rate for maximizing cache hits without sacrificing visual quality. Users can specify their own width tolerance by providing a positive scalar value as widthTolerance to the third options object:
+        """
+        widthTolerance: Float = 0.08
+    ): JSON
+    localFile: File
+    "A plain imgix URL with the URL and params applied."
+    url(imgixParams: ImgixParamsInput = {}): String
+}
+
+type PrismicCaseStudiesDataBodyCardsPrimary {
+    button_link_1: PrismicLinkType
+    button_link_2: PrismicLinkType
+    button_text_1: String
+    button_text_2: String
+    section_title: PrismicStructuredTextType
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyContactForm implements PrismicSliceType {
+    id: ID!
+    primary: PrismicCaseStudiesDataBodyContactFormPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyContactFormPrimary {
+    content: PrismicStructuredTextType
+    enquiry_title: String
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyContentBlock implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyContentBlockItem!]!
+    primary: PrismicCaseStudiesDataBodyContentBlockPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyContentBlockItem {
+    button_link: PrismicLinkType
+    button_text: String
+    colour: String
+}
+
+type PrismicCaseStudiesDataBodyContentBlockPrimary {
+    align: String
+    content: PrismicStructuredTextType
+    has_background: Boolean
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyFaqs implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyFaqsItem!]!
+    primary: PrismicCaseStudiesDataBodyFaqsPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyFaqsItem {
+    answer: PrismicStructuredTextType
+    question: String
+}
+
+type PrismicCaseStudiesDataBodyFaqsPrimary {
+    content: PrismicStructuredTextType
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyFeature implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyFeatureItem!]!
+    primary: PrismicCaseStudiesDataBodyFeaturePrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyFeatureItem {
+    button_link: PrismicLinkType
+    button_text: String
+    colour: String
+}
+
+type PrismicCaseStudiesDataBodyFeaturePrimary {
+    content: PrismicStructuredTextType
+    image: PrismicCaseStudiesDataBodyFeaturePrimaryImageImageType
+    is_image_right: Boolean
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyFeaturePrimaryImageImageType {
+    alt: String
+    copyright: String
+    dimensions: PrismicImageDimensionsType
+    "Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are \"fixed\"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information."
+    fixed(
+        "The fixed image height to render, in px."
+        height: Int,
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "The image quality to use for compression. Range: 0-100, with 100 being highest quality. This setting is not recommended as the quality is already optimized by decreasing quality as the dpr increases to reduce image size while retaining visual quality."
+        quality: Int,
+        "The fixed image width to render, in px."
+        width: Int = 8192
+    ): ImgixFixed
+    "Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information."
+    fluid(
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "The maximum px height of the *image* to be *requested*. This does NOT affect the height of the image displayed."
+        maxHeight: Int,
+        "The maximum px width of the *image* to be *requested*. This does NOT affect the width of the image displayed. The width of the image displayed can be controlled by adding a sizes parameter to the GatsbyImage component. For more information, see this project's readme."
+        maxWidth: Int = 8192,
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "A custom set of widths (in px) to use for the srcset widths. This feature is not recommended as the default widths are optimized for imgix's caching infrastructure."
+        srcSetBreakpoints: [Int]
+    ): ImgixFluid
+    gatsbyImageData(
+        """
+
+        If set along with width or height, this will set the value of the other dimension to match the provided aspect ratio, cropping the image if needed.
+        If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+        """
+        aspectRatio: Float,
+        "Background color applied to the wrapper, or when \"letterboxing\" an image to another aspect ratio."
+        backgroundColor: String,
+        """
+
+        Specifies the image widths to generate. You should rarely need to change this. For FIXED and CONSTRAINED images it is better to allow these to be determined automatically,
+        based on the image size. For FULL_WIDTH images this can be used to override the default, which is [750, 1080, 1366, 1920].
+        It will never generate any images larger than the source.
+        """
+        breakpoints: [Int],
+        "If set, the height of the generated image. If omitted, it is calculated from the supplied width, matching the aspect ratio of the source image."
+        height: Int,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the image.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        imgixParams: ImgixParamsInput,
+        """
+
+        The layout for the image.
+        FIXED: A static image sized, that does not resize according to the screen width
+        FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if it isn't going to be the full width of the screen.
+        CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+        """
+        layout: GatsbyImageLayout,
+        """
+
+        A list of image pixel densities to generate for FIXED and CONSTRAINED images. You should rarely need to change this. It will never generate images larger than the source, and will always include a 1x image.
+        Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1, 2] for fluid. In this case, an image with a fluid layout and width = 400 would generate images at 100, 200, 400 and 800px wide.
+        """
+        outputPixelDensities: [Float],
+        """
+
+        Format of generated placeholder image, displayed while the main image loads.
+        BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+        DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+        NONE: no placeholder. Set "backgroundColor" to use a fixed background color.
+        """
+        placeholder: ImgixPlaceholder,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the placeholder image. By default all parameters passed to 'imgixParams' are already set here, but this can be used to override or set extra parameters.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        placeholderImgixParams: ImgixParamsInput,
+        """
+
+        The "sizes" property, passed to the img tag. This describes the display size of the image.
+        This does not affect the generated images, but is used by the browser to decide which images to download. You can leave this blank for fixed images, or if the responsive image
+        container will be the full width of the screen. In these cases we will generate an appropriate value.
+        """
+        sizes: String,
+        "This argument determines the maximum srcset width that is generated, if the layout type is FULL_WIDTH. If the layout type is CONSTRAINED, the width argument will be used. Furthermore, in every case, the maximum srcset width is constrained by the width of the source image. The default is 8192px, which is the render limit of the imgix service."
+        srcSetMaxWidth: Int = 8192,
+        "This argument determines the minimum srcset width that is generated. The default is 100px."
+        srcSetMinWidth: Int = 100,
+        """
+
+        The display width of the generated image for layout = FIXED, and the display width of the largest image for layout = CONSTRAINED.
+        The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+        Ignored if layout = FLUID.
+        """
+        width: Int,
+        """
+
+        This argument affects the breakpoints used for the srcsets, dictates the maximum tolerated size difference between an image's downloaded size and its rendered size. For example: setting this value to 0.1 means that an image will not render more than 10% larger or smaller than its native size. In practice, the image URLs generated for a width-based srcset attribute will grow by twice this rate. A lower tolerance means images will render closer to their native size (thereby increasing perceived image quality), but a large srcset list will be generated and consequently users may experience lower rates of cache-hit for pre-rendered images on your site.
+
+        By default this rate is set to 8 percent, which we consider to be the ideal rate for maximizing cache hits without sacrificing visual quality. Users can specify their own width tolerance by providing a positive scalar value as widthTolerance to the third options object:
+        """
+        widthTolerance: Float = 0.08
+    ): JSON
+    localFile: File
+    "A plain imgix URL with the URL and params applied."
+    url(imgixParams: ImgixParamsInput = {}): String
+}
+
+type PrismicCaseStudiesDataBodyFeatureSlider implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyFeatureSliderItem!]!
+    primary: PrismicCaseStudiesDataBodyFeatureSliderPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyFeatureSliderItem {
+    image: PrismicCaseStudiesDataBodyFeatureSliderItemsImageImageType
+    title: String
+}
+
+type PrismicCaseStudiesDataBodyFeatureSliderItemsImageImageType {
+    alt: String
+    copyright: String
+    dimensions: PrismicImageDimensionsType
+    "Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are \"fixed\"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information."
+    fixed(
+        "The fixed image height to render, in px."
+        height: Int,
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "The image quality to use for compression. Range: 0-100, with 100 being highest quality. This setting is not recommended as the quality is already optimized by decreasing quality as the dpr increases to reduce image size while retaining visual quality."
+        quality: Int,
+        "The fixed image width to render, in px."
+        width: Int = 8192
+    ): ImgixFixed
+    "Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information."
+    fluid(
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "The maximum px height of the *image* to be *requested*. This does NOT affect the height of the image displayed."
+        maxHeight: Int,
+        "The maximum px width of the *image* to be *requested*. This does NOT affect the width of the image displayed. The width of the image displayed can be controlled by adding a sizes parameter to the GatsbyImage component. For more information, see this project's readme."
+        maxWidth: Int = 8192,
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "A custom set of widths (in px) to use for the srcset widths. This feature is not recommended as the default widths are optimized for imgix's caching infrastructure."
+        srcSetBreakpoints: [Int]
+    ): ImgixFluid
+    gatsbyImageData(
+        """
+
+        If set along with width or height, this will set the value of the other dimension to match the provided aspect ratio, cropping the image if needed.
+        If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+        """
+        aspectRatio: Float,
+        "Background color applied to the wrapper, or when \"letterboxing\" an image to another aspect ratio."
+        backgroundColor: String,
+        """
+
+        Specifies the image widths to generate. You should rarely need to change this. For FIXED and CONSTRAINED images it is better to allow these to be determined automatically,
+        based on the image size. For FULL_WIDTH images this can be used to override the default, which is [750, 1080, 1366, 1920].
+        It will never generate any images larger than the source.
+        """
+        breakpoints: [Int],
+        "If set, the height of the generated image. If omitted, it is calculated from the supplied width, matching the aspect ratio of the source image."
+        height: Int,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the image.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        imgixParams: ImgixParamsInput,
+        """
+
+        The layout for the image.
+        FIXED: A static image sized, that does not resize according to the screen width
+        FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if it isn't going to be the full width of the screen.
+        CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+        """
+        layout: GatsbyImageLayout,
+        """
+
+        A list of image pixel densities to generate for FIXED and CONSTRAINED images. You should rarely need to change this. It will never generate images larger than the source, and will always include a 1x image.
+        Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1, 2] for fluid. In this case, an image with a fluid layout and width = 400 would generate images at 100, 200, 400 and 800px wide.
+        """
+        outputPixelDensities: [Float],
+        """
+
+        Format of generated placeholder image, displayed while the main image loads.
+        BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+        DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+        NONE: no placeholder. Set "backgroundColor" to use a fixed background color.
+        """
+        placeholder: ImgixPlaceholder,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the placeholder image. By default all parameters passed to 'imgixParams' are already set here, but this can be used to override or set extra parameters.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        placeholderImgixParams: ImgixParamsInput,
+        """
+
+        The "sizes" property, passed to the img tag. This describes the display size of the image.
+        This does not affect the generated images, but is used by the browser to decide which images to download. You can leave this blank for fixed images, or if the responsive image
+        container will be the full width of the screen. In these cases we will generate an appropriate value.
+        """
+        sizes: String,
+        "This argument determines the maximum srcset width that is generated, if the layout type is FULL_WIDTH. If the layout type is CONSTRAINED, the width argument will be used. Furthermore, in every case, the maximum srcset width is constrained by the width of the source image. The default is 8192px, which is the render limit of the imgix service."
+        srcSetMaxWidth: Int = 8192,
+        "This argument determines the minimum srcset width that is generated. The default is 100px."
+        srcSetMinWidth: Int = 100,
+        """
+
+        The display width of the generated image for layout = FIXED, and the display width of the largest image for layout = CONSTRAINED.
+        The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+        Ignored if layout = FLUID.
+        """
+        width: Int,
+        """
+
+        This argument affects the breakpoints used for the srcsets, dictates the maximum tolerated size difference between an image's downloaded size and its rendered size. For example: setting this value to 0.1 means that an image will not render more than 10% larger or smaller than its native size. In practice, the image URLs generated for a width-based srcset attribute will grow by twice this rate. A lower tolerance means images will render closer to their native size (thereby increasing perceived image quality), but a large srcset list will be generated and consequently users may experience lower rates of cache-hit for pre-rendered images on your site.
+
+        By default this rate is set to 8 percent, which we consider to be the ideal rate for maximizing cache hits without sacrificing visual quality. Users can specify their own width tolerance by providing a positive scalar value as widthTolerance to the third options object:
+        """
+        widthTolerance: Float = 0.08
+    ): JSON
+    localFile: File
+    "A plain imgix URL with the URL and params applied."
+    url(imgixParams: ImgixParamsInput = {}): String
+}
+
+type PrismicCaseStudiesDataBodyFeatureSliderPrimary {
+    button_link: PrismicLinkType
+    button_text: String
+    content: PrismicStructuredTextType
+    dark_background: Boolean
+    is_image_right: Boolean
+    label: String
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyFullHero implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyFullHeroItem!]!
+    primary: PrismicCaseStudiesDataBodyFullHeroPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyFullHeroItem {
+    button_link: PrismicLinkType
+    button_text: String
+}
+
+type PrismicCaseStudiesDataBodyFullHeroPrimary {
+    hero_content: PrismicStructuredTextType
+    hero_image: PrismicCaseStudiesDataBodyFullHeroPrimaryHeroImageImageType
+    hero_title: PrismicStructuredTextType
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyFullHeroPrimaryHeroImageImageType {
+    alt: String
+    copyright: String
+    dimensions: PrismicImageDimensionsType
+    "Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are \"fixed\"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information."
+    fixed(
+        "The fixed image height to render, in px."
+        height: Int,
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "The image quality to use for compression. Range: 0-100, with 100 being highest quality. This setting is not recommended as the quality is already optimized by decreasing quality as the dpr increases to reduce image size while retaining visual quality."
+        quality: Int,
+        "The fixed image width to render, in px."
+        width: Int = 8192
+    ): ImgixFixed
+    "Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information."
+    fluid(
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "The maximum px height of the *image* to be *requested*. This does NOT affect the height of the image displayed."
+        maxHeight: Int,
+        "The maximum px width of the *image* to be *requested*. This does NOT affect the width of the image displayed. The width of the image displayed can be controlled by adding a sizes parameter to the GatsbyImage component. For more information, see this project's readme."
+        maxWidth: Int = 8192,
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "A custom set of widths (in px) to use for the srcset widths. This feature is not recommended as the default widths are optimized for imgix's caching infrastructure."
+        srcSetBreakpoints: [Int]
+    ): ImgixFluid
+    gatsbyImageData(
+        """
+
+        If set along with width or height, this will set the value of the other dimension to match the provided aspect ratio, cropping the image if needed.
+        If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+        """
+        aspectRatio: Float,
+        "Background color applied to the wrapper, or when \"letterboxing\" an image to another aspect ratio."
+        backgroundColor: String,
+        """
+
+        Specifies the image widths to generate. You should rarely need to change this. For FIXED and CONSTRAINED images it is better to allow these to be determined automatically,
+        based on the image size. For FULL_WIDTH images this can be used to override the default, which is [750, 1080, 1366, 1920].
+        It will never generate any images larger than the source.
+        """
+        breakpoints: [Int],
+        "If set, the height of the generated image. If omitted, it is calculated from the supplied width, matching the aspect ratio of the source image."
+        height: Int,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the image.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        imgixParams: ImgixParamsInput,
+        """
+
+        The layout for the image.
+        FIXED: A static image sized, that does not resize according to the screen width
+        FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if it isn't going to be the full width of the screen.
+        CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+        """
+        layout: GatsbyImageLayout,
+        """
+
+        A list of image pixel densities to generate for FIXED and CONSTRAINED images. You should rarely need to change this. It will never generate images larger than the source, and will always include a 1x image.
+        Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1, 2] for fluid. In this case, an image with a fluid layout and width = 400 would generate images at 100, 200, 400 and 800px wide.
+        """
+        outputPixelDensities: [Float],
+        """
+
+        Format of generated placeholder image, displayed while the main image loads.
+        BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+        DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+        NONE: no placeholder. Set "backgroundColor" to use a fixed background color.
+        """
+        placeholder: ImgixPlaceholder,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the placeholder image. By default all parameters passed to 'imgixParams' are already set here, but this can be used to override or set extra parameters.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        placeholderImgixParams: ImgixParamsInput,
+        """
+
+        The "sizes" property, passed to the img tag. This describes the display size of the image.
+        This does not affect the generated images, but is used by the browser to decide which images to download. You can leave this blank for fixed images, or if the responsive image
+        container will be the full width of the screen. In these cases we will generate an appropriate value.
+        """
+        sizes: String,
+        "This argument determines the maximum srcset width that is generated, if the layout type is FULL_WIDTH. If the layout type is CONSTRAINED, the width argument will be used. Furthermore, in every case, the maximum srcset width is constrained by the width of the source image. The default is 8192px, which is the render limit of the imgix service."
+        srcSetMaxWidth: Int = 8192,
+        "This argument determines the minimum srcset width that is generated. The default is 100px."
+        srcSetMinWidth: Int = 100,
+        """
+
+        The display width of the generated image for layout = FIXED, and the display width of the largest image for layout = CONSTRAINED.
+        The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+        Ignored if layout = FLUID.
+        """
+        width: Int,
+        """
+
+        This argument affects the breakpoints used for the srcsets, dictates the maximum tolerated size difference between an image's downloaded size and its rendered size. For example: setting this value to 0.1 means that an image will not render more than 10% larger or smaller than its native size. In practice, the image URLs generated for a width-based srcset attribute will grow by twice this rate. A lower tolerance means images will render closer to their native size (thereby increasing perceived image quality), but a large srcset list will be generated and consequently users may experience lower rates of cache-hit for pre-rendered images on your site.
+
+        By default this rate is set to 8 percent, which we consider to be the ideal rate for maximizing cache hits without sacrificing visual quality. Users can specify their own width tolerance by providing a positive scalar value as widthTolerance to the third options object:
+        """
+        widthTolerance: Float = 0.08
+    ): JSON
+    localFile: File
+    "A plain imgix URL with the URL and params applied."
+    url(imgixParams: ImgixParamsInput = {}): String
+}
+
+type PrismicCaseStudiesDataBodyGallery implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyGalleryItem!]!
+    primary: PrismicCaseStudiesDataBodyGalleryPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyGalleryItem {
+    caption: PrismicStructuredTextType
+    image: PrismicCaseStudiesDataBodyGalleryItemsImageImageType
+    title: String
+}
+
+type PrismicCaseStudiesDataBodyGalleryItemsImageImageType {
+    alt: String
+    copyright: String
+    dimensions: PrismicImageDimensionsType
+    "Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are \"fixed\"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information."
+    fixed(
+        "The fixed image height to render, in px."
+        height: Int,
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "The image quality to use for compression. Range: 0-100, with 100 being highest quality. This setting is not recommended as the quality is already optimized by decreasing quality as the dpr increases to reduce image size while retaining visual quality."
+        quality: Int,
+        "The fixed image width to render, in px."
+        width: Int = 8192
+    ): ImgixFixed
+    "Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information."
+    fluid(
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "The maximum px height of the *image* to be *requested*. This does NOT affect the height of the image displayed."
+        maxHeight: Int,
+        "The maximum px width of the *image* to be *requested*. This does NOT affect the width of the image displayed. The width of the image displayed can be controlled by adding a sizes parameter to the GatsbyImage component. For more information, see this project's readme."
+        maxWidth: Int = 8192,
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "A custom set of widths (in px) to use for the srcset widths. This feature is not recommended as the default widths are optimized for imgix's caching infrastructure."
+        srcSetBreakpoints: [Int]
+    ): ImgixFluid
+    gatsbyImageData(
+        """
+
+        If set along with width or height, this will set the value of the other dimension to match the provided aspect ratio, cropping the image if needed.
+        If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+        """
+        aspectRatio: Float,
+        "Background color applied to the wrapper, or when \"letterboxing\" an image to another aspect ratio."
+        backgroundColor: String,
+        """
+
+        Specifies the image widths to generate. You should rarely need to change this. For FIXED and CONSTRAINED images it is better to allow these to be determined automatically,
+        based on the image size. For FULL_WIDTH images this can be used to override the default, which is [750, 1080, 1366, 1920].
+        It will never generate any images larger than the source.
+        """
+        breakpoints: [Int],
+        "If set, the height of the generated image. If omitted, it is calculated from the supplied width, matching the aspect ratio of the source image."
+        height: Int,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the image.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        imgixParams: ImgixParamsInput,
+        """
+
+        The layout for the image.
+        FIXED: A static image sized, that does not resize according to the screen width
+        FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if it isn't going to be the full width of the screen.
+        CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+        """
+        layout: GatsbyImageLayout,
+        """
+
+        A list of image pixel densities to generate for FIXED and CONSTRAINED images. You should rarely need to change this. It will never generate images larger than the source, and will always include a 1x image.
+        Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1, 2] for fluid. In this case, an image with a fluid layout and width = 400 would generate images at 100, 200, 400 and 800px wide.
+        """
+        outputPixelDensities: [Float],
+        """
+
+        Format of generated placeholder image, displayed while the main image loads.
+        BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+        DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+        NONE: no placeholder. Set "backgroundColor" to use a fixed background color.
+        """
+        placeholder: ImgixPlaceholder,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the placeholder image. By default all parameters passed to 'imgixParams' are already set here, but this can be used to override or set extra parameters.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        placeholderImgixParams: ImgixParamsInput,
+        """
+
+        The "sizes" property, passed to the img tag. This describes the display size of the image.
+        This does not affect the generated images, but is used by the browser to decide which images to download. You can leave this blank for fixed images, or if the responsive image
+        container will be the full width of the screen. In these cases we will generate an appropriate value.
+        """
+        sizes: String,
+        "This argument determines the maximum srcset width that is generated, if the layout type is FULL_WIDTH. If the layout type is CONSTRAINED, the width argument will be used. Furthermore, in every case, the maximum srcset width is constrained by the width of the source image. The default is 8192px, which is the render limit of the imgix service."
+        srcSetMaxWidth: Int = 8192,
+        "This argument determines the minimum srcset width that is generated. The default is 100px."
+        srcSetMinWidth: Int = 100,
+        """
+
+        The display width of the generated image for layout = FIXED, and the display width of the largest image for layout = CONSTRAINED.
+        The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+        Ignored if layout = FLUID.
+        """
+        width: Int,
+        """
+
+        This argument affects the breakpoints used for the srcsets, dictates the maximum tolerated size difference between an image's downloaded size and its rendered size. For example: setting this value to 0.1 means that an image will not render more than 10% larger or smaller than its native size. In practice, the image URLs generated for a width-based srcset attribute will grow by twice this rate. A lower tolerance means images will render closer to their native size (thereby increasing perceived image quality), but a large srcset list will be generated and consequently users may experience lower rates of cache-hit for pre-rendered images on your site.
+
+        By default this rate is set to 8 percent, which we consider to be the ideal rate for maximizing cache hits without sacrificing visual quality. Users can specify their own width tolerance by providing a positive scalar value as widthTolerance to the third options object:
+        """
+        widthTolerance: Float = 0.08
+    ): JSON
+    localFile: File
+    "A plain imgix URL with the URL and params applied."
+    url(imgixParams: ImgixParamsInput = {}): String
+}
+
+type PrismicCaseStudiesDataBodyGalleryPrimary {
+    content: PrismicStructuredTextType
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyGridCards implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyGridCardsItem!]!
+    primary: PrismicCaseStudiesDataBodyGridCardsPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyGridCardsItem {
+    card_content: PrismicStructuredTextType
+    card_image: PrismicCaseStudiesDataBodyGridCardsItemsCardImageImageType
+}
+
+type PrismicCaseStudiesDataBodyGridCardsItemsCardImageImageType {
+    alt: String
+    copyright: String
+    dimensions: PrismicImageDimensionsType
+    "Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are \"fixed\"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information."
+    fixed(
+        "The fixed image height to render, in px."
+        height: Int,
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "The image quality to use for compression. Range: 0-100, with 100 being highest quality. This setting is not recommended as the quality is already optimized by decreasing quality as the dpr increases to reduce image size while retaining visual quality."
+        quality: Int,
+        "The fixed image width to render, in px."
+        width: Int = 8192
+    ): ImgixFixed
+    "Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information."
+    fluid(
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "The maximum px height of the *image* to be *requested*. This does NOT affect the height of the image displayed."
+        maxHeight: Int,
+        "The maximum px width of the *image* to be *requested*. This does NOT affect the width of the image displayed. The width of the image displayed can be controlled by adding a sizes parameter to the GatsbyImage component. For more information, see this project's readme."
+        maxWidth: Int = 8192,
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "A custom set of widths (in px) to use for the srcset widths. This feature is not recommended as the default widths are optimized for imgix's caching infrastructure."
+        srcSetBreakpoints: [Int]
+    ): ImgixFluid
+    gatsbyImageData(
+        """
+
+        If set along with width or height, this will set the value of the other dimension to match the provided aspect ratio, cropping the image if needed.
+        If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+        """
+        aspectRatio: Float,
+        "Background color applied to the wrapper, or when \"letterboxing\" an image to another aspect ratio."
+        backgroundColor: String,
+        """
+
+        Specifies the image widths to generate. You should rarely need to change this. For FIXED and CONSTRAINED images it is better to allow these to be determined automatically,
+        based on the image size. For FULL_WIDTH images this can be used to override the default, which is [750, 1080, 1366, 1920].
+        It will never generate any images larger than the source.
+        """
+        breakpoints: [Int],
+        "If set, the height of the generated image. If omitted, it is calculated from the supplied width, matching the aspect ratio of the source image."
+        height: Int,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the image.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        imgixParams: ImgixParamsInput,
+        """
+
+        The layout for the image.
+        FIXED: A static image sized, that does not resize according to the screen width
+        FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if it isn't going to be the full width of the screen.
+        CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+        """
+        layout: GatsbyImageLayout,
+        """
+
+        A list of image pixel densities to generate for FIXED and CONSTRAINED images. You should rarely need to change this. It will never generate images larger than the source, and will always include a 1x image.
+        Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1, 2] for fluid. In this case, an image with a fluid layout and width = 400 would generate images at 100, 200, 400 and 800px wide.
+        """
+        outputPixelDensities: [Float],
+        """
+
+        Format of generated placeholder image, displayed while the main image loads.
+        BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+        DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+        NONE: no placeholder. Set "backgroundColor" to use a fixed background color.
+        """
+        placeholder: ImgixPlaceholder,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the placeholder image. By default all parameters passed to 'imgixParams' are already set here, but this can be used to override or set extra parameters.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        placeholderImgixParams: ImgixParamsInput,
+        """
+
+        The "sizes" property, passed to the img tag. This describes the display size of the image.
+        This does not affect the generated images, but is used by the browser to decide which images to download. You can leave this blank for fixed images, or if the responsive image
+        container will be the full width of the screen. In these cases we will generate an appropriate value.
+        """
+        sizes: String,
+        "This argument determines the maximum srcset width that is generated, if the layout type is FULL_WIDTH. If the layout type is CONSTRAINED, the width argument will be used. Furthermore, in every case, the maximum srcset width is constrained by the width of the source image. The default is 8192px, which is the render limit of the imgix service."
+        srcSetMaxWidth: Int = 8192,
+        "This argument determines the minimum srcset width that is generated. The default is 100px."
+        srcSetMinWidth: Int = 100,
+        """
+
+        The display width of the generated image for layout = FIXED, and the display width of the largest image for layout = CONSTRAINED.
+        The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+        Ignored if layout = FLUID.
+        """
+        width: Int,
+        """
+
+        This argument affects the breakpoints used for the srcsets, dictates the maximum tolerated size difference between an image's downloaded size and its rendered size. For example: setting this value to 0.1 means that an image will not render more than 10% larger or smaller than its native size. In practice, the image URLs generated for a width-based srcset attribute will grow by twice this rate. A lower tolerance means images will render closer to their native size (thereby increasing perceived image quality), but a large srcset list will be generated and consequently users may experience lower rates of cache-hit for pre-rendered images on your site.
+
+        By default this rate is set to 8 percent, which we consider to be the ideal rate for maximizing cache hits without sacrificing visual quality. Users can specify their own width tolerance by providing a positive scalar value as widthTolerance to the third options object:
+        """
+        widthTolerance: Float = 0.08
+    ): JSON
+    localFile: File
+    "A plain imgix URL with the URL and params applied."
+    url(imgixParams: ImgixParamsInput = {}): String
+}
+
+type PrismicCaseStudiesDataBodyGridCardsPrimary {
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyImageBlock implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyImageBlockItem!]!
+    primary: PrismicCaseStudiesDataBodyImageBlockPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyImageBlockItem {
+    button_link: PrismicLinkType
+    button_text: String
+    colour: String
+}
+
+type PrismicCaseStudiesDataBodyImageBlockPrimary {
+    content: PrismicStructuredTextType
+    image: PrismicCaseStudiesDataBodyImageBlockPrimaryImageImageType
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyImageBlockPrimaryImageImageType {
+    alt: String
+    copyright: String
+    dimensions: PrismicImageDimensionsType
+    "Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are \"fixed\"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information."
+    fixed(
+        "The fixed image height to render, in px."
+        height: Int,
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "The image quality to use for compression. Range: 0-100, with 100 being highest quality. This setting is not recommended as the quality is already optimized by decreasing quality as the dpr increases to reduce image size while retaining visual quality."
+        quality: Int,
+        "The fixed image width to render, in px."
+        width: Int = 8192
+    ): ImgixFixed
+    "Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information."
+    fluid(
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "The maximum px height of the *image* to be *requested*. This does NOT affect the height of the image displayed."
+        maxHeight: Int,
+        "The maximum px width of the *image* to be *requested*. This does NOT affect the width of the image displayed. The width of the image displayed can be controlled by adding a sizes parameter to the GatsbyImage component. For more information, see this project's readme."
+        maxWidth: Int = 8192,
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "A custom set of widths (in px) to use for the srcset widths. This feature is not recommended as the default widths are optimized for imgix's caching infrastructure."
+        srcSetBreakpoints: [Int]
+    ): ImgixFluid
+    gatsbyImageData(
+        """
+
+        If set along with width or height, this will set the value of the other dimension to match the provided aspect ratio, cropping the image if needed.
+        If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+        """
+        aspectRatio: Float,
+        "Background color applied to the wrapper, or when \"letterboxing\" an image to another aspect ratio."
+        backgroundColor: String,
+        """
+
+        Specifies the image widths to generate. You should rarely need to change this. For FIXED and CONSTRAINED images it is better to allow these to be determined automatically,
+        based on the image size. For FULL_WIDTH images this can be used to override the default, which is [750, 1080, 1366, 1920].
+        It will never generate any images larger than the source.
+        """
+        breakpoints: [Int],
+        "If set, the height of the generated image. If omitted, it is calculated from the supplied width, matching the aspect ratio of the source image."
+        height: Int,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the image.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        imgixParams: ImgixParamsInput,
+        """
+
+        The layout for the image.
+        FIXED: A static image sized, that does not resize according to the screen width
+        FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if it isn't going to be the full width of the screen.
+        CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+        """
+        layout: GatsbyImageLayout,
+        """
+
+        A list of image pixel densities to generate for FIXED and CONSTRAINED images. You should rarely need to change this. It will never generate images larger than the source, and will always include a 1x image.
+        Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1, 2] for fluid. In this case, an image with a fluid layout and width = 400 would generate images at 100, 200, 400 and 800px wide.
+        """
+        outputPixelDensities: [Float],
+        """
+
+        Format of generated placeholder image, displayed while the main image loads.
+        BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+        DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+        NONE: no placeholder. Set "backgroundColor" to use a fixed background color.
+        """
+        placeholder: ImgixPlaceholder,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the placeholder image. By default all parameters passed to 'imgixParams' are already set here, but this can be used to override or set extra parameters.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        placeholderImgixParams: ImgixParamsInput,
+        """
+
+        The "sizes" property, passed to the img tag. This describes the display size of the image.
+        This does not affect the generated images, but is used by the browser to decide which images to download. You can leave this blank for fixed images, or if the responsive image
+        container will be the full width of the screen. In these cases we will generate an appropriate value.
+        """
+        sizes: String,
+        "This argument determines the maximum srcset width that is generated, if the layout type is FULL_WIDTH. If the layout type is CONSTRAINED, the width argument will be used. Furthermore, in every case, the maximum srcset width is constrained by the width of the source image. The default is 8192px, which is the render limit of the imgix service."
+        srcSetMaxWidth: Int = 8192,
+        "This argument determines the minimum srcset width that is generated. The default is 100px."
+        srcSetMinWidth: Int = 100,
+        """
+
+        The display width of the generated image for layout = FIXED, and the display width of the largest image for layout = CONSTRAINED.
+        The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+        Ignored if layout = FLUID.
+        """
+        width: Int,
+        """
+
+        This argument affects the breakpoints used for the srcsets, dictates the maximum tolerated size difference between an image's downloaded size and its rendered size. For example: setting this value to 0.1 means that an image will not render more than 10% larger or smaller than its native size. In practice, the image URLs generated for a width-based srcset attribute will grow by twice this rate. A lower tolerance means images will render closer to their native size (thereby increasing perceived image quality), but a large srcset list will be generated and consequently users may experience lower rates of cache-hit for pre-rendered images on your site.
+
+        By default this rate is set to 8 percent, which we consider to be the ideal rate for maximizing cache hits without sacrificing visual quality. Users can specify their own width tolerance by providing a positive scalar value as widthTolerance to the third options object:
+        """
+        widthTolerance: Float = 0.08
+    ): JSON
+    localFile: File
+    "A plain imgix URL with the URL and params applied."
+    url(imgixParams: ImgixParamsInput = {}): String
+}
+
+type PrismicCaseStudiesDataBodyIntroductionContent implements PrismicSliceType {
+    id: ID!
+    primary: PrismicCaseStudiesDataBodyIntroductionContentPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyIntroductionContentPrimary {
+    content: PrismicStructuredTextType
+    spacing: String
+    title: PrismicStructuredTextType
+}
+
+type PrismicCaseStudiesDataBodyShowroom implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyShowroomItem!]!
+    primary: PrismicCaseStudiesDataBodyShowroomPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyShowroomItem {
+    showroom: PrismicLinkType
+}
+
+type PrismicCaseStudiesDataBodyShowroomPrimary {
+    spacing: String
+    title: PrismicStructuredTextType
+}
+
+type PrismicCaseStudiesDataBodySpacer implements PrismicSliceType {
+    id: ID!
+    primary: PrismicCaseStudiesDataBodySpacerPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodySpacerPrimary {
+    x_axis: String
+    y_axis: String
+}
+
+type PrismicCaseStudiesDataBodyTwoColumnContent implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyTwoColumnContentItem!]!
+    primary: PrismicCaseStudiesDataBodyTwoColumnContentPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyTwoColumnContentItem {
+    content: PrismicStructuredTextType
+}
+
+type PrismicCaseStudiesDataBodyTwoColumnContentPrimary {
+    spacing: String
+}
+
+type PrismicCaseStudiesDataBodyVideoBlock implements PrismicSliceType {
+    id: ID!
+    items: [PrismicCaseStudiesDataBodyVideoBlockItem!]!
+    primary: PrismicCaseStudiesDataBodyVideoBlockPrimary!
+    slice_label: String
+    slice_type: String!
+}
+
+type PrismicCaseStudiesDataBodyVideoBlockItem {
+    button_link: PrismicLinkType
+    button_text: String
+    colour: String
+}
+
+type PrismicCaseStudiesDataBodyVideoBlockPrimary {
+    content: PrismicStructuredTextType
+    image: PrismicCaseStudiesDataBodyVideoBlockPrimaryImageImageType
+    spacing: String
+    video_embed: PrismicEmbedType
+}
+
+type PrismicCaseStudiesDataBodyVideoBlockPrimaryImageImageType {
+    alt: String
+    copyright: String
+    dimensions: PrismicImageDimensionsType
+    "Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are \"fixed\"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information."
+    fixed(
+        "The fixed image height to render, in px."
+        height: Int,
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "The image quality to use for compression. Range: 0-100, with 100 being highest quality. This setting is not recommended as the quality is already optimized by decreasing quality as the dpr increases to reduce image size while retaining visual quality."
+        quality: Int,
+        "The fixed image width to render, in px."
+        width: Int = 8192
+    ): ImgixFixed
+    "Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information."
+    fluid(
+        "The imgix parameters (transformations) to apply to the image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        imgixParams: ImgixParamsInput = {},
+        "The maximum px height of the *image* to be *requested*. This does NOT affect the height of the image displayed."
+        maxHeight: Int,
+        "The maximum px width of the *image* to be *requested*. This does NOT affect the width of the image displayed. The width of the image displayed can be controlled by adding a sizes parameter to the GatsbyImage component. For more information, see this project's readme."
+        maxWidth: Int = 8192,
+        "Any imgix parameters to use only for the blur-up/placeholder image. The full set of imgix params can be explored here: https://docs.imgix.com/apis/url"
+        placeholderImgixParams: ImgixParamsInput = {},
+        "A custom set of widths (in px) to use for the srcset widths. This feature is not recommended as the default widths are optimized for imgix's caching infrastructure."
+        srcSetBreakpoints: [Int]
+    ): ImgixFluid
+    gatsbyImageData(
+        """
+
+        If set along with width or height, this will set the value of the other dimension to match the provided aspect ratio, cropping the image if needed.
+        If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+        """
+        aspectRatio: Float,
+        "Background color applied to the wrapper, or when \"letterboxing\" an image to another aspect ratio."
+        backgroundColor: String,
+        """
+
+        Specifies the image widths to generate. You should rarely need to change this. For FIXED and CONSTRAINED images it is better to allow these to be determined automatically,
+        based on the image size. For FULL_WIDTH images this can be used to override the default, which is [750, 1080, 1366, 1920].
+        It will never generate any images larger than the source.
+        """
+        breakpoints: [Int],
+        "If set, the height of the generated image. If omitted, it is calculated from the supplied width, matching the aspect ratio of the source image."
+        height: Int,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the image.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        imgixParams: ImgixParamsInput,
+        """
+
+        The layout for the image.
+        FIXED: A static image sized, that does not resize according to the screen width
+        FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if it isn't going to be the full width of the screen.
+        CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+        """
+        layout: GatsbyImageLayout,
+        """
+
+        A list of image pixel densities to generate for FIXED and CONSTRAINED images. You should rarely need to change this. It will never generate images larger than the source, and will always include a 1x image.
+        Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, 3x, and [0.25, 0.5, 1, 2] for fluid. In this case, an image with a fluid layout and width = 400 would generate images at 100, 200, 400 and 800px wide.
+        """
+        outputPixelDensities: [Float],
+        """
+
+        Format of generated placeholder image, displayed while the main image loads.
+        BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
+        DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
+        NONE: no placeholder. Set "backgroundColor" to use a fixed background color.
+        """
+        placeholder: ImgixPlaceholder,
+        """
+
+        This argument is used to set parameters to instruct imgix to transform the placeholder image. By default all parameters passed to 'imgixParams' are already set here, but this can be used to override or set extra parameters.
+
+        All of imgix's parameters can be found here: https://docs.imgix.com/apis/rendering
+        """
+        placeholderImgixParams: ImgixParamsInput,
+        """
+
+        The "sizes" property, passed to the img tag. This describes the display size of the image.
+        This does not affect the generated images, but is used by the browser to decide which images to download. You can leave this blank for fixed images, or if the responsive image
+        container will be the full width of the screen. In these cases we will generate an appropriate value.
+        """
+        sizes: String,
+        "This argument determines the maximum srcset width that is generated, if the layout type is FULL_WIDTH. If the layout type is CONSTRAINED, the width argument will be used. Furthermore, in every case, the maximum srcset width is constrained by the width of the source image. The default is 8192px, which is the render limit of the imgix service."
+        srcSetMaxWidth: Int = 8192,
+        "This argument determines the minimum srcset width that is generated. The default is 100px."
+        srcSetMinWidth: Int = 100,
+        """
+
+        The display width of the generated image for layout = FIXED, and the display width of the largest image for layout = CONSTRAINED.
+        The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+        Ignored if layout = FLUID.
+        """
+        width: Int,
+        """
+
+        This argument affects the breakpoints used for the srcsets, dictates the maximum tolerated size difference between an image's downloaded size and its rendered size. For example: setting this value to 0.1 means that an image will not render more than 10% larger or smaller than its native size. In practice, the image URLs generated for a width-based srcset attribute will grow by twice this rate. A lower tolerance means images will render closer to their native size (thereby increasing perceived image quality), but a large srcset list will be generated and consequently users may experience lower rates of cache-hit for pre-rendered images on your site.
+
+        By default this rate is set to 8 percent, which we consider to be the ideal rate for maximizing cache hits without sacrificing visual quality. Users can specify their own width tolerance by providing a positive scalar value as widthTolerance to the third options object:
+        """
+        widthTolerance: Float = 0.08
+    ): JSON
+    localFile: File
+    "A plain imgix URL with the URL and params applied."
+    url(imgixParams: ImgixParamsInput = {}): String
+}
+
+type PrismicCaseStudiesDataType {
+    body: [PrismicCaseStudiesDataBodySlicesType!]!
+    meta_description: String
+    meta_title: String
+}
+
+type PrismicCaseStudiesEdge {
+    next: PrismicCaseStudies
+    node: PrismicCaseStudies!
+    previous: PrismicCaseStudies
+}
+
+type PrismicCaseStudiesGroupConnection {
+    distinct(field: PrismicCaseStudiesFieldsEnum!): [String!]!
+    edges: [PrismicCaseStudiesEdge!]!
+    field: String!
+    fieldValue: String
+    group(field: PrismicCaseStudiesFieldsEnum!, limit: Int, skip: Int): [PrismicCaseStudiesGroupConnection!]!
+    max(field: PrismicCaseStudiesFieldsEnum!): Float
+    min(field: PrismicCaseStudiesFieldsEnum!): Float
+    nodes: [PrismicCaseStudies!]!
+    pageInfo: PageInfo!
+    sum(field: PrismicCaseStudiesFieldsEnum!): Float
+    totalCount: Int!
 }
 
 type PrismicEmbedType implements Node {
@@ -3841,6 +5134,7 @@ type Query {
     allDirectory(filter: DirectoryFilterInput, limit: Int, skip: Int, sort: DirectorySortInput): DirectoryConnection!
     allFile(filter: FileFilterInput, limit: Int, skip: Int, sort: FileSortInput): FileConnection!
     allImageSharp(filter: ImageSharpFilterInput, limit: Int, skip: Int, sort: ImageSharpSortInput): ImageSharpConnection!
+    allPrismicCaseStudies(filter: PrismicCaseStudiesFilterInput, limit: Int, skip: Int, sort: PrismicCaseStudiesSortInput): PrismicCaseStudiesConnection!
     allPrismicEmbedType(filter: PrismicEmbedTypeFilterInput, limit: Int, skip: Int, sort: PrismicEmbedTypeSortInput): PrismicEmbedTypeConnection!
     allPrismicHomepage(filter: PrismicHomepageFilterInput, limit: Int, skip: Int, sort: PrismicHomepageSortInput): PrismicHomepageConnection!
     allPrismicPage(filter: PrismicPageFilterInput, limit: Int, skip: Int, sort: PrismicPageSortInput): PrismicPageConnection!
@@ -3855,6 +5149,7 @@ type Query {
     directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
     file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, children: NodeFilterListInput, childrenImageSharp: ImageSharpFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput, url: StringQueryOperatorInput): File
     imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, gatsbyImageData: GatsbyImageDataQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput): ImageSharp
+    prismicCaseStudies(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicCaseStudiesDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, gatsbyPath: StringQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, uid: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicCaseStudies
     prismicEmbedType(author_name: StringQueryOperatorInput, author_url: StringQueryOperatorInput, children: NodeFilterListInput, embed_url: StringQueryOperatorInput, height: IntQueryOperatorInput, html: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, prismicId: StringQueryOperatorInput, provider_name: StringQueryOperatorInput, provider_url: StringQueryOperatorInput, thumbnail_height: IntQueryOperatorInput, thumbnail_url: StringQueryOperatorInput, thumbnail_width: IntQueryOperatorInput, title: StringQueryOperatorInput, type: StringQueryOperatorInput, version: StringQueryOperatorInput, width: IntQueryOperatorInput): PrismicEmbedType
     prismicHomepage(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicHomepageDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicHomepage
     prismicPage(_previewable: IDQueryOperatorInput, alternate_languages: PrismicAlternateLanguageTypeFilterListInput, children: NodeFilterListInput, data: PrismicPageDataTypeFilterInput, dataRaw: JSONQueryOperatorInput, first_publication_date: DateQueryOperatorInput, gatsbyPath: StringQueryOperatorInput, href: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, last_publication_date: DateQueryOperatorInput, parent: NodeFilterInput, prismicId: IDQueryOperatorInput, tags: StringQueryOperatorInput, type: StringQueryOperatorInput, uid: StringQueryOperatorInput, url: StringQueryOperatorInput): PrismicPage
@@ -4732,6 +6027,122 @@ enum PotraceTurnPolicy {
     TURNPOLICY_MINORITY
     TURNPOLICY_RIGHT
     TURNPOLICY_WHITE
+}
+
+enum PrismicCaseStudiesFieldsEnum {
+    _previewable
+    alternate_languages
+    alternate_languages___id
+    alternate_languages___lang
+    alternate_languages___raw
+    alternate_languages___type
+    alternate_languages___uid
+    children
+    children___children
+    children___children___children
+    children___children___children___children
+    children___children___children___id
+    children___children___id
+    children___children___internal___content
+    children___children___internal___contentDigest
+    children___children___internal___contentFilePath
+    children___children___internal___description
+    children___children___internal___fieldOwners
+    children___children___internal___ignoreType
+    children___children___internal___mediaType
+    children___children___internal___owner
+    children___children___internal___type
+    children___children___parent___children
+    children___children___parent___id
+    children___id
+    children___internal___content
+    children___internal___contentDigest
+    children___internal___contentFilePath
+    children___internal___description
+    children___internal___fieldOwners
+    children___internal___ignoreType
+    children___internal___mediaType
+    children___internal___owner
+    children___internal___type
+    children___parent___children
+    children___parent___children___children
+    children___parent___children___id
+    children___parent___id
+    children___parent___internal___content
+    children___parent___internal___contentDigest
+    children___parent___internal___contentFilePath
+    children___parent___internal___description
+    children___parent___internal___fieldOwners
+    children___parent___internal___ignoreType
+    children___parent___internal___mediaType
+    children___parent___internal___owner
+    children___parent___internal___type
+    children___parent___parent___children
+    children___parent___parent___id
+    dataRaw
+    data___meta_description
+    data___meta_title
+    first_publication_date
+    gatsbyPath @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    href
+    id
+    internal___content
+    internal___contentDigest
+    internal___contentFilePath
+    internal___description
+    internal___fieldOwners
+    internal___ignoreType
+    internal___mediaType
+    internal___owner
+    internal___type
+    lang
+    last_publication_date
+    parent___children
+    parent___children___children
+    parent___children___children___children
+    parent___children___children___id
+    parent___children___id
+    parent___children___internal___content
+    parent___children___internal___contentDigest
+    parent___children___internal___contentFilePath
+    parent___children___internal___description
+    parent___children___internal___fieldOwners
+    parent___children___internal___ignoreType
+    parent___children___internal___mediaType
+    parent___children___internal___owner
+    parent___children___internal___type
+    parent___children___parent___children
+    parent___children___parent___id
+    parent___id
+    parent___internal___content
+    parent___internal___contentDigest
+    parent___internal___contentFilePath
+    parent___internal___description
+    parent___internal___fieldOwners
+    parent___internal___ignoreType
+    parent___internal___mediaType
+    parent___internal___owner
+    parent___internal___type
+    parent___parent___children
+    parent___parent___children___children
+    parent___parent___children___id
+    parent___parent___id
+    parent___parent___internal___content
+    parent___parent___internal___contentDigest
+    parent___parent___internal___contentFilePath
+    parent___parent___internal___description
+    parent___parent___internal___fieldOwners
+    parent___parent___internal___ignoreType
+    parent___parent___internal___mediaType
+    parent___parent___internal___owner
+    parent___parent___internal___type
+    parent___parent___parent___children
+    parent___parent___parent___id
+    prismicId
+    tags
+    type
+    uid
+    url
 }
 
 enum PrismicEmbedTypeFieldsEnum {
@@ -6963,6 +8374,37 @@ input PrismicAlternateLanguageTypeFilterInput {
 
 input PrismicAlternateLanguageTypeFilterListInput {
     elemMatch: PrismicAlternateLanguageTypeFilterInput
+}
+
+input PrismicCaseStudiesDataTypeFilterInput {
+    meta_description: StringQueryOperatorInput
+    meta_title: StringQueryOperatorInput
+}
+
+input PrismicCaseStudiesFilterInput {
+    _previewable: IDQueryOperatorInput
+    alternate_languages: PrismicAlternateLanguageTypeFilterListInput
+    children: NodeFilterListInput
+    data: PrismicCaseStudiesDataTypeFilterInput
+    dataRaw: JSONQueryOperatorInput
+    first_publication_date: DateQueryOperatorInput
+    gatsbyPath: StringQueryOperatorInput
+    href: StringQueryOperatorInput
+    id: StringQueryOperatorInput
+    internal: InternalFilterInput
+    lang: StringQueryOperatorInput
+    last_publication_date: DateQueryOperatorInput
+    parent: NodeFilterInput
+    prismicId: IDQueryOperatorInput
+    tags: StringQueryOperatorInput
+    type: StringQueryOperatorInput
+    uid: StringQueryOperatorInput
+    url: StringQueryOperatorInput
+}
+
+input PrismicCaseStudiesSortInput {
+    fields: [PrismicCaseStudiesFieldsEnum]
+    order: [SortOrderEnum] = [ASC]
 }
 
 input PrismicEmbedTypeFilterInput {

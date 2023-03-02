@@ -92,6 +92,27 @@ export const query = graphql`
         }
       }
     }
+    ... on PrismicCaseStudiesDataBodyBanner {
+      ...SliceType
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
+      }
+      primary {
+        spacing
+        title {
+          html
+        }
+        content {
+          richText
+        }
+      }
+    }
   }
 `
 

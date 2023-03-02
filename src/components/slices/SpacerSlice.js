@@ -23,6 +23,12 @@ export const query = graphql`
         y_axis
       }
     }
+    ... on PrismicCaseStudiesDataBodySpacer {
+      primary {
+        x_axis
+        y_axis
+      }
+    }
   }
 `
 

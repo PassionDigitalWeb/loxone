@@ -48,6 +48,14 @@ export const query = graphql`
         enquiry_title
       }
     }
+    ... on PrismicCaseStudiesDataBodyContactForm {
+      primary {
+        content {
+          richText
+        }
+        enquiry_title
+      }
+    }
   }
 `
 

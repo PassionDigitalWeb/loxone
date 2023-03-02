@@ -112,6 +112,54 @@ export const query = graphql`
         }
       }
     }
+    ... on PrismicCaseStudiesDataBodyShowroom {
+      primary {
+        title {
+          richText
+        }
+      }
+      items {
+        showroom {
+          document {
+            ... on PrismicShowroom {
+              id
+              data {
+                title {
+                  text
+                }
+                showroom_image {
+                  alt
+                  copyright
+                  url
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+                interests {
+                  learn_more_link {
+                    url
+                    target
+                    link_type
+                  }
+                  y_axis_percent
+                  x_axis_percent
+                  is_popup_right
+                  pin_color
+                  interest_title {
+                    richText
+                  }
+                  interest_content {
+                    richText
+                  }
+                  interest_image {
+                    gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+                    alt
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
 

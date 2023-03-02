@@ -80,6 +80,33 @@ export const query = graphql`
         }
       }
     }
+    ... on PrismicCaseStudiesDataBodyGallery {
+      primary {
+        spacing
+        content {
+          richText
+        }
+      }
+      items {
+        image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                width: 650
+                height: 415
+              )
+            }
+          }
+        }
+        title
+        caption {
+          richText
+        }
+      }
+    }
   }
 `
 

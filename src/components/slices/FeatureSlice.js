@@ -102,6 +102,31 @@ export const query = graphql`
         button_text
       }
     }
+    ... on PrismicCaseStudiesDataBodyFeature {
+      primary {
+        spacing
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        content {
+          richText
+        }
+        is_image_right
+      }
+      items {
+        button_link {
+          url
+          target
+          link_type
+        }
+        colour
+        button_text
+      }
+    }
   }
 `
 

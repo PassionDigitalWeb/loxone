@@ -68,6 +68,23 @@ export const query = graphql`
         }
       }
     }
+    ... on PrismicCaseStudiesDataBodyGridCards {
+      primary {
+        spacing
+      }
+      items {
+        card_image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        card_content {
+          richText
+        }
+      }
+    }
   }
 `
 

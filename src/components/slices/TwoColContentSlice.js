@@ -50,6 +50,16 @@ export const query = graphql`
         }
       }
     }
+    ... on PrismicCaseStudiesDataBodyTwoColumnContent {
+      primary {
+        spacing
+      }
+      items {
+        content {
+          richText
+        }
+      }
+    }
   }
 `
 

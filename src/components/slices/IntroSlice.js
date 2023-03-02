@@ -44,6 +44,17 @@ export const query = graphql`
         }
       }
     }
+    ... on PrismicCaseStudiesDataBodyIntroductionContent {
+      primary {
+        spacing
+        title {
+          richText
+        }
+        content {
+          richText
+        }
+      }
+    }
   }
 `
 

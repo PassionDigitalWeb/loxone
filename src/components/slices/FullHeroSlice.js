@@ -93,6 +93,33 @@ export const query = graphql`
         }
       }
     }
+    ... on PrismicCaseStudiesDataBodyFullHero {
+      primary {
+        spacing
+        hero_content {
+          richText
+        }
+        hero_title {
+          richText
+        }
+        hero_image {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            }
+          }
+        }
+      }
+      items {
+        button_text
+        button_link {
+          url
+          link_type
+          type
+        }
+      }
+    }
   }
 `
 
