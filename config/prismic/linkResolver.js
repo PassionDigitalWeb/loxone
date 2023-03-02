@@ -4,7 +4,7 @@ exports.linkResolver = doc => {
     return `/${doc.uid}`
   }
 
-  if (doc.type === "case-studies") {
+  if (doc.type === "case_studies") {
     return `/case-studies/${doc.uid}`
   }
 
