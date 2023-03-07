@@ -11,7 +11,7 @@ export const ContactFormSlice = ({ slice }) => {
   const { primary } = slice
 
   return (
-    <div className={styles.contactFormCon}>
+    <div id="contact_form" className={styles.contactFormCon}>
       <Container size="md">
         <Spacer y="md">
           <Prose align="center">
@@ -19,7 +19,7 @@ export const ContactFormSlice = ({ slice }) => {
           </Prose>
 
           <Spacer y="md" />
-          <Container size="xs" padding="none">
+          <Container size="md" padding="none">
             <ContactInfoForm enquiryTitle={primary?.enquiry_title} />
           </Container>
         </Spacer>

@@ -14,7 +14,6 @@ const Link = ({
   onClick,
   ...other
 }) => {
-  const siteContext = useContext(SiteContext)
   let link = to || href
   let onLinkClick = e => {
     onClick && onClick(e)
@@ -27,14 +26,17 @@ const Link = ({
 
   //if the link has the booking modal has, prevent the user from going to url
   //and open booking modal
-  if (link === "https://#booking_modal") {
-    link = "#booking_modal"
+  if (link === "https://#contact_form") {
+    link = "#contact_form"
     internal = false
 
     onLinkClick = e => {
       e.preventDefault()
+
+      const section = document.querySelector("#contact_form")
+      section && section.scrollIntoView({ behavior: "smooth", block: "start" })
+
       onClick && onClick(e)
-      siteContext.openBookingModal()
     }
   }
 
@@ -46,8 +48,7 @@ const Link = ({
         activeClassName={activeClassName}
         partiallyActive={partiallyActive}
         onClick={onLinkClick}
-        {...other}
-      >
+        {...other}>
         {children}
       </GatsbyLink>
     )

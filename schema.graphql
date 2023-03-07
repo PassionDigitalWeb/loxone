@@ -5054,6 +5054,8 @@ type PrismicSiteDataDataSocial {
 type PrismicSiteDataDataType {
     address: PrismicStructuredTextType
     address_map: PrismicGeoPointType
+    contact_form_content: PrismicStructuredTextType
+    contact_form_enquiry_title: PrismicStructuredTextType
     cta_link: PrismicLinkType
     cta_text: String
     email: String
@@ -6757,6 +6759,14 @@ enum PrismicSiteDataFieldsEnum {
     data___address___text
     data___address_map___latitude
     data___address_map___longitude
+    data___contact_form_content___html
+    data___contact_form_content___raw
+    data___contact_form_content___richText
+    data___contact_form_content___text
+    data___contact_form_enquiry_title___html
+    data___contact_form_enquiry_title___raw
+    data___contact_form_enquiry_title___richText
+    data___contact_form_enquiry_title___text
     data___cta_link___id
     data___cta_link___isBroken
     data___cta_link___lang
@@ -8636,6 +8646,8 @@ input PrismicSiteDataDataSocialFilterListInput {
 input PrismicSiteDataDataTypeFilterInput {
     address: PrismicStructuredTextTypeFilterInput
     address_map: PrismicGeoPointTypeFilterInput
+    contact_form_content: PrismicStructuredTextTypeFilterInput
+    contact_form_enquiry_title: PrismicStructuredTextTypeFilterInput
     cta_link: PrismicLinkTypeFilterInput
     cta_text: StringQueryOperatorInput
     email: StringQueryOperatorInput

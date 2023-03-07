@@ -6,6 +6,9 @@ export const useSiteMetadata = () => {
     query {
       prismicSiteData {
         data {
+          contact_form_content {
+            richText
+          }
           footer_navigation {
             nav_link {
               link_type

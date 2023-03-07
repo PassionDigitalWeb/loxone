@@ -18,6 +18,7 @@ import { SliceZone } from "@prismicio/react"
 import * as React from "react"
 import ContactFormSlice from "@components/slices/contact-form-slice/ContactFormSlice"
 import GridCardsSlice from "@components/slices/GridCardsSlice"
+import ContactFormGlobal from "@components/slices/contact-form-global/ContactFormSlice"
 
 const components = {
   full_hero: FullHeroSlice,
@@ -44,6 +45,7 @@ export const PageTemplate = props => {
   return (
     <>
       <SliceZone slices={document.data.body} components={components} />
+      <ContactFormGlobal slices={document.data.body} />
     </>
   )
 }

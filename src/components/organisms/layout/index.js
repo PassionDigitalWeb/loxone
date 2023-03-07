@@ -14,7 +14,6 @@ import { Header } from "@components/organisms"
 import { useEffect, useState } from "react"
 import { SEO } from "@components/utils/SEO"
 import { SiteProvider } from "@lib/context/siteContext"
-import BookingModal from "@components/molecules/booking-modal"
 
 const Layout = ({ children, ...props }) => {
   const checkHasHero = () =>
@@ -34,7 +33,6 @@ const Layout = ({ children, ...props }) => {
           <main className={!hasHero && styles.noHero}>{children}</main>
           <Footer />
         </div>
-        <BookingModal />
       </SiteProvider>
     </>
   )
