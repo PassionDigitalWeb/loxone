@@ -50,25 +50,27 @@ export const CardsSlice = ({ slice }) => {
         <>
           <Spacer y="md">
             <Cards>
-              {items.map(({ card_content, card_image }) => {
+              {items.map(({ card_content, card_image, link }) => {
                 return (
-                  <Card>
-                    {card_image && (
-                      <Card.Asset>
-                        <GatsbyImage
-                          alt={card_image.alt}
-                          image={getImage(card_image.localFile)}
-                        />
-                      </Card.Asset>
-                    )}
-                    <Card.Content>
-                      <Prose>
-                        {card_content && (
-                          <PRichText field={card_content.richText} />
-                        )}
-                      </Prose>
-                    </Card.Content>
-                  </Card>
+                  <PrismicLink field={link} style={{ textDecoration: "none" }}>
+                    <Card>
+                      {card_image && (
+                        <Card.Asset>
+                          <GatsbyImage
+                            alt={card_image.alt}
+                            image={getImage(card_image.localFile)}
+                          />
+                        </Card.Asset>
+                      )}
+                      <Card.Content hasLink={link}>
+                        <Prose>
+                          {card_content && (
+                            <PRichText field={card_content.richText} />
+                          )}
+                        </Prose>
+                      </Card.Content>
+                    </Card>
+                  </PrismicLink>
                 )
               })}
             </Cards>
@@ -166,6 +168,11 @@ export const query = graphql`
         card_content {
           richText
         }
+        link {
+          url
+          target
+          link_type
+        }
       }
     }
     ... on PrismicCaseStudiesDataBodyCards {
@@ -197,6 +204,11 @@ export const query = graphql`
         }
         card_content {
           richText
+        }
+        link {
+          url
+          target
+          link_type
         }
       }
     }

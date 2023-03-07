@@ -679,6 +679,7 @@ type PrismicCaseStudiesDataBodyCardsItem {
     card_content: PrismicStructuredTextType
     card_image: PrismicCaseStudiesDataBodyCardsItemsCardImageImageType
     card_title: PrismicStructuredTextType
+    link: PrismicLinkType
 }
 
 type PrismicCaseStudiesDataBodyCardsItemsCardImageImageType {
@@ -2027,6 +2028,7 @@ type PrismicHomepageDataBodyCardsItem {
     card_content: PrismicStructuredTextType
     card_image: PrismicHomepageDataBodyCardsItemsCardImageImageType
     card_title: PrismicStructuredTextType
+    link: PrismicLinkType
 }
 
 type PrismicHomepageDataBodyCardsItemsCardImageImageType {
@@ -3455,6 +3457,7 @@ type PrismicPageDataBodyCardsItem {
     card_content: PrismicStructuredTextType
     card_image: PrismicPageDataBodyCardsItemsCardImageImageType
     card_title: PrismicStructuredTextType
+    link: PrismicLinkType
 }
 
 type PrismicPageDataBodyCardsItemsCardImageImageType {

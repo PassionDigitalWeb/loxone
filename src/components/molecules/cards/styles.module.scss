@@ -14,8 +14,12 @@
 
 .card {
   background: var(--color-brand-white);
-  border: 1px solid var(--color-brand-green);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: var(--color-brand-black);
+
+}
+
+a .card {
+  text-decoration: none !important;
 }
 
 .asset {
@@ -23,13 +27,36 @@
 }
 
 .content {
-  padding: 22px;
+  padding: 22px 12px;
+  font-weight: bold;
+  text-decoration: none;
 
-  p:first-child{
+  p:first-child {
     margin-top: 0;
   }
 
-  p:last-child{
+  p:last-child {
     margin-bottom: 0;
+  }
+
+  &.hasLink {
+    position: relative;
+    padding-right: 50px;
+
+    svg{
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all .25s;
+    }
+  }
+}
+
+.card:hover{
+  .content.hasLink {
+    svg{
+      transform: translate( 20%, -50%);
+    }
   }
 }
