@@ -28,7 +28,7 @@ export const ContactFormGlobal = ({ slices }) => {
           </Prose>
 
           <Spacer y="md" />
-          <Container size="xs" padding="none">
+          <Container size="md" padding="none">
             <ContactInfoForm />
           </Container>
         </Spacer>
