@@ -41,13 +41,15 @@ const Meta = () => {
           Call us on:
         </Heading>
 
-        <Heading
-          weight="bold"
-          variant="h5"
-          node="div"
-          className={cx(styles.metaValue, styles.phone)}>
-          {siteData.phone_number}
-        </Heading>
+        <a href={`tel:${siteData.phone_number}`}>
+          <Heading
+            weight="bold"
+            variant="h5"
+            node="div"
+            className={cx(styles.metaValue, styles.phone)}>
+            {siteData.phone_number}
+          </Heading>
+        </a>
       </div>
       <div className={cx(styles.metaItem)}>
         <Heading
@@ -57,13 +59,15 @@ const Meta = () => {
           className={cx(styles.metaTitle)}>
           Email us:
         </Heading>
-        <Heading
-          weight="bold"
-          variant="h5"
-          node="div"
-          className={cx(styles.metaValue, styles.email)}>
-          {siteData.email}
-        </Heading>
+        <a href={`mailto:${siteData.email}`}>
+          <Heading
+            weight="bold"
+            variant="h5"
+            node="div"
+            className={cx(styles.metaValue, styles.email)}>
+            {siteData.email}
+          </Heading>
+        </a>
       </div>
       <div className={cx(styles.metaItem)}>
         <Heading

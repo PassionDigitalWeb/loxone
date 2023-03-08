@@ -374,6 +374,10 @@
     padding-bottom: 0;
   }
 
+  a{
+    text-decoration: none ;
+  }
+
   .metaItem {
 
   }
@@ -390,8 +394,13 @@
     font-weight: bold;
   }
 
-  .email {
+  .phone, .email{
     color: var(--color-brand-green);
+    transition: all .15s;
+
+    &:hover{
+      color: var(--color-brand-black);
+    }
   }
 
   .social {
