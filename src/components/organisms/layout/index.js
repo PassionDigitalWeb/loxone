@@ -17,7 +17,7 @@ import { SiteProvider } from "@lib/context/siteContext"
 
 const Layout = ({ children, ...props }) => {
   const checkHasHero = () =>
-    props?.data?.page?.data?.body?.[0].slice_type === "full_hero"
+    props?.data?.page?.data?.body?.[0]?.slice_type === "full_hero"
 
   const [hasHero, setHasHero] = useState(checkHasHero())
   useEffect(() => {
