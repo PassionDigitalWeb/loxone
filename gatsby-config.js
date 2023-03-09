@@ -10,6 +10,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GATSBY_GOOGLE_TAGMANAGER_ID,
+      },
+    },
+    {
       resolve: `gatsby-plugin-sass`,
       options: {
         additionalData: `@import "${__dirname}/src/styles/global/variables";`,
