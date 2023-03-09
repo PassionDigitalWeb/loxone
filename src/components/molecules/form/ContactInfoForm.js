@@ -150,9 +150,8 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
         //reset form
         e.target.reset()
 
-        if (typeof dataLayer !== "undefined") {
-          dataLayer.push({ event: "form_submit" })
-        }
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({ event: "form_submit" })
 
         if (onSubmitOk) {
           onSubmitOk(bodyData)
