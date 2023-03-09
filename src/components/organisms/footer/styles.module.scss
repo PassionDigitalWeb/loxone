@@ -23,7 +23,7 @@
   @media (min-width: $screen-md) {
     display: grid;
     gap: 83px;
-    grid-template-columns: [logo] 133px [nav] 1fr [cta] minmax(200px, 513px);
+    grid-template-columns: [logo] 133px [nav] 1fr [cta] minmax(200px, 380px);
   }
 
   .logoWrap {
