@@ -318,7 +318,7 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
                     <Text>
                       I consent to my details being used for the purpose of this
                       request.
-                      <br /> For mor information, view our{" "}
+                      <br /> For more information, view our{" "}
                       <Anchor underlined colored to="/privacy-policy">
                         privacy policy
                       </Anchor>
