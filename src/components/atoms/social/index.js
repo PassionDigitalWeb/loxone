@@ -65,7 +65,7 @@ const SocialIcon = ({ icon_type, baseColor = true }) => {
       {icon_type === "linkedin" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="27"
+          width="19"
           height="27"
           viewBox="0 0 27 27"
           fill="none">
@@ -78,8 +78,8 @@ const SocialIcon = ({ icon_type, baseColor = true }) => {
 
       {icon_type === "youtube" && (
         <svg
-          width="33"
-          height="23"
+          width="29"
+          height="19"
           viewBox="0 0 33 23"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
