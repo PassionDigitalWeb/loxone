@@ -30,7 +30,6 @@ const recaptchaValidation = async ({ recaptchaToken }) => {
 }
 
 const sendEmail = async ({
-  enquiry_type,
   first_name,
   last_name,
   email,
@@ -40,10 +39,6 @@ const sendEmail = async ({
   const result = await (async () => {
     try {
       const html = [
-        {
-          title: "Enquiry Type",
-          value: enquiry_type,
-        },
         {
           title: "First Name",
           value: first_name,
@@ -66,8 +61,8 @@ const sendEmail = async ({
         },
       ]
         .map(({ title, value }) => {
-          const sanitizerTitle = validator.escape(title)
-          const sanitizerValue = validator.escape(value)
+          const sanitizerTitle = title ? validator.escape(title) : ""
+          const sanitizerValue = value ? validator.escape(value) : ""
           return `<p><strong>${sanitizerTitle}</strong>: <span>${sanitizerValue}</span></p>`
         })
         .join("")
@@ -122,7 +117,6 @@ export default async function handler(req, res) {
       res.status(400).send(recaptchaValidationResult.message)
     } else {
       const sendEmailResult = await sendEmail({
-        enquiry_type,
         first_name,
         last_name,
         email,
