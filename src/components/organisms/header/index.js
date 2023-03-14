@@ -219,12 +219,25 @@ export const Header = ({ children, hasHero, ...props }) => {
             <Social baseColors={false} />
           </div>
 
-          {siteData?.iso_image?.localFile && (
-            <div className={styles.isoImage}>
-              <GatsbyImage
-                alt={siteData.iso_image.alt}
-                image={getImage(siteData.iso_image.localFile)}
-              />
+          {siteData?.certifications && (
+            <div>
+              <div className={styles.isoImage}>
+                {siteData?.certifications.map(({ image, link }, key) => {
+                  if (!image?.localFile) {
+                    return <></>
+                  }
+
+                  return (
+                    <PrismicLink field={link}>
+                      <GatsbyImage
+                        objectFit="contain"
+                        alt={image.alt}
+                        image={getImage(image.localFile)}
+                      />
+                    </PrismicLink>
+                  )
+                })}
+              </div>
             </div>
           )}
         </Menu>

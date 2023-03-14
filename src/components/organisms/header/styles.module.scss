@@ -295,15 +295,21 @@ $narrow-breakpoint: 1110px;
     gap: 15px;
   }
 
-  .socialMobile{
+  .socialMobile {
     color: var(--color-brand-green);
-    >div{
+
+    > div {
       margin-bottom: 10px;
     }
   }
 
-  .isoImage{
-    max-width: 133px;
+  .isoImage {
+    display: flex;
+    gap: 15px;
+
+    a > div {
+      width: 92px;
+    }
   }
 }
 

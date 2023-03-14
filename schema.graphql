@@ -5031,17 +5031,12 @@ type PrismicSiteDataConnection {
     totalCount: Int!
 }
 
-type PrismicSiteDataDataFeatureDropdownLinks {
-    nav_link: PrismicLinkType
-    nav_text: String
+type PrismicSiteDataDataCertifications {
+    image: PrismicSiteDataDataCertificationsImageImageType
+    link: PrismicLinkType
 }
 
-type PrismicSiteDataDataFooterNavigation {
-    nav_link: PrismicLinkType
-    nav_text: String
-}
-
-type PrismicSiteDataDataIsoImageImageType {
+type PrismicSiteDataDataCertificationsImageImageType {
     alt: String
     copyright: String
     dimensions: PrismicImageDimensionsType
@@ -5156,6 +5151,16 @@ type PrismicSiteDataDataIsoImageImageType {
     url(imgixParams: ImgixParamsInput = {}): String
 }
 
+type PrismicSiteDataDataFeatureDropdownLinks {
+    nav_link: PrismicLinkType
+    nav_text: String
+}
+
+type PrismicSiteDataDataFooterNavigation {
+    nav_link: PrismicLinkType
+    nav_text: String
+}
+
 type PrismicSiteDataDataNavigation {
     nav_link: PrismicLinkType
     nav_text: String
@@ -5169,6 +5174,7 @@ type PrismicSiteDataDataSocial {
 type PrismicSiteDataDataType {
     address: PrismicStructuredTextType
     address_map: PrismicGeoPointType
+    certifications: [PrismicSiteDataDataCertifications]
     contact_form_content: PrismicStructuredTextType
     contact_form_enquiry_title: PrismicStructuredTextType
     cta_link: PrismicLinkType
@@ -5176,7 +5182,6 @@ type PrismicSiteDataDataType {
     email: String
     feature_dropdown_links: [PrismicSiteDataDataFeatureDropdownLinks]
     footer_navigation: [PrismicSiteDataDataFooterNavigation]
-    iso_image: PrismicSiteDataDataIsoImageImageType
     navigation: [PrismicSiteDataDataNavigation]
     phone_number: String
     social: [PrismicSiteDataDataSocial]
@@ -6875,6 +6880,23 @@ enum PrismicSiteDataFieldsEnum {
     data___address___text
     data___address_map___latitude
     data___address_map___longitude
+    data___certifications
+    data___certifications___image___alt
+    data___certifications___image___copyright
+    data___certifications___image___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    data___certifications___image___url @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    data___certifications___link___id
+    data___certifications___link___isBroken
+    data___certifications___link___lang
+    data___certifications___link___link_type
+    data___certifications___link___raw
+    data___certifications___link___size
+    data___certifications___link___slug
+    data___certifications___link___tags
+    data___certifications___link___target
+    data___certifications___link___type
+    data___certifications___link___uid
+    data___certifications___link___url
     data___contact_form_content___html
     data___contact_form_content___raw
     data___contact_form_content___richText
@@ -6963,65 +6985,6 @@ enum PrismicSiteDataFieldsEnum {
     data___footer_navigation___nav_link___uid
     data___footer_navigation___nav_link___url
     data___footer_navigation___nav_text
-    data___iso_image___alt
-    data___iso_image___copyright
-    data___iso_image___dimensions___height
-    data___iso_image___dimensions___width
-    data___iso_image___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fixed___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-    data___iso_image___localFile___absolutePath
-    data___iso_image___localFile___accessTime
-    data___iso_image___localFile___atime
-    data___iso_image___localFile___atimeMs
-    data___iso_image___localFile___base
-    data___iso_image___localFile___birthTime
-    data___iso_image___localFile___birthtime
-    data___iso_image___localFile___birthtimeMs
-    data___iso_image___localFile___blksize
-    data___iso_image___localFile___blocks
-    data___iso_image___localFile___changeTime
-    data___iso_image___localFile___children
-    data___iso_image___localFile___childrenImageSharp
-    data___iso_image___localFile___ctime
-    data___iso_image___localFile___ctimeMs
-    data___iso_image___localFile___dev
-    data___iso_image___localFile___dir
-    data___iso_image___localFile___ext
-    data___iso_image___localFile___extension
-    data___iso_image___localFile___gid
-    data___iso_image___localFile___id
-    data___iso_image___localFile___ino
-    data___iso_image___localFile___mode
-    data___iso_image___localFile___modifiedTime
-    data___iso_image___localFile___mtime
-    data___iso_image___localFile___mtimeMs
-    data___iso_image___localFile___name
-    data___iso_image___localFile___nlink
-    data___iso_image___localFile___prettySize
-    data___iso_image___localFile___publicURL
-    data___iso_image___localFile___rdev
-    data___iso_image___localFile___relativeDirectory
-    data___iso_image___localFile___relativePath
-    data___iso_image___localFile___root
-    data___iso_image___localFile___size
-    data___iso_image___localFile___sourceInstanceName
-    data___iso_image___localFile___uid
-    data___iso_image___localFile___url
-    data___iso_image___url @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
     data___navigation
     data___navigation___nav_link___id
     data___navigation___nav_link___isBroken
@@ -8782,6 +8745,26 @@ input PrismicShowroomSortInput {
     order: [SortOrderEnum] = [ASC]
 }
 
+input PrismicSiteDataDataCertificationsFilterInput {
+    image: PrismicSiteDataDataCertificationsImageImageTypeFilterInput
+    link: PrismicLinkTypeFilterInput
+}
+
+input PrismicSiteDataDataCertificationsFilterListInput {
+    elemMatch: PrismicSiteDataDataCertificationsFilterInput
+}
+
+input PrismicSiteDataDataCertificationsImageImageTypeFilterInput {
+    alt: StringQueryOperatorInput
+    copyright: StringQueryOperatorInput
+    dimensions: PrismicImageDimensionsTypeFilterInput
+    fixed: ImgixFixedFilterInput
+    fluid: ImgixFluidFilterInput
+    gatsbyImageData: JSONQueryOperatorInput
+    localFile: FileFilterInput
+    url: StringQueryOperatorInput
+}
+
 input PrismicSiteDataDataFeatureDropdownLinksFilterInput {
     nav_link: PrismicLinkTypeFilterInput
     nav_text: StringQueryOperatorInput
@@ -8798,17 +8781,6 @@ input PrismicSiteDataDataFooterNavigationFilterInput {
 
 input PrismicSiteDataDataFooterNavigationFilterListInput {
     elemMatch: PrismicSiteDataDataFooterNavigationFilterInput
-}
-
-input PrismicSiteDataDataIsoImageImageTypeFilterInput {
-    alt: StringQueryOperatorInput
-    copyright: StringQueryOperatorInput
-    dimensions: PrismicImageDimensionsTypeFilterInput
-    fixed: ImgixFixedFilterInput
-    fluid: ImgixFluidFilterInput
-    gatsbyImageData: JSONQueryOperatorInput
-    localFile: FileFilterInput
-    url: StringQueryOperatorInput
 }
 
 input PrismicSiteDataDataNavigationFilterInput {
@@ -8832,6 +8804,7 @@ input PrismicSiteDataDataSocialFilterListInput {
 input PrismicSiteDataDataTypeFilterInput {
     address: PrismicStructuredTextTypeFilterInput
     address_map: PrismicGeoPointTypeFilterInput
+    certifications: PrismicSiteDataDataCertificationsFilterListInput
     contact_form_content: PrismicStructuredTextTypeFilterInput
     contact_form_enquiry_title: PrismicStructuredTextTypeFilterInput
     cta_link: PrismicLinkTypeFilterInput
@@ -8839,7 +8812,6 @@ input PrismicSiteDataDataTypeFilterInput {
     email: StringQueryOperatorInput
     feature_dropdown_links: PrismicSiteDataDataFeatureDropdownLinksFilterListInput
     footer_navigation: PrismicSiteDataDataFooterNavigationFilterListInput
-    iso_image: PrismicSiteDataDataIsoImageImageTypeFilterInput
     navigation: PrismicSiteDataDataNavigationFilterListInput
     phone_number: StringQueryOperatorInput
     social: PrismicSiteDataDataSocialFilterListInput

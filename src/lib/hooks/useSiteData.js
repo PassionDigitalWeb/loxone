@@ -6,12 +6,18 @@ export const useSiteMetadata = () => {
     query {
       prismicSiteData {
         data {
-          iso_image {
-            alt
-            localFile {
-              childImageSharp {
-                gatsbyImageData
+          certifications {
+            image {
+              alt
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
               }
+            }
+            link {
+              link_type
+              url
             }
           }
           contact_form_content {

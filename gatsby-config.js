@@ -30,7 +30,7 @@ module.exports = {
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
         releaseID: process.env.PRISMIC_RELEASE_ID,
         shouldDownloadFiles: {
-          "site_data.data.iso_image": true,
+          "site_data.data.certifications.image": true,
 
           "homepage.data.body.full_hero.primary.hero_image": true,
           "homepage.data.body.feature.primary.image": true,
