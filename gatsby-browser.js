@@ -26,8 +26,7 @@ export const wrapRootElement = ({ element }) => (
         //   page: PageTemplate,
         // }),
       },
-    ]}
-  >
+    ]}>
     {element}
   </PrismicPreviewProvider>
 )
@@ -36,10 +35,10 @@ export function wrapPageElement({ element, props }) {
   return (
     <Layout {...props}>
       <PrismicProvider
+        linkResolver={linkResolver}
         internalLinkComponent={({ href, ...props }) => (
           <Link to={href} {...props} />
-        )}
-      >
+        )}>
         {element}
       </PrismicProvider>
     </Layout>

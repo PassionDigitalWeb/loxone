@@ -50,7 +50,6 @@ export const richComponents = {
       <PrismicLink
         key={key}
         field={node.data}
-        linkResolver={linkResolver}
         internalComponent={Component}
         externalComponent={Component}>
         {children}
