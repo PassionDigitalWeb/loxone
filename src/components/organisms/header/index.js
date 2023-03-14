@@ -21,7 +21,7 @@ import { useSmallScreen } from "@lib/hooks/useSmallScreen"
 import Social from "@components/atoms/social"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const Cta = ({ link, text, className }) => {
+const Cta = ({ link, text, className, ...props }) => {
   const Component = ({ children, ...props }) => (
     <Button {...props}>{children}</Button>
   )
@@ -30,7 +30,8 @@ const Cta = ({ link, text, className }) => {
       field={link}
       externalComponent={Component}
       internalComponent={Component}
-      className={className}>
+      className={className}
+      {...props}>
       <span>{text}</span>
     </PrismicLink>
   )
@@ -204,11 +205,13 @@ export const Header = ({ children, hasHero, ...props }) => {
                 text={siteData.cta_text}
                 link={siteData.cta_link}
                 className={styles.ctaBtn}
+                onClick={() => setIsOpen(false)}
               />
             </>
           )}
 
           <Spacer isHR isHRGreen={false} y="xs" />
+
           <div className={styles.socialMobile}>
             <Heading color="black" weight="100" node="div" variant="h6">
               Follow us:
