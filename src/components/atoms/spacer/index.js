@@ -10,6 +10,7 @@ export const Spacer = ({
   type = "padding",
   topOnly = false,
   isHR = false,
+  isHRGreen = true,
   responsive = true,
   children,
   className,
@@ -21,15 +22,14 @@ export const Spacer = ({
       className={cn(
         styles.spacer,
         styles[type],
-        isHR && styles.greenHrColor,
+        isHRGreen && styles.greenHrColor,
         responsive && styles.responsive,
         topOnly && styles.topOnly,
         x && styles[camelize(`x-${x}`)],
         y && styles[camelize(`y-${y}`)],
         className
       )}
-      {...props}
-    >
+      {...props}>
       {children}
     </Node>
   )

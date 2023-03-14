@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react"
 import * as styles from "./styles.module.scss"
 import { globalHistory } from "@gatsbyjs/reach-router"
-import { Anchor, Button, ButtonGroup, Container, Logo } from "@components/atoms"
+import {
+  Anchor,
+  Button,
+  ButtonGroup,
+  Container,
+  Heading,
+  Logo,
+} from "@components/atoms"
 import classNames from "classnames"
 import Spacer from "@components/atoms/spacer"
 import { Link } from "gatsby"
@@ -12,6 +19,7 @@ import InlineLogo from "@components/atoms/inline-logo"
 import { slide as Menu } from "react-burger-menu"
 import { useSmallScreen } from "@lib/hooks/useSmallScreen"
 import Social from "@components/atoms/social"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Cta = ({ link, text, className }) => {
   const Component = ({ children, ...props }) => (
@@ -43,6 +51,7 @@ const burgerStyles = {
   bmMenuWrap: {
     position: "fixed",
     height: "100%",
+    width: "100%",
     top: 0,
   },
   bmMenu: {
@@ -187,6 +196,34 @@ export const Header = ({ children, hasHero, ...props }) => {
               </PrismicLink>
             )
           })}
+
+          {siteData?.cta_text && (
+            <>
+              <Spacer y="xs" />
+              <Cta
+                text={siteData.cta_text}
+                link={siteData.cta_link}
+                className={styles.ctaBtn}
+              />
+            </>
+          )}
+
+          <Spacer isHR isHRGreen={false} y="xs" />
+          <div className={styles.socialMobile}>
+            <Heading color="black" weight="100" node="div" variant="h6">
+              Follow us:
+            </Heading>
+            <Social baseColors={false} />
+          </div>
+
+          {siteData?.iso_image?.localFile && (
+            <div className={styles.isoImage}>
+              <GatsbyImage
+                alt={siteData.iso_image.alt}
+                image={getImage(siteData.iso_image.localFile)}
+              />
+            </div>
+          )}
         </Menu>
       )}
       <header

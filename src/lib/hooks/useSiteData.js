@@ -6,6 +6,14 @@ export const useSiteMetadata = () => {
     query {
       prismicSiteData {
         data {
+          iso_image {
+            alt
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
           contact_form_content {
             richText
           }

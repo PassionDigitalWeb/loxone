@@ -294,6 +294,17 @@ $narrow-breakpoint: 1110px;
     align-items: flex-start;
     gap: 15px;
   }
+
+  .socialMobile{
+    color: var(--color-brand-green);
+    >div{
+      margin-bottom: 10px;
+    }
+  }
+
+  .isoImage{
+    max-width: 133px;
+  }
 }
 
 .closeBtn {
