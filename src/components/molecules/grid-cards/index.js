@@ -16,15 +16,6 @@ export const GridCard = ({ cardImage, children, ...props }) => {
       {...props}
       {...bgImage}>
       <div className={styles.overlay}></div>
-      <div className={styles.bgShape}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 630 356"
-          preserveAspectRatio="none"
-          fill="none">
-          <path d="M0 0L630 356H0V0Z" fill="black" fillOpacity="0.3" />
-        </svg>
-      </div>
       <div className={styles.content}>{children}</div>
     </BackgroundImage>
   )
