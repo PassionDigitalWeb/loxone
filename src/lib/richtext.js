@@ -1,6 +1,7 @@
 import { Anchor, Heading, Text } from "@components/atoms"
 import React from "react"
 import { PrismicRichText, PrismicLink } from "@prismicio/react"
+import { linkResolver } from "../../config/prismic/linkResolver"
 
 export const richComponents = {
   heading1: ({ children }) => (
@@ -37,18 +38,21 @@ export const richComponents = {
     return <Text>{children}</Text>
   },
   hyperlink: ({ node, children, key }) => {
-    const Component = ({ children, ...props }) => (
-      <Anchor underlined colored {...props}>
-        {children}
-      </Anchor>
-    )
+    const Component = ({ children, ...props }) => {
+      return (
+        <Anchor underlined colored {...props}>
+          {children}
+        </Anchor>
+      )
+    }
+
     return (
       <PrismicLink
         key={key}
         field={node.data}
+        linkResolver={linkResolver}
         internalComponent={Component}
-        externalComponent={Component}
-      >
+        externalComponent={Component}>
         {children}
       </PrismicLink>
     )

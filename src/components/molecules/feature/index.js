@@ -20,16 +20,14 @@ export const Feature = ({
   return (
     <div
       className={classNames(styles.feature, hasDarkBackground && styles.darkBG)}
-      {...props}
-    >
+      {...props}>
       <Spacer type={hasDarkBackground ? "padding" : ""} y="lg">
         <Container size="md">
           <div
             className={classNames(
               styles.featureGrid,
               isImageRight && styles.isRight
-            )}
-          >
+            )}>
             {children}
           </div>
         </Container>
@@ -43,14 +41,11 @@ const Slider = ({ slides }) => {
     <div className={classNames(styles.asset, styles.slider)}>
       <Swiper
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={swiper => console.log(swiper)}
         modules={[Navigation]}
         navigation={{
           prevEl: `.${styles.swiperPrev}`,
           nextEl: `.${styles.swiperNext}`,
-        }}
-      >
+        }}>
         {slides &&
           slides.map(({ image, title }) => {
             return (
@@ -64,8 +59,7 @@ const Slider = ({ slides }) => {
                   node="span"
                   color="white"
                   weight="bold"
-                  className={styles.title}
-                >
+                  className={styles.title}>
                   {title}
                 </Heading>
               </SwiperSlide>

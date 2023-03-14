@@ -30,8 +30,6 @@ const Slider = ({ slides }) => {
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={swiper => console.log(swiper)}
         modules={[Navigation]}
         navigation={{
           prevEl: `.${styles.swiperPrev}`,
@@ -41,8 +39,7 @@ const Slider = ({ slides }) => {
           660: {
             slidesPerView: "auto",
           },
-        }}
-      >
+        }}>
         {slides &&
           slides.map(({ image, caption, title }) => {
             const imageConvert =
@@ -60,8 +57,7 @@ const Slider = ({ slides }) => {
                       variant="h4"
                       node="h4"
                       weight="bold"
-                      className={styles.title}
-                    >
+                      className={styles.title}>
                       {title}
                     </Heading>
                   </div>
