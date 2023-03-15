@@ -34,7 +34,7 @@ const sendEmail = async ({
   last_name,
   email,
   phone_number,
-  describe_your_project,
+  additional_information,
 }) => {
   const result = await (async () => {
     try {
@@ -56,8 +56,8 @@ const sendEmail = async ({
           value: phone_number,
         },
         {
-          title: "Describe your project",
-          value: describe_your_project,
+          title: "Additional Information",
+          value: additional_information,
         },
       ]
         .map(({ title, value }) => {
@@ -100,12 +100,11 @@ export default async function handler(req, res) {
     res.status(405).send("Method not allowed")
   } else {
     const {
-      enquiry_type,
       first_name,
       last_name,
       email,
       phone_number,
-      describe_your_project,
+      additional_information,
       recaptchaToken,
     } = req.body
 
@@ -121,7 +120,7 @@ export default async function handler(req, res) {
         last_name,
         email,
         phone_number,
-        describe_your_project,
+        additional_information,
       })
 
       if (!sendEmailResult.successful) {

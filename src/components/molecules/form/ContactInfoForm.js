@@ -193,11 +193,7 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
                   {enquiryTitle}
                 </Heading>
               )}
-              <Spacer y="xs">
-                <Heading node="div" variant="h6" weight="700">
-                  Write to us
-                </Heading>
-              </Spacer>
+
               <div className={cx(styles.fieldsRequired)}>
                 Fields marked with an{" "}
                 <span className={cx(styles.formsReqSymbol)}>*</span> are
@@ -244,8 +240,8 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
             <div className={cx(styles.formRows)}>
               <div className={cx(styles.formRow)}>
                 <TextArea
-                  label="Describe your project"
-                  name="describe_your_project"
+                  label="Additional Information (optional)"
+                  name="additional_information"
                   maxLength={2000}
                   register={register}
                   errors={errors}
