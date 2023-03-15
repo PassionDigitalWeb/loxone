@@ -154,7 +154,11 @@ export const Footer = ({ children, ...props }) => {
                 </Heading>
                 <Spacer y="xs" />
                 <Heading variant="h6" color="white">
-                  <Anchor href="https://loxone.com" isLight underlined>
+                  <Anchor
+                    target="_blank"
+                    href="https://loxone.com"
+                    isLight
+                    underlined>
                     loxone.com
                   </Anchor>
                 </Heading>
