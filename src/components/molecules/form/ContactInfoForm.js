@@ -246,7 +246,6 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
                 <TextArea
                   label="Describe your project"
                   name="describe_your_project"
-                  required={true}
                   maxLength={2000}
                   register={register}
                   errors={errors}
