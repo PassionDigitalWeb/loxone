@@ -7,6 +7,7 @@ import classNames from "classnames"
 import PropTypes from "prop-types"
 import { useSmallScreen } from "@lib/hooks/useSmallScreen"
 import { PrismicLink } from "@prismicio/react"
+import { FadeInSAL } from "@components/utils/animate"
 
 //TODO: refactor to use data instead of components. Current way over complicates the component.
 

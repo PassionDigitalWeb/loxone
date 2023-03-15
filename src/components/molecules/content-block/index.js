@@ -5,10 +5,11 @@ import Spacer from "@components/atoms/spacer"
 import { StaticImage } from "gatsby-plugin-image"
 import classNames from "classnames"
 import PropTypes from "prop-types"
+import { FadeInSAL } from "@components/utils/animate"
 
 export const ContentBlock = ({ isMini, hasBG, children, ...props }) => {
   return (
-    <div className={classNames(styles.contentBlock)} {...props}>
+    <div className={classNames(styles.contentBlock)} {...props} {...FadeInSAL}>
       {hasBG && (
         <div className={styles.bg}>
           <StaticImage

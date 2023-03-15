@@ -13,10 +13,11 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { PRichText } from "@lib/richtext"
 import { convertToBgImage } from "gbimage-bridge"
 import BackgroundImage from "gatsby-background-image"
+import { FadeInSAL } from "@components/utils/animate"
 
 export const Gallery = ({ hasDarkBackground, children, ...props }) => {
   return (
-    <div className={classNames(styles.gallery)} {...props}>
+    <div className={classNames(styles.gallery)} {...props} {...FadeInSAL}>
       <Spacer type="padding" y="lg">
         {children}
       </Spacer>

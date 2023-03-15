@@ -1,13 +1,16 @@
 import React, { Suspense } from "react"
 import Loader from "@components/atoms/loader"
 import { graphql } from "gatsby"
+import { FadeInSAL } from "@components/utils/animate"
 
 const Showroom = React.lazy(() => import("./lazy/showroom"))
 
 export const ShowroomSlice = ({ slice }) => {
   return (
     <Suspense fallback={<Loader />}>
-      <Showroom slice={slice} />
+      <div>
+        <Showroom slice={slice} />
+      </div>
     </Suspense>
   )
 }

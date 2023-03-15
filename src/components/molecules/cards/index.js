@@ -2,6 +2,7 @@ import React from "react"
 import * as styles from "./styles.module.scss"
 import classNames from "classnames"
 import Link from "@components/atoms/Link"
+import { FadeInSAL } from "@components/utils/animate"
 
 export const Card = ({ hasLink, children, ...props }) => {
   return (
@@ -12,7 +13,11 @@ export const Card = ({ hasLink, children, ...props }) => {
 }
 
 export const Cards = ({ children }) => {
-  return <div className={classNames(styles.cards)}>{children}</div>
+  return (
+    <div className={classNames(styles.cards)} {...FadeInSAL}>
+      {children}
+    </div>
+  )
 }
 
 const Asset = ({ children }) => {

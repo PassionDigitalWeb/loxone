@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css/navigation"
 import "swiper/css"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { FadeInSAL } from "@components/utils/animate"
 
 export const Feature = ({
   isImageRight = false,
@@ -20,7 +21,8 @@ export const Feature = ({
   return (
     <div
       className={classNames(styles.feature, hasDarkBackground && styles.darkBG)}
-      {...props}>
+      {...props}
+      {...FadeInSAL}>
       <Spacer type={hasDarkBackground ? "padding" : ""} y="lg">
         <Container size="md">
           <div

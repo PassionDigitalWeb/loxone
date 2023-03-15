@@ -7,6 +7,7 @@ import { ContactInfoForm } from "@components/molecules/form/ContactInfoForm"
 import Spacer from "@components/atoms/spacer"
 import * as styles from "./styles.module.scss"
 import { useSiteMetadata } from "@lib/hooks/useSiteData"
+import { FadeInSAL } from "@components/utils/animate"
 
 export const ContactFormGlobal = ({ slices }) => {
   const siteData = useSiteMetadata()
@@ -18,7 +19,7 @@ export const ContactFormGlobal = ({ slices }) => {
   }
 
   return (
-    <div id="contact_form" className={styles.contactFormCon}>
+    <div id="contact_form" className={styles.contactFormCon} {...FadeInSAL}>
       <Container size="lg">
         <Spacer y="md">
           <Prose align="center">

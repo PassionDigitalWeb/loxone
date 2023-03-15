@@ -6,12 +6,13 @@ import { graphql } from "gatsby"
 import { ContactInfoForm } from "@components/molecules/form/ContactInfoForm"
 import Spacer from "@components/atoms/spacer"
 import * as styles from "./styles.module.scss"
+import { FadeInSAL } from "@components/utils/animate"
 
 export const ContactFormSlice = ({ slice }) => {
   const { primary } = slice
 
   return (
-    <div id="contact_form" className={styles.contactFormCon}>
+    <div id="contact_form" className={styles.contactFormCon} {...FadeInSAL}>
       <Container size="md">
         <Spacer y="md">
           <Prose align="center">

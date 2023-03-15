@@ -4,6 +4,7 @@ import classNames from "classnames"
 import { getImage } from "gatsby-plugin-image"
 import BackgroundImage from "gatsby-background-image"
 import { convertToBgImage } from "gbimage-bridge"
+import { FadeInSAL } from "@components/utils/animate"
 
 export const GridCard = ({ cardImage, children, ...props }) => {
   const image = getImage(cardImage.localFile)
@@ -22,5 +23,9 @@ export const GridCard = ({ cardImage, children, ...props }) => {
 }
 
 export const GridCards = ({ children }) => {
-  return <div className={classNames(styles.cards)}>{children}</div>
+  return (
+    <div className={classNames(styles.cards)} {...FadeInSAL}>
+      {children}
+    </div>
+  )
 }

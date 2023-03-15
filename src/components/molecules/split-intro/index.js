@@ -2,18 +2,18 @@ import React from "react"
 import * as styles from "./styles.module.scss"
 import { Container } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
+import { FadeInSAL } from "@components/utils/animate"
 
 export const SplitIntro = ({ title, children, ...props }) => {
   return (
-    <div className={styles.splitIntroCon}>
+    <div className={styles.splitIntroCon} {...FadeInSAL}>
       <div className={styles.bgShape}>
         <svg
           width="489"
           height="550"
           viewBox="0 0 489 550"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+          xmlns="http://www.w3.org/2000/svg">
           <path
             opacity="0.4"
             d="M243.797 61.625L138.791 243.5L33.7854 61.625L243.797 61.625Z"

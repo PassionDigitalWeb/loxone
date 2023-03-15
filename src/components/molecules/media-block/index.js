@@ -6,10 +6,11 @@ import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import classNames from "classnames"
 import PropTypes from "prop-types"
 import BackgroundImage from "gatsby-background-image"
+import { FadeInSAL } from "@components/utils/animate"
 
 export const MediaBlock = ({ children, ...props }) => {
   return (
-    <div className={classNames(styles.mediaBlock)} {...props}>
+    <div className={classNames(styles.mediaBlock)} {...props} {...FadeInSAL}>
       <Container size="md">{children}</Container>
     </div>
   )

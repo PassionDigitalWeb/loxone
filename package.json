@@ -20,6 +20,7 @@
     "gatsby-plugin-manifest": "^4.24.0",
     "gatsby-plugin-prismic-previews": "^5.2.10",
     "gatsby-plugin-sass": "^5.24.0",
+    "gatsby-plugin-scroll-reveal": "^0.0.7",
     "gatsby-plugin-sharp": "^4.24.0",
     "gatsby-plugin-sitemap": "^5.20.0",
     "gatsby-source-filesystem": "^4.24.0",
