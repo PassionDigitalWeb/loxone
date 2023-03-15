@@ -100,14 +100,16 @@
 
   .point {
     position: absolute;
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     transform: translate(-50%, -50%);
     transform-origin: center;
     cursor: pointer;
 
     svg {
       transition: opacity 0.15s;
+      width: 100%;
+      height: 100%;
     }
 
     &.active,

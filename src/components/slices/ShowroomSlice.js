@@ -42,6 +42,9 @@ export const query = graphql`
                     target
                     link_type
                   }
+                  pin_icon {
+                    gatsbyImageData
+                  }
                   y_axis_percent
                   x_axis_percent
                   is_popup_right
@@ -91,6 +94,9 @@ export const query = graphql`
                     target
                     link_type
                   }
+                  pin_icon {
+                    gatsbyImageData
+                  }
                   y_axis_percent
                   x_axis_percent
                   is_popup_right
@@ -138,6 +144,9 @@ export const query = graphql`
                     url
                     target
                     link_type
+                  }
+                  pin_icon {
+                    gatsbyImageData
                   }
                   y_axis_percent
                   x_axis_percent
