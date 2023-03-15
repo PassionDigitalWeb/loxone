@@ -249,7 +249,6 @@ const MobileRoom = ({ children, title }) => {
 }
 
 const Point = ({ pinIcon, pinColor, pos, active, onClick }) => {
-  console.log({ pinIcon })
   return (
     <i
       onClick={onClick}
