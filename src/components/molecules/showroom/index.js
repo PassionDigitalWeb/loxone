@@ -256,7 +256,11 @@ const Point = ({ pinIcon, pinColor, pos, active, onClick }) => {
         top: `${pos.y}%`,
         left: `${pos.x}%`,
       }}
-      className={classNames(styles.point, active && styles.active)}>
+      className={classNames(
+        styles.point,
+        pinIcon?.gatsbyImageData && styles.pointIcon,
+        active && styles.active
+      )}>
       {pinIcon?.gatsbyImageData ? (
         <GatsbyImage
           objectFit="contain"
