@@ -8,6 +8,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import "@styles/layout.scss"
+import "aos/dist/aos.css"
 import * as styles from "./styles.module.scss"
 import Footer from "@components/organisms/footer"
 import { Header } from "@components/organisms"
@@ -25,6 +26,25 @@ const Layout = ({ children, ...props }) => {
     const hero = checkHasHero()
     setHasHero(hero)
   }, [props?.data?.page])
+
+  let AOS
+  useEffect(() => {
+    /**
+     * Server-side rendering does not provide the 'document' object
+     * therefore this import is required either in useEffect or componentDidMount as they
+     * are exclusively executed on a client
+     */
+    const AOS = require("aos")
+    AOS.init({
+      once: true,
+    })
+  }, [])
+
+  useEffect(() => {
+    if (AOS) {
+      AOS.refresh()
+    }
+  })
 
   return (
     <>

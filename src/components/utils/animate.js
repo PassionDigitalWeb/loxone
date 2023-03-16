@@ -1,1 +1,3 @@
-export const FadeInSAL = {}
+export const FadeInSAL = {
+  "data-aos": "fade",
+}

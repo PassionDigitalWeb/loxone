@@ -10,12 +10,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-scroll-reveal",
-      options: {
-        threshold: 0.5,
-      },
-    },
-    {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: process.env.GATSBY_GOOGLE_TAGMANAGER_ID,
