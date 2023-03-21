@@ -14,25 +14,7 @@ export const Logo = ({
   return (
     <i
       className={cn(styles.logo, variant && styles[variant], className)}
-      {...props}
-    >
-      {/*{isLarge ? (*/}
-      {/*  <StaticImage*/}
-      {/*    src="./logo.jpg"*/}
-      {/*    alt=""*/}
-      {/*    width="170"*/}
-      {/*    height="175"*/}
-      {/*    loading={loading}*/}
-      {/*  />*/}
-      {/*) : (*/}
-      {/*  <StaticImage*/}
-      {/*    src="./logo.jpg"*/}
-      {/*    alt=""*/}
-      {/*    width="133"*/}
-      {/*    height="133"*/}
-      {/*    loading={loading}*/}
-      {/*  />*/}
-      {/*)}*/}
+      {...props}>
       <svg version="1.1" x="0px" y="0px" width="100%" viewBox="0 0 600 600">
         <path
           fill="#69C352"

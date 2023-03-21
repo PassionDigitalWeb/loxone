@@ -13,7 +13,7 @@ export const InlineLogo = ({
 }) => {
   return (
     <i className={cn(styles.logo, className)} {...props}>
-      <img src={Img} alt="" width="178" height="22" />
+      <img src={Img} alt="" width="178" />
     </i>
   )
 }

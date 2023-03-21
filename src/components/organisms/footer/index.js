@@ -122,7 +122,7 @@ export const Footer = ({ children, ...props }) => {
           <div className={styles.inner}>
             <div className={styles.logoWrap}>
               <Link to="/">
-                <Logo />
+                <Logo variant="" />
               </Link>
               {siteData?.certifications && (
                 <div className={styles.isoImage}>
