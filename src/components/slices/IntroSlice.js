@@ -10,7 +10,9 @@ export const IntroSlice = ({ slice }) => {
   return (
     <>
       <Spacer y={spacing || "lg"} type="margin" topOnly />
-      <SplitIntro title={<PRichText field={title.richText} />}>
+      <SplitIntro
+        title={<PRichText field={title.richText} />}
+        addServiceIcons={primary?.add_service_icons}>
         <Prose>
           <PRichText field={content.richText} />
         </Prose>
@@ -31,6 +33,7 @@ export const query = graphql`
         content {
           richText
         }
+        add_service_icons
       }
     }
     ... on PrismicPageDataBodyIntroductionContent {

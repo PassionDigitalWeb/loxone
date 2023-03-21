@@ -3025,6 +3025,7 @@ type PrismicHomepageDataBodyIntroductionContent implements PrismicSliceType {
 }
 
 type PrismicHomepageDataBodyIntroductionContentPrimary {
+    add_service_icons: Boolean
     content: PrismicStructuredTextType
     spacing: String
     title: PrismicStructuredTextType

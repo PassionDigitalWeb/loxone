@@ -4,7 +4,25 @@ import { Container } from "@components/atoms"
 import Spacer from "@components/atoms/spacer"
 import { FadeInSAL } from "@components/utils/animate"
 
-export const SplitIntro = ({ title, children, ...props }) => {
+import DoorSVG from "@assets/images/services/door.svg"
+import EnergySVG from "@assets/images/services/energy.svg"
+import LightSVG from "@assets/images/services/light.svg"
+import TempSVG from "@assets/images/services/temp.svg"
+import MusicSVG from "@assets/images/services/music.svg"
+
+const ServiceIcons = () => {
+  return (
+    <div className={styles.serviceIcons}>
+      <img src={DoorSVG} alt="Security and Access" />
+      <img src={EnergySVG} alt="Energy Management" />
+      <img src={LightSVG} alt="Lighting Control" />
+      <img src={TempSVG} alt="Climate Control" />
+      <img src={MusicSVG} alt="Multiroom Audio" />
+    </div>
+  )
+}
+
+export const SplitIntro = ({ title, addServiceIcons, children, ...props }) => {
   return (
     <div className={styles.splitIntroCon} {...FadeInSAL}>
       <div className={styles.bgShape}>
@@ -30,7 +48,11 @@ export const SplitIntro = ({ title, children, ...props }) => {
       <Spacer y="lg">
         <Container size="lg">
           <div className={styles.splitIntroGrid}>
-            {title && <div>{title}</div>}
+            {title && (
+              <div>
+                {title} {addServiceIcons && <ServiceIcons />}
+              </div>
+            )}
             {children && <div>{children}</div>}
           </div>
         </Container>
