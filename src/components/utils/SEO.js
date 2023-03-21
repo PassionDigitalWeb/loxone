@@ -10,8 +10,10 @@ export const SEO = ({ title, description, pathname, children }) => {
     twitterUsername,
   } = useSiteMetadata()
 
+  const _title = title || pathname || "Page"
+
   const seo = {
-    title: title + " | " + defaultTitle,
+    title: _title + " | " + defaultTitle,
     description: description || defaultDescription,
     image: image ? `${siteUrl}${image}` : "",
     url: `${siteUrl}${pathname || ``}`,
