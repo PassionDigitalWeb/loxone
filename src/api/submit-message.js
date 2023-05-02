@@ -35,10 +35,15 @@ const sendEmail = async ({
   email,
   phone_number,
   additional_information,
+  nature_of_enquiry,
 }) => {
   const result = await (async () => {
     try {
       const html = [
+        {
+          title: "Nature of enquiry",
+          value: nature_of_enquiry,
+        },
         {
           title: "First Name",
           value: first_name,
@@ -100,6 +105,7 @@ export default async function handler(req, res) {
     res.status(405).send("Method not allowed")
   } else {
     const {
+      nature_of_enquiry,
       first_name,
       last_name,
       email,
@@ -116,6 +122,7 @@ export default async function handler(req, res) {
       res.status(400).send(recaptchaValidationResult.message)
     } else {
       const sendEmailResult = await sendEmail({
+        nature_of_enquiry,
         first_name,
         last_name,
         email,

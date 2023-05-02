@@ -181,6 +181,69 @@
     }
   }
 
+  .formFieldRadioWrap{
+    position: relative;
+
+    .formFieldRadios{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .form-element-wrap{
+      margin: 0;
+      position: relative;
+      padding-left: 35px;
+    }
+
+    .form-element-wrap > label {
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        background-color: var(--color-brand-white);
+        border: 0.5px solid var(--color-brand-dark-grey);
+        border-radius: 100%;
+        content: "";
+        height: 17px;
+        width: 17px;
+        position: absolute;
+        bottom: 0;
+        left: -35px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -34px;
+        transform: translateY(-50%) scale(0);
+        opacity: 0;
+        z-index: 2;
+        height: 17px;
+        width: 17px;
+        border-radius: 100%;
+        background-color: var(--color-brand-green);
+        transition: all 0.25s;
+      }
+    }
+
+    input{
+      display: none;
+    }
+
+    input:checked + label {
+      &::before {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+      }
+    }
+  }
+
+
   .formFieldRadioIconWrap {
     display: flex;
     align-items: flex-end;
@@ -234,7 +297,7 @@
       display: none;
     }
 
-    input:checked ~ label .select-icon {
+    input:checked ~ label  {
       background-color: var(--color-brand-green);
 
       svg {

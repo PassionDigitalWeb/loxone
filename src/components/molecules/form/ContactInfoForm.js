@@ -14,6 +14,7 @@ import { Helmet } from "react-helmet"
 import axios from "axios"
 import { useSiteMetadata } from "@lib/hooks/useSiteData"
 import Social from "@components/atoms/social"
+import { Radios } from "@components/molecules/form/form-fields/Radios"
 
 const cx = classNames
 
@@ -199,6 +200,31 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
                 <span className={cx(styles.formsReqSymbol)}>*</span> are
                 required
               </div>
+
+              <div className={cx(styles.formRow)}>
+                <Radios
+                  name="nature_of_enquiry"
+                  label="Nature Of Enquiry"
+                  register={register}
+                  required={true}
+                  errors={errors}
+                  radios={[
+                    {
+                      label: "Showroom tour",
+                      value: "Showroom tour",
+                    },
+                    {
+                      label: "Loxone Project",
+                      value: "Loxone Project",
+                    },
+                    {
+                      label: "CPD",
+                      value: "CPD",
+                    },
+                  ]}
+                />
+              </div>
+
               <div className={cx(styles.formRow)}>
                 <TextInput
                   label="First Name"
