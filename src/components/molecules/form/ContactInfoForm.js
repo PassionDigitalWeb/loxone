@@ -60,7 +60,7 @@ const Meta = () => {
           className={cx(styles.metaTitle)}>
           Email us:
         </Heading>
-        <a href={`mailto:${siteData.email}`}>
+        <a href="#">
           <Heading
             weight="bold"
             variant="h5"

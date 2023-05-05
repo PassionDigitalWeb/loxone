@@ -43,10 +43,7 @@ export const FooterNav = ({ children, ...props }) => {
           )}
 
           {siteData?.email && (
-            <Anchor
-              href={`mailto:${siteData.email}`}
-              className={styles.footerNavItem}
-              underlined>
+            <Anchor href={`#`} className={styles.footerNavItem} underlined>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
