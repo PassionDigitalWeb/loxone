@@ -163,7 +163,6 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
 
   const verifyToken = async (token) => {
     let APIResponse = [];
-
     try {
       let response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, {
         response: token,
