@@ -1,7 +1,8 @@
-import React, { useState } from "react"
-
+import React, { useRef, useState } from "react"
 import * as styles from "./styles.module.scss"
 import { useForm } from "react-hook-form"
+import ReCAPTCHA from 'react-google-recaptcha';
+
 import { Oval, useLoading } from "@agney/react-loading"
 import { TextInput } from "./form-fields/TextInput"
 import { EmailInput } from "./form-fields/EmailInput"
@@ -17,6 +18,7 @@ import Social from "@components/atoms/social"
 import { Radios } from "@components/molecules/form/form-fields/Radios"
 
 const cx = classNames
+
 
 function encode(data) {
   const formData = new FormData()
@@ -91,6 +93,9 @@ const Meta = () => {
 }
 
 export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
+  const SITE_KEY = process.env.GATSBY_reCAPTCHA_SITE_KEY;
+  const SECRET_KEY = process.env.GATSBY_reCAPTCHA_SECRET_KEY;
+
   const recaptchaSiteKey = process.env.GATSBY_RECAPTCHA_V3_SITE_KEY
   const form = useForm({
     mode: "onChange",
@@ -105,6 +110,11 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
   } = form
 
   const [formStatus, setFormStatus] = useState(null)
+  const [valid_token, setValidToken] = useState([]);
+  const [SuccessMsg, setSuccessMsg] = useState("")
+  const [ErrorMsg, setErrorMsg] = useState("")
+
+  const captchaRef = useRef(null)
 
   const isLoading = formStatus === "loading"
 
@@ -117,16 +127,55 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
     ),
   })
 
-  const onSubmit = (data, e) => {
+  const onSubmit = async (data, e) => {
     e.preventDefault()
-    window.grecaptcha.ready(() => {
-      window.grecaptcha
-        .execute(recaptchaSiteKey, { action: "submit" })
-        .then(token => {
-          submitData(data, e, token)
-        })
-    })
+
+    let token = captchaRef.current.getValue();
+    captchaRef.current.reset();
+
+    let valid_token = await verifyToken(token);
+    console.log(valid_token);
+
+
+    // if (token) {
+    //   let valid_token = await verifyToken(token);
+    //   setValidToken(valid_token);
+
+    //   if (valid_token[0].success === true) {
+    //     console.log("verified");
+    //     setSuccessMsg("Hurray!! you have submitted the form")
+    //   } else {
+    //     console.log("not verified");
+    //     setErrorMsg(" Sorry!! Verify you are not a bot")
+    //   }
+
+    // }
+
+
+    // window.grecaptcha.ready(() => {
+    //   window.grecaptcha
+    //     .execute(recaptchaSiteKey, { action: "submit" })
+    //     .then(token => {
+    //       submitData(data, e, token)
+    //     })
+    // })
   }
+
+  const verifyToken = async (token) => {
+    let APIResponse = [];
+
+    try {
+      let response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, {
+        response: token,
+        secret: '6LecoBwmAAAAAHjGk9yTsYqnLx0qQSa2-75ltCaI',
+      });
+      APIResponse.push(response['data']);
+      return APIResponse;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   const submitData = (data, e, recaptchaToken) => {
     setFormStatus("loading")
@@ -274,6 +323,12 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
                 />
               </div>
             </div>
+
+            <ReCAPTCHA
+              sitekey={SITE_KEY}
+              ref={captchaRef}
+            />
+            {valid_token.length > 0 && valid_token[0].success === true ? <h3 className="textSuccess">{SuccessMsg}</h3> : <h3 className="textError">{ErrorMsg} </h3>}
 
             {errors && (
               <ErrorMessage

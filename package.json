@@ -34,6 +34,7 @@
     "react-burger-menu": "^3.0.8",
     "react-cookie-consent": "^8.0.1",
     "react-dom": "^18.1.0",
+    "react-google-recaptcha": "^2.1.0",
     "react-hook-form": "^7.39.4",
     "react-loading": "^2.0.3",
     "sanitize": "^2.1.2",
