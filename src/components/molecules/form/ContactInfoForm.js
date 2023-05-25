@@ -133,47 +133,13 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
     let token = captchaRef.current.getValue();
     captchaRef.current.reset();
 
-    let valid_token = await verifyToken(token);
-    console.log(valid_token);
-
-
-    // if (token) {
-    //   let valid_token = await verifyToken(token);
-    //   setValidToken(valid_token);
-
-    //   if (valid_token[0].success === true) {
-    //     console.log("verified");
-    //     setSuccessMsg("Hurray!! you have submitted the form")
-    //   } else {
-    //     console.log("not verified");
-    //     setErrorMsg(" Sorry!! Verify you are not a bot")
-    //   }
-
-    // }
-
-
-    // window.grecaptcha.ready(() => {
-    //   window.grecaptcha
-    //     .execute(recaptchaSiteKey, { action: "submit" })
-    //     .then(token => {
-    //       submitData(data, e, token)
-    //     })
-    // })
+    if (token) {
+      submitData(data, e, token);
+    } else {
+      setErrorMsg("Please confirm you are not a robot")
+    }
   }
 
-  const verifyToken = async (token) => {
-    let APIResponse = [];
-    try {
-      let response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, {
-        response: token,
-        secret: '6LecoBwmAAAAAHjGk9yTsYqnLx0qQSa2-75ltCaI',
-      });
-      APIResponse.push(response['data']);
-      return APIResponse;
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
 
   const submitData = (data, e, recaptchaToken) => {
@@ -223,7 +189,7 @@ export const ContactInfoForm = ({ onSubmitOk, enquiryTitle }) => {
         <script
           key="recaptcha"
           type="text/javascript"
-          src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
+          src={`https://www.google.com/recaptcha/api.js?render="${SITE_KEY}"`}
         />
       </Helmet>
 

@@ -9,7 +9,7 @@ const recaptchaValidation = async ({ recaptchaToken }) => {
         url: "https://www.google.com/recaptcha/api/siteverify",
         method: "POST",
         params: {
-          secret: process.env.RECAPTCHA_V3_SECRET_KEY,
+          secret: process.env.GOOGLE_reCAPTCHA_SECRET_KEY,
           response: recaptchaToken,
         },
       })
